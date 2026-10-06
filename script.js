@@ -9,48 +9,26 @@ const BKASH_NUMBER = "";
 const products = [
   {
     id: 1,
-    name: "Premium Black Shirt",
+    name: "Premium Fashion",
     category: "Men",
     price: 1490,
-    image: "images/shirt1.jpg"
+    image: "20261001_165939.jpg"
   },
   {
     id: 2,
-    name: "Classic White Shirt",
-    category: "Men",
-    price: 1390,
-    image: "images/shirt2.jpg"
+    name: "Elegant Fashion",
+    category: "Women",
+    price: 1990,
+    image: "20261003_143823.jpg"
   },
   {
     id: 3,
-    name: "Premium Women's Dress",
-    category: "Women",
-    price: 1990,
-    image: "images/dress1.jpg"
-  },
-  {
-    id: 4,
-    name: "Elegant Women's Dress",
-    category: "Women",
-    price: 2190,
-    image: "images/dress2.jpg"
-  },
-  {
-    id: 5,
-    name: "Premium Watch",
+    name: "Premium Collection",
     category: "Accessories",
     price: 1790,
-    image: "images/watch1.jpg"
-  },
-  {
-    id: 6,
-    name: "Fashion Bag",
-    category: "Accessories",
-    price: 1590,
-    image: "images/bag1.jpg"
+    image: "20261006_161100.jpg"
   }
 ];
-
 
 // ================= CART =================
 
