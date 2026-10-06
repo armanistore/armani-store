@@ -11,21 +11,21 @@ const products = [
     id: 1,
     name: "Premium Fashion",
     category: "Men",
-    price: 1490,
+    price: 19500,
     image: "https://raw.githubusercontent.com/armanistore/armani-store/main/20261001_165939.jpg"
   },
   {
     id: 2,
     name: "Elegant Fashion",
     category: "Women",
-    price: 1990,
+    price: 7500,
     image: "https://raw.githubusercontent.com/armanistore/armani-store/main/20261003_143823.jpg"
   },
   {
     id: 3,
     name: "Premium Collection",
     category: "Accessories",
-    price: 1790,
+    price: 2500,
     image: "https://raw.githubusercontent.com/armanistore/armani-store/main/20261006_161100.jpg"
   }
 ];
