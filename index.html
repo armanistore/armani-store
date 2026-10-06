@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Armani Store | Premium Fashion</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="logo">ARMANI <span>STORE</span></div>
+<nav><a href="#home">Home</a><a href="#shop">Shop</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+<button class="cart-btn" onclick="toggleCart()">🛒 Cart <b id="cartCount">0</b></button></header>
+
+<section class="hero" id="home"><div><p class="eyebrow">PREMIUM COLLECTION</p><h1>Style That<br><em>Speaks.</em></h1>
+<p>Premium fashion for a modern, confident look.</p><a class="primary" href="#shop">Shop Now</a></div></section>
+
+<section class="shop" id="shop"><div class="section-head"><div><p class="eyebrow">OUR COLLECTION</p><h2>Products</h2></div><input id="search" type="search" placeholder="Search products..." oninput="renderProducts()"></div>
+<div class="filters"><button class="active" onclick="setCategory('All',this)">All</button><button onclick="setCategory('Men',this)">Men</button><button onclick="setCategory('Women',this)">Women</button><button onclick="setCategory('Accessories',this)">Accessories</button></div>
+<div class="products" id="products"></div></section>
+
+<section class="about" id="about"><p class="eyebrow">ABOUT US</p><h2>Simple. Elegant. Premium.</h2><p>Armani Store is an independent online fashion shop demo. Replace the sample products and contact information with your own business details.</p></section>
+<section class="contact" id="contact"><p class="eyebrow">CONTACT</p><h2>Need help?</h2><p>WhatsApp: <b id="displayPhone"></b></p></section>
+
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+<aside class="cart" id="cart"><div class="cart-head"><h2>Your Cart</h2><button onclick="toggleCart()">✕</button></div><div id="cartItems"></div>
+<div class="cart-total"><span>Total</span><strong id="cartTotal">৳0</strong></div><button class="checkout" onclick="openCheckout()">Checkout</button></aside>
+
+<div class="modal" id="checkoutModal"><div class="modal-box"><button class="close" onclick="closeCheckout()">✕</button>
+<p class="eyebrow">CHECKOUT</p><h2>Place Your Order</h2>
+<form onsubmit="submitOrder(event)">
+<input id="customerName" required placeholder="Customer name">
+<input id="customerPhone" required placeholder="Phone number">
+<textarea id="customerAddress" required placeholder="Full delivery address"></textarea>
+<select id="payment"><option value="COD">Cash on Delivery</option><option value="bKash">bKash</option><option value="Nagad">Nagad</option></select>
+<div id="paymentInfo" class="payment-info"></div>
+<button class="primary full">Order via WhatsApp</button>
+</form><p class="small">After clicking, WhatsApp will open with your order details. Send the message to confirm.</p></div></div>
+
+<footer>© 2026 Armani Store — Independent online shop</footer>
+<script src="script.js"></script>
+</body></html>
