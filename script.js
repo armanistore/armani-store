@@ -9,23 +9,23 @@ const BKASH_NUMBER = "";
 const products = [
   {
     id: 1,
-    name: "Premium Fashion",
-    category: "Men",
+    name: "Iphone 11pro max",
+    category: "phone",
     price: 19500,
     image: "https://raw.githubusercontent.com/armanistore/armani-store/main/20261001_165939.jpg"
   },
   {
     id: 2,
-    name: "Elegant Fashion",
-    category: "Women",
+    name: "Ipad 2",
+    category: "phone",
     price: 7500,
     image: "https://raw.githubusercontent.com/armanistore/armani-store/main/20261003_143823.jpg"
   },
   {
     id: 3,
-    name: "Premium Collection",
-    category: "Accessories",
-    price: 2500,
+    name: "samsung j6",
+    category: "phone",
+    price: 3000,
     image: "https://raw.githubusercontent.com/armanistore/armani-store/main/20261006_161100.jpg"
   }
 ];
