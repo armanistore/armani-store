@@ -1,4 +1,4 @@
-const SHOP_NAME = "Armani Store";
+const SHOP_NAME = "ARMANI STORE";
 
 const WHATSAPP_NUMBER = "8801302014526";
 const NAGAD_NUMBER = "01606938674";
