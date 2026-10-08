@@ -11,7 +11,29 @@
 
 <section class="hero" id="home"><div><p class="eyebrow">PREMIUM COLLECTION</p><h1>Define Your<br><em>Style.</em></h1>
 <p>Premium fashion for a modern, confident look.</p><a class="primary" href="#shop">Shop Now</a></div></section>
+<section class="ad-banner">
+  <div class="ad-slider">
 
+    <a class="ad-slide active" href="#">
+      <img src="ad1.jpg" alt="Advertisement">
+    </a>
+
+    <a class="ad-slide" href="#">
+      <img src="ad2.jpg" alt="Advertisement">
+    </a>
+
+    <a class="ad-slide" href="#">
+      <img src="ad3.jpg" alt="Advertisement">
+    </a>
+
+  </div>
+
+  <div class="ad-dots">
+    <span class="ad-dot active"></span>
+    <span class="ad-dot"></span>
+    <span class="ad-dot"></span>
+  </div>
+</section>
 <section class="shop" id="shop"><div class="section-head"><div><p class="eyebrow">OUR COLLECTION</p><h2>Products</h2></div><input id="search" type="search" placeholder="Search products..." oninput="renderProducts()"></div>
 <div class="filters"><button class="active" onclick="setCategory('All',this)">All</button><button onclick="setCategory('Men',this)">Men</button><button onclick="setCategory('Women',this)">Women</button><button onclick="setCategory('Accessories',this)">Accessories</button></div>
 <div class="products" id="products"></div></section>
