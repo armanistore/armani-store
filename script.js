@@ -523,3 +523,32 @@ document.addEventListener("DOMContentLoaded", function () {
   updateCartCount();
 
 });
+// ===== AUTOMATIC AD SLIDER =====
+
+document.addEventListener("DOMContentLoaded", function () {
+const slides = document.querySelectorAll(".ad-slide");
+const dots = document.querySelectorAll(".ad-dot");
+
+if (slides.length === 0) return;
+
+let currentAd = 0;
+
+function showAd(index) {
+slides.forEach(slide => slide.classList.remove("active"));
+dots.forEach(dot => dot.classList.remove("active"));
+
+```
+slides[index].classList.add("active");
+
+if (dots[index]) {
+  dots[index].classList.add("active");
+}
+```
+
+}
+
+setInterval(function () {
+currentAd = (currentAd + 1) % slides.length;
+showAd(currentAd);
+}, 4000);
+});
