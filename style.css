@@ -80,7 +80,7 @@ nav a {
       rgba(0,0,0,.05)
     ),
     url('a_moody_cinematic_studio_like_outdoor_urban_wall.png')
-    center center / 100% 100% no-repeat;
+    center top / 100% auto no-repeat;
   display: flex;
   align-items: center;
   padding: 8%;
