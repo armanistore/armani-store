@@ -740,3 +740,56 @@ footer {
     padding: 25px 18px;
   }
 }
+/* ===== AD BANNER SLIDER ===== */
+
+.ad-banner {
+width: 100%;
+background: #fff;
+padding: 20px 4%;
+}
+
+.ad-slider {
+position: relative;
+width: 100%;
+overflow: hidden;
+background: #eee;
+}
+
+.ad-slide {
+display: none;
+width: 100%;
+}
+
+.ad-slide.active {
+display: block;
+}
+
+.ad-slide img {
+display: block;
+width: 100%;
+height: auto;
+}
+
+.ad-dots {
+text-align: center;
+padding: 10px 0 2px;
+}
+
+.ad-dot {
+display: inline-block;
+width: 8px;
+height: 8px;
+margin: 0 4px;
+background: #bbb;
+border-radius: 50%;
+}
+
+.ad-dot.active {
+background: #111;
+}
+
+@media (max-width: 520px) {
+.ad-banner {
+padding: 10px 3%;
+}
+}
