@@ -793,3 +793,23 @@ background: #111;
 padding: 10px 3%;
 }
 }
+/* WINTER MORNING BANNER */
+.winter-banner {
+  width: 100%;
+  padding: 20px 4%;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.winter-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+@media (max-width: 520px) {
+  .winter-banner {
+    padding: 10px 3%;
+  }
+}
