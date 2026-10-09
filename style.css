@@ -804,7 +804,9 @@ padding: 10px 3%;
 .winter-banner img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
   border-radius: 4px;
 }
 
@@ -813,19 +815,4 @@ padding: 10px 3%;
     padding: 10px 3%;
   }
 }
-```css
-.winter-banner {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-}
 
-.winter-banner img {
-  display: block;
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  object-position: center;
-}
-```
