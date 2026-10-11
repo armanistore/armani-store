@@ -276,3 +276,17 @@ main>.why-section{padding-top:62px}
  .quick-categories{gap:18px}
  .quick-category{min-height:225px}
 }
+
+
+/* First-visit 20% offer popup */
+.offer-popup[hidden]{display:none!important}
+.offer-popup{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:16px}
+.offer-popup-backdrop{position:absolute;inset:0;background:rgba(7,15,11,.68);backdrop-filter:blur(3px)}
+.offer-popup-dialog{position:relative;z-index:1;width:min(560px,100%);max-height:calc(100dvh - 32px);display:flex;flex-direction:column;align-items:center;gap:12px;padding:10px;background:#fffdf8;border:1px solid var(--gold);border-radius:12px;box-shadow:0 24px 90px rgba(0,0,0,.32);overflow:auto}
+.offer-popup-image{display:block;width:100%;height:auto;max-height:calc(100dvh - 112px);object-fit:contain;border-radius:6px}
+.offer-popup-close{position:absolute;right:7px;top:7px;z-index:2;width:42px;height:42px;border:2px solid #fff;border-radius:50%;background:#d71920;color:#fff;font-size:30px;line-height:1;display:grid;place-items:center;cursor:pointer;box-shadow:0 3px 12px #0004}
+.offer-popup-close:hover{background:#a90f16}
+.offer-popup-shop{display:flex;align-items:center;justify-content:center;gap:12px;width:min(260px,100%);min-height:46px;margin-bottom:2px;padding:12px 20px;border-radius:7px;background:linear-gradient(135deg,#f2d58a,#b88935);color:#21170a;font-weight:800;font-size:15px;letter-spacing:.04em;box-shadow:0 5px 14px #0002}
+.offer-popup-shop:hover{filter:brightness(1.04)}
+body.offer-popup-open{overflow:hidden}
+@media(max-width:480px){.offer-popup{padding:10px}.offer-popup-dialog{width:100%;padding:7px;gap:8px;border-radius:9px;max-height:calc(100dvh - 20px)}.offer-popup-image{max-height:calc(100dvh - 95px)}.offer-popup-close{width:38px;height:38px;font-size:27px;right:6px;top:6px}.offer-popup-shop{min-height:42px;font-size:14px}}
