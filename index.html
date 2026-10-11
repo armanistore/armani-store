@@ -14,10 +14,24 @@
 <body>
   <div class="announcement">A MORE CONSIDERED WARDROBE <span>✦</span> DISCOVER YOUR NEXT FAVOURITE</div>
   <header class="site-header wrap">
-    <a class="brand" href="#home" aria-label="ARMANHOVEX home"><span class="brand-mark">A</span><span><b>ARMANHOVEX</b><small>STYLE, REFINED</small></span></a>
-    <label class="search" aria-label="Search products"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search your next favourite…" oninput="renderProducts()"></label>
-    <button class="cart-button" type="button" onclick="toggleCart()" aria-label="Open shopping cart"><span>Bag</span> <b id="cartCount">0</b></button>
+    <a class="brand" href="#home" aria-label="ARMANHOVEX home"><span class="brand-mark">A</span><span><b>ARMANHOVEX</b><small>FASHION · STYLE · LIFESTYLE</small></span></a>
+    <div class="header-actions">
+      <button class="header-icon" type="button" onclick="document.getElementById('search').focus()" aria-label="Focus product search">⌕</button>
+      <span class="header-icon wishlist-mark" aria-hidden="true">♡</span>
+      <button class="header-icon cart-icon" type="button" onclick="toggleCart()" aria-label="Open shopping bag">🛒<b id="cartCount">0</b></button>
+    </div>
   </header>
+  <div class="search-wrap wrap">
+    <label class="search search-main" aria-label="Search products"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="What are you shopping for today…" oninput="renderProducts()"><button class="search-submit" type="button" onclick="document.getElementById('search').focus()" aria-label="Start searching">+</button></label>
+  </div>
+  <section class="quick-categories wrap" aria-label="Shop by category">
+    <button class="quick-category tile-men" type="button" onclick="setCategory('mens-clothing')"><span>Men’s<br>Clothing</span><i aria-hidden="true">→</i></button>
+    <button class="quick-category tile-women" type="button" onclick="setCategory('womens-fashion')"><span>Women’s<br>Fashion</span><i aria-hidden="true">→</i></button>
+    <button class="quick-category tile-shoes" type="button" onclick="setCategory('shoes')"><span>Shoes</span><i aria-hidden="true">→</i></button>
+    <button class="quick-category tile-bags" type="button" onclick="setCategory('bags')"><span>Bags</span><i aria-hidden="true">→</i></button>
+    <button class="quick-category tile-watches" type="button" onclick="setCategory('watches')"><span>Watches</span><i aria-hidden="true">→</i></button>
+    <button class="quick-category tile-accessories" type="button" onclick="setCategory('accessories')"><span>Accessories</span><i aria-hidden="true">→</i></button>
+  </section>
   
 
   <main>
