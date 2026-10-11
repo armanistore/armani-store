@@ -28,7 +28,54 @@ const demoProducts = [
 {id:1014,name:"Classic Sunglasses",category:"accessories",price:990,demo:true,image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=80",description:"An accessory concept for demonstrating product details.",colors:["Black","Tortoiseshell"]},
 {id:1015,name:"Leather-Look Belt",category:"accessories",price:690,demo:true,image:"https://images.unsplash.com/photo-1624222247344-550fb8d7f6c0?auto=format&fit=crop&w=900&q=80",description:"A wardrobe accessory sample; material details are illustrative only.",colors:["Black","Brown"]}
 ];
-const products = [...realProducts, ...demoProducts];
+let products = [...realProducts, ...demoProducts];
+
+
+function normalizeCategory(value) {
+  const key = String(value || "").trim().toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  return ({ "men-s-clothing": "mens-clothing", "women-s-fashion": "womens-fashion" })[key] || key;
+}
+function safeProductImageUrl(value) {
+  try { const url = new URL(String(value || "")); return url.protocol === "https:" ? url.href : "https://placehold.co/600x750/f0eee5/173d30?text=ARMANHOVEX+DEMO"; }
+  catch (_) { return "https://placehold.co/600x750/f0eee5/173d30?text=ARMANHOVEX+DEMO"; }
+}
+function parseProductCsv(text) {
+  const lines = String(text || "").replace(/^\uFEFF/, "").split(/\r?\n/).filter(line => line.trim());
+  if (!lines.length) return [];
+  const parseRow = line => {
+    const cells = []; let cell = "", quoted = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (ch === '"' && quoted && line[i + 1] === '"') { cell += '"'; i++; }
+      else if (ch === '"') quoted = !quoted;
+      else if (ch === "," && !quoted) { cells.push(cell); cell = ""; }
+      else cell += ch;
+    }
+    cells.push(cell); return cells;
+  };
+  const headers = parseRow(lines[0]).map(value => value.trim());
+  return lines.slice(1).map(line => { const values = parseRow(line); return Object.fromEntries(headers.map((header, i) => [header, values[i] || ""])); });
+}
+async function loadCsvDemoProducts() {
+  try {
+    const response = await fetch("armanihovex_bulk_products_100.csv", { cache: "no-store" });
+    if (!response.ok) throw new Error("CSV request failed: " + response.status);
+    const rows = parseProductCsv(await response.text());
+    const used = new Set(products.map(product => String(product.id)));
+    const imported = rows.map((row, index) => {
+      const sourceId = String(row.id || "").trim();
+      const price = Number(String(row.price || "").replace(/[^0-9.]/g, ""));
+      const id = 2001 + index;
+      if (!sourceId || !String(row.name || "").trim() || !Number.isFinite(price) || price < 0 || used.has(String(id))) return null;
+      used.add(String(id));
+      return { id, sourceId, name: String(row.name).trim(), category: normalizeCategory(row.category), price,
+        image: safeProductImageUrl(row.image), description: String(row.description || "Demo sample product.").trim(),
+        demo: true, priceLabel: String(row.priceLabel || "DEMO PRICE — SAMPLE ONLY").trim(), sizes: [], colors: [] };
+    }).filter(Boolean);
+    products = [...realProducts, ...demoProducts, ...imported];
+    renderProducts();
+  } catch (error) { console.error("Could not load demo CSV; existing catalog remains available.", error); }
+}
 
 let cart = [];
 try { cart = JSON.parse(localStorage.getItem("armaniCart")) || []; } catch (error) { cart = []; }
@@ -144,7 +191,7 @@ function openProductDetails(productId) {
   document.getElementById("detailCategory").textContent = product.demo === true ? "DEMO PRODUCT — NOT FOR SALE · " + product.category.replace(/-/g, " ") : product.category;
   document.getElementById("detailName").textContent = product.name;
   const prices = document.getElementById("detailPrices");
-  prices.textContent = money(product.price) + (product.demo ? " · DEMO PRICE ONLY — NOT A SELLING PRICE" : "");
+  prices.textContent = money(product.price) + (product.demo ? " · " + (product.priceLabel || "DEMO PRICE — SAMPLE ONLY") + " · NOT A SELLING PRICE" : "");
   if (Number(product.originalPrice) > Number(product.price)) {
     const old = document.createElement("span"); old.className = "product-old-price"; old.textContent = money(product.originalPrice); prices.appendChild(old);
   }
@@ -239,4 +286,5 @@ document.addEventListener("DOMContentLoaded", () => {
   if (overlay) overlay.addEventListener("click", () => setCartOpen(false));
   document.addEventListener("keydown", event => { if (event.key === "Escape") { closeProductDetails(); setCartOpen(false); } });
   renderProducts(); renderCart(); updateCartCount(); updatePaymentInfo();
+  loadCsvDemoProducts();
 });
