@@ -45,3 +45,71 @@ main > .nav{margin-bottom:8px}
 }
 
 .demo-price-label{display:block;margin-top:5px;font-size:8px;line-height:1.35;letter-spacing:.08em;color:#8b6d37;font-weight:700;text-transform:uppercase}.detail-prices{line-height:1.6}
+
+
+/* ARMANHOVEX premium product-first storefront refresh */
+.shop-section{background:#f8f7f1;padding:36px 0 70px}
+.shop-section>.wrap{display:flex;flex-direction:column}
+.shop-section .section-heading{order:0;align-items:flex-end;margin-bottom:20px;gap:12px}
+.shop-section .section-heading .eyebrow{margin-bottom:9px;letter-spacing:.24em}
+.shop-section .section-heading h2{font-size:clamp(34px,4.4vw,51px);letter-spacing:-.045em;line-height:1.08}
+.shop-section .section-heading>p{font-size:12px;line-height:1.6}
+.shop-section .carousel-toolbar{order:1;margin:0 0 15px;min-height:35px}
+.shop-section .product-carousel{order:2;gap:20px;padding:3px 2px 20px;scrollbar-width:none}
+.shop-section .product-carousel::-webkit-scrollbar{display:none}
+.shop-section .product-carousel .product-card{flex:0 0 calc((100% - 40px)/3);background:#fff;border:1px solid #e8e5dc;box-shadow:0 5px 20px #142d2010;scroll-snap-align:start;overflow:hidden}
+.shop-section .product-carousel .product-card:hover{transform:translateY(-4px);box-shadow:0 16px 35px #142d2017}
+.shop-section .product-carousel .product-image{background:#eeece4;aspect-ratio:4/5;height:auto;overflow:hidden}
+.shop-section .product-carousel .product-image img{object-fit:cover;transition:transform .55s cubic-bezier(.2,.65,.3,1)}
+.shop-section .product-carousel .product-card:hover .product-image img{transform:scale(1.045)}
+.shop-section .product-carousel .product-info{padding:17px 17px 18px}
+.shop-section .product-carousel .product-category{font-size:9px;letter-spacing:.15em;color:#927548}
+.shop-section .product-carousel .product-info h3{font-family:"DM Sans",sans-serif;font-size:14px;line-height:1.5;font-weight:600;min-height:42px;margin:9px 0 13px;color:#1b3026}
+.shop-section .product-carousel .price{font-size:15px;color:#153d2e}
+.shop-section .product-carousel .add-button,.shop-section .product-carousel .select-button{min-height:39px;padding:0 12px;font-size:10px;letter-spacing:.015em}
+.shop-section .product-carousel .add-button{background:#123b2d}
+.shop-section .product-carousel .add-button:hover{background:#082b21}
+.shop-section .shop-tools{order:3;display:block;margin:20px 0 0;padding-top:18px;border-top:1px solid #e3e1d8}
+.shop-section .filters{display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;overscroll-behavior-inline:contain;padding:1px 1px 8px;scrollbar-width:none}
+.shop-section .filters::-webkit-scrollbar{display:none}
+.shop-section .filter{flex:0 0 auto;white-space:nowrap;border:1px solid #d8d8cd;background:transparent;padding:11px 16px;font-size:11px;transition:all .2s}
+.shop-section .filter.active,.shop-section .filter:hover{background:#123b2d;border-color:#123b2d;color:#fff}
+.shop-section .results-note{display:block;margin-top:8px;font-size:10px}
+.shop-section .demo-notice{order:4;margin-top:25px;border-color:#e3d5b5;border-left-color:#b3945c;background:#fffaf0;font-size:10px}
+.shop-section .feature-banners{order:5;padding-top:34px}
+.carousel-hint{font-size:11px;letter-spacing:.01em}
+.view-all-button{border:1px solid #d5d0c3;background:transparent;color:#193d2f;padding:10px 14px;font-size:11px;white-space:nowrap;cursor:pointer}
+.view-all-button:hover{background:#123b2d;color:white;border-color:#123b2d}
+.carousel-arrows{margin-left:auto}
+.carousel-arrow{width:40px;height:40px;border-color:#d9d6cc;background:#fffdf8}
+.product-tag,.demo-product-tag{max-width:calc(100% - 20px);font-size:8px;letter-spacing:.08em;line-height:1.5;padding:8px 10px;background:#fdf9ef;color:#74462f;border:1px solid #e9ddc5}
+.demo-product-tag{background:#74462f;color:#fff;border-color:#74462f}
+@media(max-width:760px){
+  .shop-section{padding:26px 0 48px}
+  .shop-section .section-heading{align-items:flex-start;margin-bottom:13px}
+  .shop-section .section-heading h2{font-size:34px}
+  .shop-section .section-heading>p{font-size:11px;margin:0}
+  .shop-section .carousel-toolbar{gap:8px;margin-bottom:12px}
+  .shop-section .carousel-hint{max-width:65%;font-size:10px;line-height:1.6}
+  .shop-section .view-all-button{padding:9px 10px;font-size:10px}
+  .shop-section .carousel-arrows{display:none}
+  .shop-section .product-carousel{gap:12px;margin-right:-14px;padding-right:14px;padding-bottom:16px}
+  .shop-section .product-carousel .product-card{flex:0 0 78%;max-width:390px}
+  .shop-section .product-carousel .product-image{aspect-ratio:4/5;height:auto;min-height:0}
+  .shop-section .product-carousel .product-info{padding:14px 13px 15px}
+  .shop-section .product-carousel .product-info h3{font-size:13px;min-height:0;margin:7px 0 12px}
+  .shop-section .product-carousel .product-bottom{align-items:center;flex-wrap:nowrap}
+  .shop-section .product-carousel .product-actions{width:auto;flex-wrap:nowrap}
+  .shop-section .product-carousel .add-button,.shop-section .product-carousel .select-button{min-height:37px;padding:0 10px;font-size:10px}
+  .shop-section .product-carousel .price{font-size:14px}
+  .shop-section .shop-tools{margin-top:13px;padding-top:14px}
+  .shop-section .filters{gap:7px}
+  .shop-section .filter{padding:10px 13px;font-size:10px}
+  .shop-section .results-note{font-size:10px}
+  .shop-section .feature-banners{padding-top:25px;gap:10px}
+  .shop-section .feature{padding:22px 17px;min-height:175px}
+  .shop-section .feature h3{font-size:23px}
+}
+@media(min-width:761px) and (max-width:980px){
+  .shop-section .product-carousel .product-card{flex-basis:calc((100% - 20px)/2)}
+}
