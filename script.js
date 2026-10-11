@@ -4,12 +4,8 @@ const WHATSAPP_NUMBER = "8801302014526";
 const NAGAD_NUMBER = "01606938674";
 const BKASH_NUMBER = "";
 
-// Existing product records preserved; confirm current availability directly with the store.
-const realProducts = [
-  { id: 1, name: "Iphone 11pro max", category: "phone", price: 19500, image: "https://raw.githubusercontent.com/armanistore/armani-store/main/20261001_165939.jpg" },
-  { id: 2, name: "Ipad 2", category: "phone", price: 7500, image: "https://raw.githubusercontent.com/armanistore/armani-store/main/20261003_143823.jpg" },
-  { id: 3, name: "samsung j6", category: "phone", price: 3000, image: "https://raw.githubusercontent.com/armanistore/armani-store/main/20261006_161100.jpg" }
-];
+// Original three legacy products removed at the owner's request.
+const realProducts = [];
 // EDITABLE SAMPLE DATA ONLY. Prices are fictional placeholders, not selling prices or offers.
 const demoProducts = [
 {id:1001,name:"Tailored Everyday Blazer",category:"mens-clothing",price:3490,demo:true,image:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=80",description:"A polished blazer concept for smart-casual looks.",sizes:["S","M","L","XL"],colors:["Forest","Sand"]},
@@ -79,7 +75,7 @@ async function loadCsvDemoProducts() {
 }
 
 let cart = [];
-try { cart = JSON.parse(localStorage.getItem("armaniCart")) || []; } catch (error) { cart = []; }
+try { cart = (JSON.parse(localStorage.getItem("armaniCart")) || []).filter(item => ![1, 2, 3].includes(Number(item.id))); } catch (error) { cart = []; }
 let currentCategory = "All";
 
 function money(amount) { return "৳" + Number(amount).toLocaleString("en-BD"); }
