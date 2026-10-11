@@ -43,3 +43,5 @@ main > .nav{margin-bottom:8px}
   main > .shop-section:first-child .product-carousel .product-actions{gap:7px}
   main > .shop-section:first-child .product-carousel .select-button,main > .shop-section:first-child .product-carousel .add-button{font-size:10px;min-height:38px}
 }
+
+.demo-price-label{display:block;margin-top:5px;font-size:8px;line-height:1.35;letter-spacing:.08em;color:#8b6d37;font-weight:700;text-transform:uppercase}.detail-prices{line-height:1.6}
