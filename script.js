@@ -77,7 +77,7 @@ function toggleCart() {
 }
 function setCategory(category, button) {
   currentCategory = category;
-  document.querySelectorAll(".filters button").forEach(btn => btn.classList.toggle("active", btn === button || (!button && btn.textContent.toLowerCase().includes(String(category).toLowerCase()))));
+  document.querySelectorAll(".filters button").forEach(btn => btn.classList.toggle("active", btn === button || (!button && (category === "All" ? btn.dataset.category === "All" : btn.dataset.category === category))));
   renderProducts();
   const shop = document.getElementById("shop");
   if (shop && !button) shop.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -92,13 +92,77 @@ function renderProducts() {
     container.innerHTML = '<div class="no-results"><h3>No matches just yet</h3><p>Try a different search or explore all items.</p><button class="button button-green" type="button" onclick="resetProductFilters()">View all items</button></div>';
     return;
   }
-  container.innerHTML = filtered.map(product => '<article class="product-card"><div class="product-image"><img loading="lazy" src="' + escapeHTML(product.image) + '" alt="' + escapeHTML(product.name) + '" onerror="this.onerror=null;this.src=\'https://placehold.co/600x700/f0eee5/173d30?text=ARMANHOVEX\'"><span class="product-tag">' + escapeHTML(product.category) + '</span></div><div class="product-info"><span class="product-category">THE EVERYDAY EDIT</span><h3>' + escapeHTML(product.name) + '</h3><div class="product-bottom"><strong class="price">' + money(product.price) + '</strong><button class="add-button" type="button" onclick="addToCart(' + product.id + ')">＋ Add to bag</button></div></div></article>').join("");
+  container.innerHTML = filtered.map(product => {
+    const discount = Number(product.originalPrice) > Number(product.price);
+    const demoTag = product.demo === true ? '<span class="product-tag">Demo product</span>' : '<span class="product-tag">' + escapeHTML(product.category) + '</span>';
+    const options = '<div class="product-actions"><button class="select-button" type="button" onclick="openProductDetails(' + Number(product.id) + ')" aria-label="Select ' + escapeHTML(product.name) + '">Select product</button><button class="add-button" type="button" onclick="addToCart(' + Number(product.id) + ')">＋ Add to bag</button></div>';
+    return '<article class="product-card" tabindex="0" role="group" aria-label="' + escapeHTML(product.name) + '" onclick="if(!event.target.closest(\'button\'))openProductDetails(' + Number(product.id) + ')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();openProductDetails(' + Number(product.id) + ')}"><div class="product-image"><img loading="lazy" src="' + escapeHTML(product.image) + '" alt="' + escapeHTML(product.name) + '" onerror="this.onerror=null;this.src=\'https://placehold.co/600x700/f0eee5/173d30?text=ARMANHOVEX\'">' + demoTag + (discount ? '<span class="discount-tag">Special price</span>' : '') + '</div><div class="product-info"><span class="product-category">' + escapeHTML(product.category) + '</span><h3>' + escapeHTML(product.name) + '</h3><div class="product-bottom"><strong class="price">' + money(product.price) + (discount ? '<span class="product-old-price">' + money(product.originalPrice) + '</span>' : '') + '</strong>' + options + '</div></div></article>';
+  }).join("");
+}
+function slideProducts(direction) {
+  const container = document.getElementById("products");
+  if (!container) return;
+  const card = container.querySelector(".product-card");
+  if (!card) return;
+  container.scrollBy({ left: direction * (card.getBoundingClientRect().width + parseFloat(getComputedStyle(container).gap || 0)) * 2, behavior: "smooth" });
+}
+let selectedDetailProduct = null;
+let detailQuantity = 1;
+function openProductDetails(productId) {
+  const product = products.find(item => item.id === productId);
+  if (!product) return;
+  selectedDetailProduct = product;
+  detailQuantity = 1;
+  const modal = document.getElementById("productModal"), backdrop = document.getElementById("productModalBackdrop");
+  document.getElementById("detailImage").src = product.image;
+  document.getElementById("detailImage").alt = product.name;
+  document.getElementById("detailCategory").textContent = product.demo === true ? "DEMO PRODUCT · " + product.category : product.category;
+  document.getElementById("detailName").textContent = product.name;
+  const prices = document.getElementById("detailPrices");
+  prices.textContent = money(product.price);
+  if (Number(product.originalPrice) > Number(product.price)) {
+    const old = document.createElement("span"); old.className = "product-old-price"; old.textContent = money(product.originalPrice); prices.appendChild(old);
+  }
+  document.getElementById("detailDescription").textContent = product.description || "Additional product details have not been provided. Please contact ARMANHOVEX on WhatsApp to confirm details before ordering.";
+  const options = document.getElementById("detailOptions");
+  options.innerHTML = "";
+  [["Available sizes", product.sizes], ["Available colors", product.colors]].forEach(([label, values]) => {
+    if (!Array.isArray(values) || !values.length) return;
+    const group = document.createElement("div"); group.className = "detail-option";
+    const strong = document.createElement("strong"); strong.textContent = label; group.appendChild(strong);
+    values.forEach(value => { const span = document.createElement("span"); span.textContent = value; group.appendChild(span); });
+    options.appendChild(group);
+  });
+  document.getElementById("detailQuantity").textContent = detailQuantity;
+  document.getElementById("detailAddButton").onclick = () => { for (let i = 0; i < detailQuantity; i++) addToCartWithoutOpening(selectedDetailProduct.id); closeProductDetails(); setCartOpen(true); renderCart(); };
+  modal.hidden = false; backdrop.hidden = false; modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  document.getElementById("detailAddButton").focus();
+}
+function changeDetailQuantity(change) {
+  detailQuantity = Math.max(1, Math.min(99, detailQuantity + change));
+  const output = document.getElementById("detailQuantity");
+  if (output) output.textContent = detailQuantity;
+}
+function closeProductDetails() {
+  const modal = document.getElementById("productModal"), backdrop = document.getElementById("productModalBackdrop");
+  if (modal) { modal.hidden = true; modal.setAttribute("aria-hidden", "true"); }
+  if (backdrop) backdrop.hidden = true;
+  document.body.style.overflow = "";
+}
+function addToCartWithoutOpening(productId) {
+  const product = products.find(item => item.id === productId);
+  if (!product) return;
+  const existing = cart.find(item => item.id === productId);
+  if (existing) existing.quantity += 1;
+  else cart.push({ id: product.id, name: product.name, price: product.price, image: product.image, quantity: 1 });
+  saveCart(); updateCartCount();
 }
 function resetProductFilters() {
   currentCategory = "All";
   const input = document.getElementById("search");
   if (input) input.value = "";
-  document.querySelectorAll(".filters button").forEach((button, index) => button.classList.toggle("active", index === 0));
+  document.querySelectorAll(".filters button").forEach(button => button.classList.toggle("active", button.dataset.category === "All"));
   renderProducts();
 }
 function openCheckout() {
@@ -146,6 +210,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (payment) payment.addEventListener("change", updatePaymentInfo);
   const overlay = document.getElementById("overlay");
   if (overlay) overlay.addEventListener("click", () => setCartOpen(false));
-  document.addEventListener("keydown", event => { if (event.key === "Escape") setCartOpen(false); });
+  document.addEventListener("keydown", event => { if (event.key === "Escape") { closeProductDetails(); setCartOpen(false); } });
   renderProducts(); renderCart(); updateCartCount(); updatePaymentInfo();
 });
