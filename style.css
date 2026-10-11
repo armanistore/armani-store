@@ -290,3 +290,21 @@ main>.why-section{padding-top:62px}
 .offer-popup-shop:hover{filter:brightness(1.04)}
 body.offer-popup-open{overflow:hidden}
 @media(max-width:480px){.offer-popup{padding:10px}.offer-popup-dialog{width:100%;padding:7px;gap:8px;border-radius:9px;max-height:calc(100dvh - 20px)}.offer-popup-image{max-height:calc(100dvh - 95px)}.offer-popup-close{width:38px;height:38px;font-size:27px;right:6px;top:6px}.offer-popup-shop{min-height:42px;font-size:14px}}
+
+/* New Arrival — Kids Fashion selector */
+.kids-arrivals{padding:30px 0 34px;margin:4px 0 26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kids-arrivals-heading{margin-bottom:18px}
+.kids-arrivals-heading .eyebrow{margin-bottom:7px;color:#2874c8}
+.kids-arrivals-heading h2{font-family:"Playfair Display",serif;font-size:clamp(28px,3.8vw,38px);font-weight:500;letter-spacing:-.035em;margin:0;color:var(--green)}
+.kids-arrivals-heading>p:last-child{font-size:11px;color:var(--muted);margin:7px 0 0}
+.kids-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.kids-choice{display:grid;grid-template-columns:minmax(100px,42%) 1fr;align-items:stretch;text-align:left;padding:0;overflow:hidden;border:1px solid #e1e2d9;background:#fffefa;color:var(--ink);cursor:pointer;min-width:0;transition:transform .2s,border-color .2s,box-shadow .2s}
+.kids-choice:hover,.kids-choice:focus-visible{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 12px 26px #173d3010;outline:none}
+.kids-choice-image{display:block;min-height:220px;background-color:#f0e9dc;background-position:center;background-size:cover}
+.kids-boy-image{background-image:url("https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=700&q=85")}
+.kids-girl-image{background-image:url("https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=85")}
+.kids-choice-copy{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:9px;padding:20px}
+.kids-choice-copy strong{font-size:11px;letter-spacing:.2em;color:#2874c8}
+.kids-choice-copy>span{font-family:"Playfair Display",serif;font-size:clamp(18px,2.5vw,27px);line-height:1.2}
+.kids-choice-copy i{font-style:normal;font-size:10px;font-weight:700;border-bottom:1px solid var(--gold);padding-bottom:5px;margin-top:5px}
+@media(max-width:600px){.kids-arrivals{padding:25px 0;margin-bottom:20px}.kids-choice-grid{gap:10px}.kids-choice{grid-template-columns:1fr}.kids-choice-image{min-height:0;aspect-ratio:4/5}.kids-choice-copy{padding:13px;gap:7px}.kids-choice-copy>span{font-size:19px}.kids-choice-copy i{font-size:9px}}

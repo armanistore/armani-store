@@ -22,7 +22,11 @@ const demoProducts = [
 {id:1012,name:"Everyday Minimal Watch",category:"watches",price:3190,demo:true,image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80",description:"A minimal timepiece sample for catalog demonstration only.",colors:["Black","Silver"]},
 {id:1013,name:"Gold-Tone Necklace",category:"accessories",price:790,demo:true,image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=80",description:"A jewelry styling sample; finish and metal content are not verified.",colors:["Gold-tone"]},
 {id:1014,name:"Classic Sunglasses",category:"accessories",price:990,demo:true,image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=80",description:"An accessory concept for demonstrating product details.",colors:["Black","Tortoiseshell"]},
-{id:1015,name:"Leather-Look Belt",category:"accessories",price:690,demo:true,image:"https://images.unsplash.com/photo-1624222247344-550fb8d7f6c0?auto=format&fit=crop&w=900&q=80",description:"A wardrobe accessory sample; material details are illustrative only.",colors:["Black","Brown"]}
+{id:1015,name:"Leather-Look Belt",category:"accessories",price:690,demo:true,image:"https://images.unsplash.com/photo-1624222247344-550fb8d7f6c0?auto=format&fit=crop&w=900&q=80",description:"A wardrobe accessory sample; material details are illustrative only.",colors:["Black","Brown"]},
+{id:1101,name:"Boy's Festive Panjabi",category:"kids-boys",price:1290,demo:true,image:"https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=900&q=80",description:"A children's festive panjabi catalog sample. Demo only; not real inventory.",sizes:["2Y","4Y","6Y","8Y","10Y"],colors:["Red","Blue"]},
+{id:1102,name:"Boy's Classic Panjabi Set",category:"kids-boys",price:1490,demo:true,image:"https://images.unsplash.com/photo-1503919005314-30d93d07d823?auto=format&fit=crop&w=900&q=80",description:"A traditional boys' outfit concept for the demo collection.",sizes:["2Y","4Y","6Y","8Y","10Y"],colors:["Ivory","Green"]},
+{id:1103,name:"Girl's Festive Kamiz",category:"kids-girls",price:1390,demo:true,image:"https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=900&q=80",description:"A children's festive kamiz catalog sample. Demo only; not real inventory.",sizes:["2Y","4Y","6Y","8Y","10Y"],colors:["Red","Pink"]},
+{id:1104,name:"Girl's Traditional Kamiz Set",category:"kids-girls",price:1590,demo:true,image:"https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80",description:"A traditional girls' outfit concept for the demo collection.",sizes:["2Y","4Y","6Y","8Y","10Y"],colors:["Red","Cream"]}
 ];
 let products = [...realProducts, ...demoProducts];
 
@@ -142,6 +146,13 @@ function toggleCart() {
   const drawer = document.getElementById("cart");
   if (drawer) setCartOpen(!drawer.classList.contains("open"));
   renderCart();
+}
+function selectKidsCollection(category) {
+  currentCategory = category;
+  document.querySelectorAll(".filters button").forEach(btn => btn.classList.remove("active"));
+  renderProducts();
+  const shop = document.getElementById("shop");
+  if (shop) shop.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 function setCategory(category, button) {
   currentCategory = category;
