@@ -16,3 +16,30 @@
 .cart-line-demo{background:#fffaf0;border:1px solid #e4d4ae;padding:8px}
 @media(max-width:760px){.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product-carousel .product-card{flex-basis:calc((100% - 10px)/2)}.demo-product-tag{font-size:7px;left:6px;top:6px}.shop-tools{align-items:flex-start;flex-direction:column}.filters{width:100%}}
 @media(min-width:761px) and (max-width:980px){.product-carousel .product-card{flex-basis:calc((100% - 18px)/2)}}
+
+
+/* ARMANHOVEX: place the product slider immediately after the search/header */
+main > .shop-section:first-child{padding-top:28px;padding-bottom:52px}
+main > .shop-section:first-child .section-heading{margin-bottom:18px}
+main > .shop-section:first-child .product-carousel{display:flex;gap:18px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 18px;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+main > .shop-section:first-child .product-carousel .product-card{flex:0 0 calc((100% - 36px)/3);scroll-snap-align:start}
+main > .shop-section:first-child .product-carousel .product-image{aspect-ratio:4/5;height:auto;min-height:0}
+main > .shop-section:first-child .product-carousel .product-info{padding:16px}
+main > .shop-section:first-child .product-carousel .product-info h3{font-size:15px;line-height:1.4}
+main > .shop-section:first-child .product-carousel .price{font-size:16px}
+main > .shop-section:first-child .product-carousel .product-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+main > .shop-section:first-child .product-carousel .select-button,main > .shop-section:first-child .product-carousel .add-button{min-height:38px}
+main > .nav{margin-bottom:8px}
+@media(max-width:760px){
+  main > .shop-section:first-child{padding-top:20px;padding-bottom:36px}
+  main > .shop-section:first-child .section-heading{gap:5px;margin-bottom:14px}
+  main > .shop-section:first-child .section-heading h2{font-size:30px}
+  main > .shop-section:first-child .product-carousel{gap:12px;padding-bottom:15px}
+  main > .shop-section:first-child .product-carousel .product-card{flex:0 0 78%;max-width:360px}
+  main > .shop-section:first-child .product-carousel .product-image{aspect-ratio:4/5;height:auto;min-height:0}
+  main > .shop-section:first-child .product-carousel .product-info{padding:13px}
+  main > .shop-section:first-child .product-carousel .product-info h3{font-size:14px}
+  main > .shop-section:first-child .product-carousel .price{font-size:15px}
+  main > .shop-section:first-child .product-carousel .product-actions{gap:7px}
+  main > .shop-section:first-child .product-carousel .select-button,main > .shop-section:first-child .product-carousel .add-button{font-size:10px;min-height:38px}
+}
