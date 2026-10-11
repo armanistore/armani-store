@@ -45,3 +45,135 @@ main > .nav{margin-bottom:8px}
 }
 
 .demo-price-label{display:block;margin-top:5px;font-size:8px;line-height:1.35;letter-spacing:.08em;color:#8b6d37;font-weight:700;text-transform:uppercase}.detail-prices{line-height:1.6}
+
+/* ARMANHOVEX luxury brand UI — product-first storefront */
+:root{
+ --ink:#17291f;--muted:#69746a;--cream:#f5f2e9;--paper:#fffdf8;
+ --green:#123b2d;--green-deep:#08271e;--line:#e5e0d4;
+ --gold:#b89a61;--gold-pale:#e9d9b6;
+}
+body{background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif}
+.announcement{padding:11px 14px;font-size:9px;letter-spacing:.19em;background:var(--green-deep)}
+.site-header{padding:19px 0 16px;gap:22px}
+.brand{gap:12px}.brand-mark{width:47px;height:47px;border-color:#c0a56d;font-size:27px}
+.brand b{font-size:14px;letter-spacing:.2em}.brand small{font-size:8px;letter-spacing:.43em}
+.search{height:49px;background:#f4f3ed;border:1px solid #eeece3;max-width:520px;padding-inline:20px}
+.search:focus-within{background:#fff;border-color:var(--gold);box-shadow:0 0 0 3px #b89a6115}
+.search input{font-size:13px}.cart-button{padding:9px 12px;gap:12px;border-radius:2px;min-height:45px}
+.nav{padding:14px 0 17px;gap:29px;font-size:11px}
+.nav a{position:relative;padding-bottom:3px}
+.nav a:after{content:"";position:absolute;left:0;right:100%;bottom:-5px;height:1px;background:var(--gold);transition:right .25s}
+.nav a:hover:after{right:0}
+
+/* The selected edit intentionally sits directly below search */
+.shop-section{background:#f8f7f2;padding:30px 0 66px;border-bottom:1px solid #ece8de}
+.shop-section>.wrap{display:flex;flex-direction:column}
+.shop-section .section-heading{order:0;align-items:flex-end;margin-bottom:18px;gap:15px}
+.shop-section .section-heading .eyebrow{font-size:9px;letter-spacing:.25em;margin-bottom:10px}
+.shop-section .section-heading h2{font-family:"Playfair Display",serif;font-size:clamp(34px,4.5vw,48px);letter-spacing:-.045em;line-height:1.06;color:#183b2e}
+.shop-section .section-heading>p{font-size:11px;color:#73796f;max-width:180px;line-height:1.7;margin-bottom:3px}
+.shop-section .carousel-toolbar{order:1;display:flex;align-items:center;gap:12px;margin:0 0 13px;min-height:37px}
+.shop-section .carousel-hint{font-size:10px;color:#777b70;letter-spacing:.025em;margin-right:auto}
+.shop-section .view-all-button{border:1px solid #d9d4c7;background:transparent;color:#183b2e;padding:10px 13px;font-size:10px;letter-spacing:.04em;white-space:nowrap;transition:all .2s}
+.shop-section .view-all-button:hover{background:#123b2d;border-color:#123b2d;color:#fff}
+.shop-section .carousel-arrows{display:flex;gap:7px}
+.shop-section .carousel-arrow{width:38px;height:38px;background:#fffdf8;border:1px solid #ded9cd;color:#173d30;font-size:18px}
+.shop-section .carousel-arrow:hover,.shop-section .carousel-arrow:focus-visible{background:#123b2d;border-color:#123b2d;color:#fff}
+.shop-section .product-carousel{order:2;display:flex;gap:17px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-inline:contain;padding:2px 2px 18px;scrollbar-width:none}
+.shop-section .product-carousel::-webkit-scrollbar{display:none}
+.shop-section .product-carousel .product-card{flex:0 0 calc((100% - 34px)/3);min-width:0;scroll-snap-align:start;background:#fff;border:1px solid #e8e4d9;box-shadow:0 4px 18px #182e2010;overflow:hidden;transition:transform .28s,box-shadow .28s,border-color .28s}
+.shop-section .product-carousel .product-card:hover{transform:translateY(-4px);border-color:#d5c6a6;box-shadow:0 16px 34px #182e2017}
+.shop-section .product-carousel .product-image{position:relative;aspect-ratio:4/5;height:auto;min-height:0;background:#eeece4;overflow:hidden}
+.shop-section .product-carousel .product-image img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.65,.3,1)}
+.shop-section .product-carousel .product-card:hover .product-image img{transform:scale(1.045)}
+.shop-section .product-carousel .product-info{padding:16px 16px 17px}
+.shop-section .product-carousel .product-category{font-size:8px;letter-spacing:.17em;color:#9a7e4b}
+.shop-section .product-carousel .product-info h3{font-size:13px;line-height:1.5;font-weight:600;color:#20372b;min-height:39px;margin:8px 0 13px}
+.shop-section .product-carousel .product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.shop-section .product-carousel .price{font-size:14px;color:#163c2d;white-space:nowrap}
+.shop-section .product-carousel .add-button,.shop-section .product-carousel .select-button{min-height:38px;padding:0 11px;font-size:9px;letter-spacing:.035em}
+.shop-section .product-carousel .add-button{background:#123b2d}
+.shop-section .product-carousel .add-button:hover{background:#08271e}
+.shop-section .shop-tools{order:3;display:block;margin:19px 0 0;padding:17px 0 0;border-top:1px solid #e5e1d7}
+.shop-section .filters{display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;overscroll-behavior-inline:contain;padding:1px 1px 8px;scrollbar-width:none}
+.shop-section .filters::-webkit-scrollbar{display:none}
+.shop-section .filter{flex:0 0 auto;white-space:nowrap;background:transparent;border:1px solid #dcd8ce;padding:10px 15px;font-size:10px;transition:all .2s}
+.shop-section .filter.active,.shop-section .filter:hover{background:#123b2d;border-color:#123b2d;color:#fff}
+.shop-section .results-note{display:block;margin-top:6px;font-size:10px;color:#7b7e74}
+.shop-section .demo-notice{order:4;margin-top:23px;background:#fffaf0;border:1px solid #e8ddc6;border-left:3px solid #b89a61;padding:13px 16px;font-size:10px;line-height:1.8;color:#665b48}
+.shop-section .demo-notice strong{font-size:9px;letter-spacing:.12em;color:#785339}
+.shop-section .feature-banners{order:5;padding-top:30px;gap:14px}
+.feature{transition:transform .25s}.feature:hover{transform:translateY(-3px)}
+.feature-dark{background:#123b2d}.feature-light{background:#eee9dc}
+.category-section{padding:69px 0 65px}
+.category-card{background:#fffdf8;border-color:#e6e1d6;padding:23px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.category-card:hover{border-color:#c3a66b;box-shadow:0 12px 25px #183b2e0b}
+.category-icon{background:#f3f0e7;color:#244c3b}
+.hero{border:1px solid #e5dfd0;box-shadow:0 12px 35px #132c1d08}
+.hero .button{min-height:48px;padding-inline:22px}
+.sale-card{box-shadow:0 12px 25px #07170f22}
+.why-section{padding-top:77px}
+.benefit-grid article{transition:background .25s;padding:22px 15px}
+.benefit-grid article:hover{background:#faf8f1}
+.testimonial{border:1px solid #ebe5d7}
+.newsletter{box-shadow:0 12px 28px #123b2d12}
+.button,.add-button,.select-button,.filter,.cart-button{transition:background .22s,color .22s,border-color .22s,transform .22s,box-shadow .22s}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #b89a61;outline-offset:3px}
+.product-modal{border:1px solid #e6dfcf;box-shadow:0 28px 90px #07170f40}
+.cart-drawer{box-shadow:-18px 0 60px #07170f18}
+.footer{background:#08271e}
+@media(max-width:760px){
+ .announcement{font-size:8px;letter-spacing:.12em;padding:10px 8px}
+ .site-header{width:calc(100% - 28px);padding:16px 0 14px;gap:10px;flex-wrap:wrap}
+ .brand{gap:9px}.brand-mark{width:40px;height:40px;font-size:23px}
+ .brand b{font-size:12px;letter-spacing:.15em}.brand small{font-size:7px;letter-spacing:.34em}
+ .cart-button{margin-left:auto;min-height:42px;padding:7px 10px;font-size:12px}
+ .search{order:3;flex:0 0 100%;max-width:none;height:48px;padding-inline:16px}
+ .nav{display:none}
+ .shop-section{padding:24px 0 45px}
+ .shop-section .section-heading{align-items:flex-start;flex-direction:column;gap:6px;margin-bottom:13px}
+ .shop-section .section-heading h2{font-size:35px}
+ .shop-section .section-heading>p{font-size:11px;max-width:none;margin:0}
+ .shop-section .carousel-toolbar{gap:7px;margin-bottom:11px}
+ .shop-section .carousel-hint{max-width:53%;font-size:9px;line-height:1.6}
+ .shop-section .view-all-button{padding:9px 10px;font-size:9px}
+ .shop-section .carousel-arrows{display:none}
+ .shop-section .product-carousel{gap:12px;margin-right:-14px;padding-right:14px;padding-bottom:15px}
+ .shop-section .product-carousel .product-card{flex:0 0 78%;max-width:370px}
+ .shop-section .product-carousel .product-image{aspect-ratio:4/5;height:auto;min-height:0}
+ .shop-section .product-carousel .product-info{padding:13px 12px 14px}
+ .shop-section .product-carousel .product-info h3{font-size:13px;min-height:0;margin:7px 0 11px}
+ .shop-section .product-carousel .product-bottom{align-items:center;gap:7px}
+ .shop-section .product-carousel .product-actions{width:auto;gap:6px;flex-wrap:nowrap}
+ .shop-section .product-carousel .add-button,.shop-section .product-carousel .select-button{min-height:36px;padding:0 9px;font-size:9px}
+ .shop-section .product-carousel .price{font-size:13px}
+ .shop-section .shop-tools{margin-top:13px;padding-top:13px}
+ .shop-section .filters{gap:7px}
+ .shop-section .filter{padding:10px 12px;font-size:10px}
+ .shop-section .results-note{font-size:9px}
+ .shop-section .demo-notice{margin-top:17px;padding:12px;font-size:9px}
+ .shop-section .feature-banners{padding-top:22px;grid-template-columns:1fr}
+ .feature{min-height:175px;padding:24px 20px}
+ .feature h3{font-size:26px}
+ .category-section{padding:49px 0}
+ .category-grid{gap:10px}
+ .category-card{padding:17px 14px}
+ .category-icon{width:39px;height:39px;margin-bottom:13px}
+ .hero{min-height:510px;margin-top:16px;align-items:flex-start}
+ .hero-copy{width:100%;padding:34px 24px;max-width:440px}
+ .hero h1{font-size:clamp(43px,12vw,61px)}
+ .hero-sub{font-size:12px;max-width:275px}
+ .hero-image{inset:34% 0 0 0;background-image:linear-gradient(180deg,#e9e6da 0%,rgba(233,230,218,.22) 28%,rgba(0,0,0,.02) 70%),url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=80");background-position:center,center 44%}
+ .sale-card{right:12px;top:auto;bottom:13px;padding:12px;min-width:112px}
+ .sale-card strong{font-size:22px}
+ .newsletter{padding:26px 20px;align-items:flex-start;flex-direction:column}
+ .footer-inner{gap:18px}
+ .footer-inner>div:not(.copyright){flex-wrap:wrap}
+}
+@media(min-width:761px) and (max-width:980px){
+ .shop-section .product-carousel .product-card{flex-basis:calc((100% - 17px)/2)}
+ .shop-section .product-carousel .product-image{aspect-ratio:4/5}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
