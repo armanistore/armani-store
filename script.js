@@ -62,12 +62,13 @@ async function loadCsvDemoProducts() {
     if (!response.ok) throw new Error("CSV request failed: " + response.status);
     const rows = parseProductCsv(await response.text());
     const used = new Set(products.map(product => String(product.id)));
+    const usedSourceIds = new Set();
     const imported = rows.map((row, index) => {
       const sourceId = String(row.id || "").trim();
       const price = Number(String(row.price || "").replace(/[^0-9.]/g, ""));
       const id = 2001 + index;
-      if (!sourceId || !String(row.name || "").trim() || !Number.isFinite(price) || price < 0 || used.has(String(id))) return null;
-      used.add(String(id));
+      if (!sourceId || usedSourceIds.has(sourceId) || !String(row.name || "").trim() || !Number.isFinite(price) || price < 0 || used.has(String(id))) return null;
+      used.add(String(id)); usedSourceIds.add(sourceId);
       return { id, sourceId, name: String(row.name).trim(), category: normalizeCategory(row.category), price,
         image: safeProductImageUrl(row.image), description: String(row.description || "Demo sample product.").trim(),
         demo: true, priceLabel: String(row.priceLabel || "DEMO PRICE — SAMPLE ONLY").trim(), sizes: [], colors: [] };
@@ -167,7 +168,7 @@ function renderProducts() {
     const discount = Number(product.originalPrice) > Number(product.price);
     const demoTag = product.demo === true ? '<span class="product-tag demo-product-tag">DEMO PRODUCT — NOT FOR SALE</span>' : '<span class="product-tag">' + escapeHTML(product.category) + '</span>';
     const options = '<div class="product-actions"><button class="select-button" type="button" onclick="openProductDetails(' + Number(product.id) + ')" aria-label="Select ' + escapeHTML(product.name) + '">Select product</button><button class="add-button" type="button" onclick="addToCart(' + Number(product.id) + ')">＋ Add to bag</button></div>';
-    return '<article class="product-card" tabindex="0" role="group" aria-label="' + escapeHTML(product.name) + '" onclick="if(!event.target.closest(\'button\'))openProductDetails(' + Number(product.id) + ')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();openProductDetails(' + Number(product.id) + ')}"><div class="product-image"><img loading="lazy" src="' + escapeHTML(product.image) + '" alt="' + escapeHTML(product.name) + '" onerror="this.onerror=null;this.src=\'https://placehold.co/600x700/f0eee5/173d30?text=ARMANHOVEX\'">' + demoTag + (discount ? '<span class="discount-tag">Special price</span>' : '') + '</div><div class="product-info"><span class="product-category">' + escapeHTML(product.category.replace(/-/g, " ")) + '</span><h3>' + escapeHTML(product.name) + '</h3><div class="product-bottom"><strong class="price">' + money(product.price) + (discount ? '<span class="product-old-price">' + money(product.originalPrice) + '</span>' : '') + '</strong>' + options + '</div></div></article>';
+    return '<article class="product-card" tabindex="0" role="group" aria-label="' + escapeHTML(product.name) + '" onclick="if(!event.target.closest(\'button\'))openProductDetails(' + Number(product.id) + ')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();openProductDetails(' + Number(product.id) + ')}"><div class="product-image"><img loading="lazy" src="' + escapeHTML(product.image) + '" alt="' + escapeHTML(product.name) + '" onerror="this.onerror=null;this.src=\'https://placehold.co/600x700/f0eee5/173d30?text=ARMANHOVEX\'">' + demoTag + (discount ? '<span class="discount-tag">Special price</span>' : '') + '</div><div class="product-info"><span class="product-category">' + escapeHTML(product.category.replace(/-/g, " ")) + '</span><h3>' + escapeHTML(product.name) + '</h3><div class="product-bottom"><strong class="price">' + money(product.price) + (discount ? '<span class="product-old-price">' + money(product.originalPrice) + '</span>' : '') + (product.demo ? '<small class="demo-price-label">DEMO PRICE · SAMPLE ONLY</small>' : '') + '</strong>' + options + '</div></div></article>';
   }).join("");
 }
 function slideProducts(direction) {
