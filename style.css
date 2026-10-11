@@ -177,3 +177,77 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #b89a
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
+
+
+/* Reference-inspired ARMANHOVEX blue category storefront */
+:root{--electric:#0757e8;--electric-deep:#052c8e;--cyan:#13c9ff;--navy:#071c4b}
+.site-header{width:min(1180px,calc(100% - 48px));padding:25px 0 15px;gap:18px;display:flex;align-items:center;justify-content:space-between}
+.brand{gap:12px;letter-spacing:.06em}
+.brand-mark{width:54px;height:54px;border:0;border-radius:15px;background:linear-gradient(140deg,#08cfff 0%,#0873ff 45%,#082a91 100%);color:#fff;font-family:"DM Sans",sans-serif;font-weight:800;font-size:37px;box-shadow:0 7px 18px #0876ff38}
+.brand b{font-size:clamp(14px,2vw,20px);letter-spacing:.07em;color:#09275f}
+.brand small{font-size:8px;letter-spacing:.3em;color:#51627f}
+.header-actions{display:flex;align-items:center;gap:clamp(12px,3vw,28px)}
+.header-icon{position:relative;display:grid;place-items:center;width:42px;height:42px;border:0;background:transparent;color:var(--navy);font-size:35px;line-height:1;cursor:pointer;text-decoration:none}
+.header-icon:hover{color:var(--electric)}
+.wishlist-mark{font-size:39px;font-weight:400}
+.cart-icon{font-size:29px}
+.cart-icon b{position:absolute;right:-2px;top:-3px;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--electric);color:white;font-size:11px;border:2px solid white}
+.search-wrap{margin:0 auto 27px}
+.search-main{height:62px;max-width:none;border-radius:999px;padding:0 14px 0 23px;gap:16px;background:#f1f7ff;border:1px solid #d4e8ff;box-shadow:inset 0 0 0 1px #e6f2ff}
+.search-main>span{font-size:38px;line-height:1;color:var(--electric)}
+.search-main input{font-size:clamp(14px,2vw,19px);color:#243e70}
+.search-main input::placeholder{color:#53688e;opacity:1}
+.search-main:focus-within{border-color:#5cbcff;box-shadow:0 0 0 4px #0c80ff12}
+.search-submit{display:grid;place-items:center;flex:0 0 46px;width:46px;height:46px;border:0;border-radius:50%;background:var(--electric);color:#fff;font-size:35px;line-height:1;cursor:pointer;transition:transform .2s,background .2s}
+.search-submit:hover{background:#0345c4;transform:rotate(90deg)}
+.quick-categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:35px}
+.quick-category{position:relative;isolation:isolate;display:flex;align-items:flex-start;justify-content:space-between;flex-direction:column;min-width:0;min-height:clamp(160px,22vw,245px);overflow:hidden;text-align:left;padding:clamp(17px,2.5vw,28px);border:1px solid #05b9ff;border-radius:25px;color:#fff;background-color:#0757e8;background-size:cover;background-position:center;box-shadow:0 9px 23px #045de91b;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.quick-category::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,rgba(0,42,144,.98) 0%,rgba(0,79,210,.93) 40%,rgba(0,155,255,.12) 100%),linear-gradient(135deg,transparent 35%,rgba(15,206,255,.3) 70%,transparent 71%);background-size:cover}
+.quick-category::after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(140deg,transparent 45%,rgba(0,27,105,.12) 46%,transparent 70%);pointer-events:none}
+.quick-category span{font-size:clamp(21px,3vw,35px);font-weight:800;line-height:1.13;letter-spacing:-.04em;text-shadow:0 2px 14px #001d5c38;max-width:68%}
+.quick-category i{display:grid;place-items:center;width:49px;height:49px;border-radius:50%;border:1px solid #43c8ff;background:#0878edc9;color:#fff;font-size:29px;font-style:normal;line-height:1;transition:transform .2s,background .2s}
+.quick-category:hover{transform:translateY(-3px);box-shadow:0 15px 32px #045de933}
+.quick-category:hover i{transform:translateX(3px);background:#009bff}
+.tile-men{background-image:url("https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85")}
+.tile-women{background-image:url("https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=85")}
+.tile-shoes{background-image:url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85")}
+.tile-bags{background-image:url("https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85")}
+.tile-watches{background-image:url("https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=85")}
+.tile-accessories{background-image:url("https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85")}
+/* Keep the category-first mobile reference layout uncluttered; product catalog follows it. */
+.nav,.hero,.category-section{display:none!important}
+.shop-section{padding-top:35px}
+.shop-section .section-heading h2{color:#102c66}
+.shop-section .eyebrow{color:#0873d9}
+.shop-section .product-carousel .product-card{border-radius:14px;overflow:hidden}
+.shop-section .product-carousel .product-image{background:#eef4ff}
+.shop-section .product-carousel .product-card:hover{box-shadow:0 15px 35px #064bb21b}
+.shop-section .product-carousel .add-button{background:var(--electric)}
+.shop-section .product-carousel .add-button:hover{background:var(--electric-deep)}
+@media(max-width:760px){
+ .site-header{width:calc(100% - 28px);padding:19px 0 15px;gap:10px;flex-wrap:nowrap}
+ .brand{gap:8px}
+ .brand-mark{width:44px;height:44px;border-radius:12px;font-size:31px}
+ .brand b{font-size:clamp(11px,3.3vw,15px);letter-spacing:.045em}
+ .brand small{font-size:6px;letter-spacing:.2em;margin-top:4px}
+ .header-actions{gap:7px}
+ .header-icon{width:34px;height:38px;font-size:29px}
+ .wishlist-mark{font-size:32px}
+ .cart-icon{font-size:23px}
+ .cart-icon b{width:19px;height:19px;font-size:10px}
+ .search-wrap{width:calc(100% - 28px);margin-bottom:22px}
+ .search-main{height:56px;padding:0 8px 0 16px;gap:10px}
+ .search-main>span{font-size:32px}
+ .search-main input{font-size:14px}
+ .search-submit{width:42px;height:42px;flex-basis:42px;font-size:31px}
+ .quick-categories{width:calc(100% - 28px);gap:12px;margin-bottom:27px}
+ .quick-category{min-height:clamp(175px,52vw,220px);padding:15px 13px;border-radius:22px;background-position:center}
+ .quick-category span{font-size:clamp(20px,5.7vw,27px);max-width:90%}
+ .quick-category i{width:43px;height:43px;font-size:25px}
+ .shop-section{padding:26px 0 42px}
+ .shop-section .section-heading h2{font-size:32px}
+}
+@media(min-width:761px){
+ .quick-categories{gap:18px}
+ .quick-category{min-height:225px}
+}
