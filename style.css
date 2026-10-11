@@ -177,3 +177,30 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #b89a
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
+
+
+/* Reference layout adaptation for ARMANHOVEX: preserve the existing brand and commerce logic. */
+main{display:flex;flex-direction:column}
+main>.nav{order:0;margin-top:0}
+main>.hero{order:1}
+main>.category-section{order:2}
+main>.shop-section{order:3}
+main>.why-section{order:4}
+main>.testimonial{order:5}
+main>.newsletter{order:6}
+main>.contact{order:7}
+main>.nav{padding-top:14px}
+main>.hero{margin-top:20px}
+main>.category-section{padding-top:58px;padding-bottom:54px}
+main>.shop-section{padding-top:52px}
+main>.shop-section .section-heading h2{font-size:clamp(32px,4vw,46px)}
+main>.shop-section .feature-banners{padding-top:42px}
+main>.why-section{padding-top:62px}
+@media(max-width:760px){
+ main>.nav{display:none}
+ main>.hero{margin-top:12px}
+ main>.category-section{padding-top:38px;padding-bottom:36px}
+ main>.shop-section{padding-top:38px}
+ main>.shop-section .feature-banners{padding-top:25px}
+ main>.why-section{padding-top:42px}
+}
