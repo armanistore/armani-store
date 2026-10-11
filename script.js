@@ -1,551 +1,151 @@
+"use strict";
 const SHOP_NAME = "ARMANHOVEX";
-
 const WHATSAPP_NUMBER = "8801302014526";
 const NAGAD_NUMBER = "01606938674";
 const BKASH_NUMBER = "";
 
-// ================= PRODUCTS =================
-
+// Original product data preserved.
 const products = [
-  {
-    id: 1,
-    name: "Iphone 11pro max",
-    category: "phone",
-    price: 19500,
-    image: "https://raw.githubusercontent.com/armanistore/armani-store/main/20261001_165939.jpg"
-  },
-  {
-    id: 2,
-    name: "Ipad 2",
-    category: "phone",
-    price: 7500,
-    image: "https://raw.githubusercontent.com/armanistore/armani-store/main/20261003_143823.jpg"
-  },
-  {
-    id: 3,
-    name: "samsung j6",
-    category: "phone",
-    price: 3000,
-    image: "https://raw.githubusercontent.com/armanistore/armani-store/main/20261006_161100.jpg"
-  }
+  { id: 1, name: "Iphone 11pro max", category: "phone", price: 19500, image: "https://raw.githubusercontent.com/armanistore/armani-store/main/20261001_165939.jpg" },
+  { id: 2, name: "Ipad 2", category: "phone", price: 7500, image: "https://raw.githubusercontent.com/armanistore/armani-store/main/20261003_143823.jpg" },
+  { id: 3, name: "samsung j6", category: "phone", price: 3000, image: "https://raw.githubusercontent.com/armanistore/armani-store/main/20261006_161100.jpg" }
 ];
-// ================= CART =================
-
-let cart = JSON.parse(localStorage.getItem("armaniCart")) || [];
-
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem("armaniCart")) || []; } catch (error) { cart = []; }
 let currentCategory = "All";
 
-
-// ================= MONEY =================
-
-function money(amount) {
-  return "৳" + Number(amount).toLocaleString("en-BD");
-}
-
-
-// ================= SAVE CART =================
-
-function saveCart() {
-  localStorage.setItem("armaniCart", JSON.stringify(cart));
-}
-
-
-// ================= CART COUNT =================
-
+function money(amount) { return "৳" + Number(amount).toLocaleString("en-BD"); }
+function saveCart() { try { localStorage.setItem("armaniCart", JSON.stringify(cart)); } catch (error) { /* Storage may be unavailable in private browsing. */ } }
 function updateCartCount() {
-  const count = cart.reduce(
-    (total, item) => total + item.quantity,
-    0
-  );
-
-  const cartCount = document.getElementById("cartCount");
-
-  if (cartCount) {
-    cartCount.textContent = count;
-  }
+  const count = cart.reduce((total, item) => total + Number(item.quantity || 0), 0);
+  const badge = document.getElementById("cartCount");
+  if (badge) badge.textContent = count;
+  const title = document.getElementById("cartCountTitle");
+  if (title) title.textContent = count ? "(" + count + ")" : "";
 }
-
-
-// ================= ADD TO CART =================
-
 function addToCart(productId) {
-
-  const product = products.find(
-    item => item.id === productId
-  );
-
+  const product = products.find(item => item.id === productId);
   if (!product) return;
-
-  const existing = cart.find(
-    item => item.id === productId
-  );
-
-  if (existing) {
-    existing.quantity += 1;
-  } else {
-    cart.push({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      image: product.image,
-      quantity: 1
-    });
-  }
-
-  saveCart();
-  updateCartCount();
-  renderCart();
-
-  // Cart open হবে
-  document.getElementById("cart").classList.add("open");
-  document.getElementById("overlay").classList.add("show");
+  const existing = cart.find(item => item.id === productId);
+  if (existing) existing.quantity += 1;
+  else cart.push({ id: product.id, name: product.name, price: product.price, image: product.image, quantity: 1 });
+  saveCart(); updateCartCount(); renderCart(); setCartOpen(true);
 }
-
-
-// ================= REMOVE PRODUCT =================
-
 function removeFromCart(productId) {
-
-  cart = cart.filter(
-    item => item.id !== productId
-  );
-
-  saveCart();
-  updateCartCount();
-  renderCart();
+  cart = cart.filter(item => item.id !== productId);
+  saveCart(); updateCartCount(); renderCart();
 }
-
-
-// ================= CHANGE QUANTITY =================
-
 function changeQuantity(productId, change) {
-
-  const item = cart.find(
-    item => item.id === productId
-  );
-
+  const item = cart.find(item => item.id === productId);
   if (!item) return;
-
   item.quantity += change;
-
-  if (item.quantity <= 0) {
-    removeFromCart(productId);
-    return;
-  }
-
-  saveCart();
-  updateCartCount();
-  renderCart();
+  if (item.quantity <= 0) cart = cart.filter(entry => entry.id !== productId);
+  saveCart(); updateCartCount(); renderCart();
 }
-
-
-// ================= RENDER CART =================
-
 function renderCart() {
-
-  const cartItems = document.getElementById("cartItems");
-  const cartTotal = document.getElementById("cartTotal");
-
-  if (!cartItems) return;
-
-  if (cart.length === 0) {
-
-    cartItems.innerHTML = `
-      <div class="empty-cart">
-        <div style="font-size:45px;">🛒</div>
-        <h3>Your cart is empty</h3>
-        <p>Add some products to your cart.</p>
-      </div>
-    `;
-
-    cartTotal.textContent = "৳0";
-    return;
+  const container = document.getElementById("cartItems");
+  const totalNode = document.getElementById("cartTotal");
+  if (!container || !totalNode) return;
+  if (!cart.length) {
+    container.innerHTML = '<div class="cart-empty"><span aria-hidden="true">♡</span><h3>Your bag is waiting</h3><p>Explore the collection and add something you love.</p></div>';
+    totalNode.textContent = money(0); updateCartCount(); return;
   }
-
   let total = 0;
-
-  cartItems.innerHTML = cart.map(item => {
-
-    const itemTotal = item.price * item.quantity;
-
-    total += itemTotal;
-
-    return `
-      <div class="cart-item">
-
-        <img 
-          src="${item.image}" 
-          alt="${item.name}"
-          onerror="this.src='https://via.placeholder.com/100x120?text=Product'"
-        >
-
-        <div class="cart-item-info">
-
-          <h3>${item.name}</h3>
-
-          <p>${money(item.price)}</p>
-
-          <div class="quantity">
-
-            <button onclick="changeQuantity(${item.id}, -1)">
-              −
-            </button>
-
-            <span>${item.quantity}</span>
-
-            <button onclick="changeQuantity(${item.id}, 1)">
-              +
-            </button>
-
-          </div>
-
-        </div>
-
-        <div class="cart-item-right">
-
-          <strong>${money(itemTotal)}</strong>
-
-          <button 
-            class="remove-btn"
-            onclick="removeFromCart(${item.id})">
-            Remove
-          </button>
-
-        </div>
-
-      </div>
-    `;
-
+  container.innerHTML = cart.map(item => {
+    const lineTotal = Number(item.price) * Number(item.quantity);
+    total += lineTotal;
+    const safeName = escapeHTML(item.name);
+    const safeImage = escapeHTML(item.image || "");
+    return '<div class="cart-line"><img src="' + safeImage + '" alt="' + safeName + '" onerror="this.style.visibility=\'hidden\'"><div><strong>' + safeName + '</strong><small>' + money(item.price) + ' each</small><div class="qty-controls"><button type="button" aria-label="Decrease quantity" onclick="changeQuantity(' + Number(item.id) + ',-1)">−</button><span>' + Number(item.quantity) + '</span><button type="button" aria-label="Increase quantity" onclick="changeQuantity(' + Number(item.id) + ',1)">+</button></div></div><div class="cart-line-right"><strong>' + money(lineTotal) + '</strong><button type="button" class="remove-btn" onclick="removeFromCart(' + Number(item.id) + ')">Remove</button></div></div>';
   }).join("");
-
-  cartTotal.textContent = money(total);
+  totalNode.textContent = money(total); updateCartCount();
 }
-
-
-// ================= CART OPEN/CLOSE =================
-
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+}
+function setCartOpen(open) {
+  const drawer = document.getElementById("cart"), overlay = document.getElementById("overlay");
+  if (!drawer || !overlay) return;
+  drawer.classList.toggle("open", open); overlay.classList.toggle("open", open);
+  document.body.classList.toggle("cart-open", open);
+  drawer.setAttribute("aria-hidden", String(!open));
+}
 function toggleCart() {
-
-  const cartBox = document.getElementById("cart");
-  const overlay = document.getElementById("overlay");
-
-  cartBox.classList.toggle("open");
-  overlay.classList.toggle("show");
-
+  const drawer = document.getElementById("cart");
+  if (drawer) setCartOpen(!drawer.classList.contains("open"));
   renderCart();
 }
-
-
-// ================= SEARCH + CATEGORY =================
-
 function setCategory(category, button) {
-
   currentCategory = category;
-
-  document
-    .querySelectorAll(".filters button")
-    .forEach(btn => btn.classList.remove("active"));
-
-  if (button) {
-    button.classList.add("active");
+  document.querySelectorAll(".filters button").forEach(btn => btn.classList.toggle("active", btn === button || (!button && btn.textContent.toLowerCase().includes(String(category).toLowerCase()))));
+  renderProducts();
+  const shop = document.getElementById("shop");
+  if (shop && !button) shop.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+function renderProducts() {
+  const container = document.getElementById("products");
+  if (!container) return;
+  const input = document.getElementById("search");
+  const query = input ? input.value.toLowerCase().trim() : "";
+  const filtered = products.filter(product => (currentCategory === "All" || product.category.toLowerCase() === String(currentCategory).toLowerCase()) && (product.name.toLowerCase().includes(query) || product.category.toLowerCase().includes(query)));
+  if (!filtered.length) {
+    container.innerHTML = '<div class="no-results"><h3>No matches just yet</h3><p>Try a different search or explore all items.</p><button class="button button-green" type="button" onclick="resetProductFilters()">View all items</button></div>';
+    return;
   }
-
+  container.innerHTML = filtered.map(product => '<article class="product-card"><div class="product-image"><img loading="lazy" src="' + escapeHTML(product.image) + '" alt="' + escapeHTML(product.name) + '" onerror="this.onerror=null;this.src=\'https://placehold.co/600x700/f0eee5/173d30?text=ARMANHOVEX\'"><span class="product-tag">' + escapeHTML(product.category) + '</span></div><div class="product-info"><span class="product-category">THE EVERYDAY EDIT</span><h3>' + escapeHTML(product.name) + '</h3><div class="product-bottom"><strong class="price">' + money(product.price) + '</strong><button class="add-button" type="button" onclick="addToCart(' + product.id + ')">＋ Add to bag</button></div></div></article>').join("");
+}
+function resetProductFilters() {
+  currentCategory = "All";
+  const input = document.getElementById("search");
+  if (input) input.value = "";
+  document.querySelectorAll(".filters button").forEach((button, index) => button.classList.toggle("active", index === 0));
   renderProducts();
 }
-
-
-// ================= PRODUCTS =================
-
-function renderProducts() {
-
-  const container = document.getElementById("products");
-
-  if (!container) return;
-
-  const searchInput = document.getElementById("search");
-
-  const searchText =
-    searchInput ?
-    searchInput.value.toLowerCase().trim() :
-    "";
-
-  const filteredProducts = products.filter(product => {
-
-    const categoryMatch =
-      currentCategory === "All" ||
-      product.category === currentCategory;
-
-    const searchMatch =
-      product.name.toLowerCase().includes(searchText);
-
-    return categoryMatch && searchMatch;
-  });
-
-
-  if (filteredProducts.length === 0) {
-
-    container.innerHTML = `
-      <div class="no-products">
-        <h3>No products found</h3>
-        <p>Try another search.</p>
-      </div>
-    `;
-
-    return;
-  }
-
-
-  container.innerHTML = filteredProducts.map(product => {
-
-    return `
-      <div class="product-card">
-
-        <div class="product-image">
-
-          <img
-            src="${product.image}"
-            alt="${product.name}"
-            onerror="this.src='https://via.placeholder.com/500x600?text=Product+Image'"
-          >
-
-          <span class="category">
-            ${product.category}
-          </span>
-
-        </div>
-
-        <div class="product-info">
-
-          <h3>${product.name}</h3>
-
-          <div class="product-bottom">
-
-            <strong>${money(product.price)}</strong>
-
-            <button
-              class="add-cart"
-              onclick="addToCart(${product.id})">
-              🛒 Add
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-    `;
-
-  }).join("");
-}
-
-
-// ================= CHECKOUT =================
-
 function openCheckout() {
-
-  if (cart.length === 0) {
-    alert("Your cart is empty!");
-    return;
-  }
-
-  document
-    .getElementById("checkoutModal")
-    .classList.add("show");
-
+  if (!cart.length) { alert("Your bag is empty. Add a product before checking out."); return; }
+  setCartOpen(true);
+  const form = document.getElementById("checkoutForm");
+  if (form) form.scrollIntoView({ behavior: "smooth", block: "nearest" });
   updatePaymentInfo();
 }
-
-
-function closeCheckout() {
-
-  document
-    .getElementById("checkoutModal")
-    .classList.remove("show");
-}
-
-
-// ================= PAYMENT =================
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  const payment = document.getElementById("payment");
-
-  if (payment) {
-    payment.addEventListener(
-      "change",
-      updatePaymentInfo
-    );
-  }
-
-});
-
-
+function closeCheckout() { setCartOpen(false); }
 function updatePaymentInfo() {
-
-  const payment =
-    document.getElementById("payment");
-
-  const info =
-    document.getElementById("paymentInfo");
-
+  const payment = document.getElementById("payment"), info = document.getElementById("paymentInfo");
   if (!payment || !info) return;
-
-
-  if (payment.value === "COD") {
-
-    info.innerHTML = `
-      <p>💵 Cash on Delivery selected.</p>
-    `;
-
-  }
-
-  else if (payment.value === "bKash") {
-
-    info.innerHTML = `
-      <p>
-        📱 bKash Number:
-        <strong>
-          ${BKASH_NUMBER || "Not set yet"}
-        </strong>
-      </p>
-    `;
-
-  }
-
-  else if (payment.value === "Nagad") {
-
-    info.innerHTML = `
-      <p>
-        📱 Nagad Number:
-        <strong>
-          ${NAGAD_NUMBER}
-        </strong>
-      </p>
-    `;
-  }
+  if (payment.value === "COD") info.textContent = "Cash on Delivery selected.";
+  else if (payment.value === "bKash") info.textContent = "bKash number: " + (BKASH_NUMBER || "Please contact us to confirm the number.");
+  else info.textContent = "Nagad number: " + NAGAD_NUMBER;
 }
-
-
-// ================= WHATSAPP =================
-
 function sendWhatsAppOrder(orderText) {
-
-  const url =
-    "https://wa.me/" +
-    WHATSAPP_NUMBER +
-    "?text=" +
-    encodeURIComponent(orderText);
-
-  window.open(url, "_blank");
+  const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(orderText);
+  const opened = window.open(url, "_blank", "noopener,noreferrer");
+  if (!opened) window.location.href = url;
 }
-
-
-// ================= SUBMIT ORDER =================
-
 function submitOrder(event) {
-
   event.preventDefault();
-
-  if (cart.length === 0) {
-    alert("Your cart is empty!");
-    return;
-  }
-
-
-  const name =
-    document.getElementById("customerName").value.trim();
-
-  const phone =
-    document.getElementById("customerPhone").value.trim();
-
-  const address =
-    document.getElementById("customerAddress").value.trim();
-
-  const payment =
-    document.getElementById("payment").value;
-
-
+  if (!cart.length) { alert("Your bag is empty."); return; }
+  const name = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("customerPhone").value.trim();
+  const address = document.getElementById("customerAddress").value.trim();
+  const payment = document.getElementById("payment").value;
+  if (!name || !phone || !address) { alert("Please complete your contact and delivery details."); return; }
   let total = 0;
-
-  let orderText =
-    `🛍️ *${SHOP_NAME} - New Order*%0A%0A`;
-
-
-  orderText +=
-    `👤 Customer: ${name}%0A`;
-
-  orderText +=
-    `📞 Phone: ${phone}%0A`;
-
-  orderText +=
-    `📍 Address: ${address}%0A`;
-
-  orderText +=
-    `💳 Payment: ${payment}%0A%0A`;
-
-  orderText +=
-    `*ORDER ITEMS*%0A`;
-
-
+  let orderText = "🛍️ " + SHOP_NAME + " — New Order\n\nCustomer: " + name + "\nPhone: " + phone + "\nAddress: " + address + "\nPayment: " + payment + "\n\nORDER ITEMS\n";
   cart.forEach(item => {
-
-    const itemTotal =
-      item.price * item.quantity;
-
-    total += itemTotal;
-
-    orderText +=
-      `• ${item.name} x ${item.quantity} = ${money(itemTotal)}%0A`;
+    const lineTotal = Number(item.price) * Number(item.quantity);
+    total += lineTotal;
+    orderText += "• " + item.name + " × " + item.quantity + " = " + money(lineTotal) + "\n";
   });
-
-
-  orderText +=
-    `%0A💰 *Total: ${money(total)}*`;
-
-
+  orderText += "\nTotal: " + money(total);
   sendWhatsAppOrder(orderText);
 }
-
-
-// ================= PHONE =================
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  const phone =
-    document.getElementById("displayPhone");
-
-  if (phone) {
-    phone.textContent = WHATSAPP_NUMBER;
-  }
-
-  renderProducts();
-  renderCart();
-  updateCartCount();
-
-});
-// ===== AUTOMATIC AD SLIDER =====
-
-document.addEventListener("DOMContentLoaded", function () {
-const slides = document.querySelectorAll(".ad-slide");
-const dots = document.querySelectorAll(".ad-dot");
-
-if (slides.length === 0) return;
-
-let currentAd = 0;
-
-function showAd(index) {
-  slides.forEach(slide => slide.classList.remove("active"));
-  dots.forEach(dot => dot.classList.remove("active"));
-
-  slides[index].classList.add("active");
-
-  if (dots[index]) {
-    dots[index].classList.add("active");
-  }
-}
-
-setInterval(function () {
-  currentAd = (currentAd + 1) % slides.length;
-  showAd(currentAd);
-}, 4000);
+document.addEventListener("DOMContentLoaded", () => {
+  const phone = document.getElementById("displayPhone");
+  if (phone) phone.textContent = WHATSAPP_NUMBER;
+  const payment = document.getElementById("payment");
+  if (payment) payment.addEventListener("change", updatePaymentInfo);
+  const overlay = document.getElementById("overlay");
+  if (overlay) overlay.addEventListener("click", () => setCartOpen(false));
+  document.addEventListener("keydown", event => { if (event.key === "Escape") setCartOpen(false); });
+  renderProducts(); renderCart(); updateCartCount(); updatePaymentInfo();
 });
