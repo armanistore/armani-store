@@ -567,3 +567,25 @@ body{background:#080c13;color:#edf2f7}
 .quick-category.tile-women{
   background-position:center, center 14%!important;
 }
+
+
+/* Improve category image visibility without enlarging cards or changing images */
+.quick-category.tile-men,
+.quick-category.tile-women{
+  background-position:center 18%!important;
+}
+.quick-category.tile-shoes,
+.quick-category.tile-bags,
+.quick-category.tile-watches,
+.quick-category.tile-accessories{
+  background-position:center center!important;
+}
+/* Keep a restrained navy tint so category subjects remain clear */
+.quick-category.tile-men,
+.quick-category.tile-women,
+.quick-category.tile-shoes,
+.quick-category.tile-bags,
+.quick-category.tile-watches,
+.quick-category.tile-accessories{
+  background-blend-mode:normal;
+}
