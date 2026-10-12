@@ -560,3 +560,10 @@ body{background:#080c13;color:#edf2f7}
 @media(max-width:760px){
  .quick-category.tile-men,.quick-category.tile-women,.quick-category.tile-shoes,.quick-category.tile-bags,.quick-category.tile-watches,.quick-category.tile-accessories{min-height:108px}
 }
+
+
+/* Keep the full heads visible in the two portrait category cards */
+.quick-category.tile-men,
+.quick-category.tile-women{
+  background-position:center, center 14%!important;
+}
