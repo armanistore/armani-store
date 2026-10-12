@@ -308,3 +308,18 @@ body.offer-popup-open{overflow:hidden}
 .kids-choice-copy>span{font-family:"Playfair Display",serif;font-size:clamp(18px,2.5vw,27px);line-height:1.2}
 .kids-choice-copy i{font-style:normal;font-size:10px;font-weight:700;border-bottom:1px solid var(--gold);padding-bottom:5px;margin-top:5px}
 @media(max-width:600px){.kids-arrivals{padding:25px 0;margin-bottom:20px}.kids-choice-grid{gap:10px}.kids-choice{grid-template-columns:1fr}.kids-choice-image{min-height:0;aspect-ratio:4/5}.kids-choice-copy{padding:13px;gap:7px}.kids-choice-copy>span{font-size:19px}.kids-choice-copy i{font-size:9px}}
+
+
+/* Kids Fashion: child-friendly circular blue category UI */
+.kids-arrivals-heading h2{color:#111820;font-family:"Playfair Display",serif;font-size:clamp(34px,5vw,48px);font-weight:600;letter-spacing:-.045em}
+.kids-arrivals-heading>p:last-child{font-size:15px}
+.kids-choice-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,4vw,42px)}
+.kids-choice{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:14px;padding:0;overflow:visible;border:0;background:transparent;text-align:center;box-shadow:none}
+.kids-choice:hover,.kids-choice:focus-visible{transform:translateY(-3px);border-color:transparent;background:transparent;box-shadow:none}
+.kids-choice-image{width:100%;max-width:310px;min-height:0;aspect-ratio:1/1;flex:0 0 auto;border-radius:50%;overflow:hidden;background-color:#aeeaff;background-size:cover;background-position:center;border:1px solid #b4e9ff;box-shadow:0 8px 25px rgba(37,151,211,.08)}
+.kids-boy-image{background-image:url("https://images.unsplash.com/photo-1503919005314-30d93d07d823?auto=format&fit=crop&w=900&q=85")}
+.kids-girl-image{background-image:url("https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=85")}
+.kids-choice-copy{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:0 4px 8px}
+.kids-choice-copy strong{color:#171b20;font-family:"DM Sans",sans-serif;font-size:clamp(25px,4vw,38px);font-weight:700;letter-spacing:-.035em;line-height:1.15}
+.kids-choice-copy>span,.kids-choice-copy i{display:none}
+@media(max-width:600px){.kids-arrivals{padding:25px 0 30px}.kids-arrivals-heading h2{font-size:36px}.kids-arrivals-heading>p:last-child{font-size:14px}.kids-choice-grid{gap:15px}.kids-choice{gap:12px}.kids-choice-image{width:100%;aspect-ratio:1/1;min-height:0;max-width:none}.kids-choice-copy{padding:0 0 6px}.kids-choice-copy strong{font-size:clamp(23px,6vw,31px)}}
