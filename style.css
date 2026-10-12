@@ -433,3 +433,49 @@ body.offer-popup-open{overflow:hidden}
 @media(max-width:600px){
   .kids-choice-copy strong{font-size:clamp(32px,8vw,44px)}
 }
+
+
+/* ARMANHOVEX Black + Neon Blue theme — additive overrides; preserve existing layout and behavior */
+:root{--ink:#eaf3ff;--muted:#a2b4ca;--cream:#0a1220;--paper:#070b14;--green:#071a33;--green-deep:#030712;--line:#1d3554;--gold:#19baff;--gold-pale:#8be4ff;--neon-blue:#19baff;--neon-blue-soft:#75dcff;color-scheme:dark}
+body{background:var(--paper);color:var(--ink)}
+.announcement{background:#030712;color:#eaf7ff;border-bottom:1px solid #12365a}
+.announcement span,.eyebrow,.testimonial-caption{color:var(--neon-blue)}
+.brand-mark{background:linear-gradient(135deg,#19baff,#0876ff);color:#03101d;box-shadow:0 0 22px #19baff35}
+.brand b,.footer .brand b{color:#f2f8ff}.brand small{color:#8ba7c6}
+.header-icon{color:#d9efff}.header-icon:hover,.header-icon:focus-visible{color:var(--neon-blue)}
+.search{background:#0c1627;border-color:#234262;color:var(--ink);box-shadow:0 8px 28px #0004}
+.search input{color:#f2f8ff}.search input::placeholder{color:#8298b3}
+.search-submit,.button-green,.select-button,.add-button,.view-all-button{background:linear-gradient(135deg,#20c4ff,#087bff);color:#03101d;border-color:transparent;box-shadow:0 5px 22px #079bff22}
+.button-green:hover,.select-button:hover,.add-button:hover,.view-all-button:hover{filter:brightness(1.12);box-shadow:0 0 24px #19baff40}
+.quick-category,.category-card,.kids-choice,.product-card,.feature,.benefit-grid article{background:#0b1423;color:var(--ink);border-color:#1c3552}
+.quick-category:hover,.category-card:hover,.kids-choice:hover,.product-card:hover{border-color:var(--neon-blue);box-shadow:0 10px 32px #008cff18}
+.quick-category i,.category-icon,.kids-choice-copy i{color:var(--neon-blue)}
+.section-heading h2,.kids-arrivals-heading h2,.category-section h2,.why-section h2,.contact h2,.newsletter h2{color:#f3f8ff}
+.section-heading>p,.results-note,.carousel-hint,.kids-arrivals-heading>p,.about-copy,.benefit-grid p,.contact>p,.newsletter p{color:var(--muted)}
+.filters{scrollbar-color:#197fbd #0a1220}.filter{color:#b8c9dd;background:#0a1424;border-color:#203a59}
+.filter:hover,.filter.active{color:#03101d;background:var(--neon-blue);border-color:var(--neon-blue)}
+.product-carousel{scrollbar-color:#197fbd #0a1220}.product-card{overflow:hidden}.product-image{background:#0e1a2b}
+.product-info,.product-category,.product-info h3{color:var(--ink)}.price,.product-bottom strong{color:#eaf7ff}
+.product-tag{background:#102640;color:#7edfff;border:1px solid #1c4b70}
+.demo-product-tag,.demo-price-label,.demo-cart-label{color:#ffd889}
+.demo-note{color:#f5dca7;background:#241d11;border-color:#66502a}
+.carousel-arrow,.icon-button,.qty-controls button{color:#cdeaff;background:#0e1b2e;border-color:#254363}
+.carousel-arrow:hover,.icon-button:hover,.qty-controls button:hover{color:#04101d;background:var(--neon-blue)}
+.feature-dark{background:linear-gradient(135deg,#071a33,#0b2e50);color:#f2f8ff}
+.feature-light{background:#0d1929;color:#f2f8ff}.feature a,.nav a:hover,.footer a:hover{color:var(--neon-blue)}
+.nav{border-color:#1b3049}.nav a{color:#b7c9dd}
+.why-section,.testimonial,.contact{color:var(--ink)}
+.benefit-grid article{border:1px solid #1c3552;border-radius:14px}
+.benefit-grid article>span,.quote-mark{color:var(--neon-blue)}.testimonial{border-color:#1b3551}
+.newsletter{background:linear-gradient(120deg,#071a33,#0a2c4b);color:#f2f8ff;border:1px solid #17436a}
+.button-light{background:#eaf7ff;color:#071a33}
+.product-modal,.cart-drawer{background:#08111f;color:var(--ink);border-color:#203a59}
+.product-modal-copy,.drawer-head{color:var(--ink)}.detail-option span{background:#0d2035;border-color:#285174;color:#d7f2ff}
+.field-label{color:#c4d5e8}.field-label input,.field-label textarea,.field-label select{background:#0b192b;color:#f2f8ff;border-color:#29435f}
+.field-label input::placeholder,.field-label textarea::placeholder{color:#8096af}
+.cart-line,.total-row{border-color:#1b3551}.cart-empty{color:#b9cbe0}
+.footer{background:#030712;color:#b8c9dd;border-top:1px solid #183451}.footer .copyright{color:#8097b1}
+.offer-popup-dialog{background:#07111f;border:1px solid #214767;box-shadow:0 0 48px #008cff24}
+.offer-popup-close{background:#e32636;color:white}
+:focus-visible{outline:2px solid var(--neon-blue);outline-offset:3px}
+@media(prefers-reduced-motion:no-preference){.button-green,.select-button,.add-button,.quick-category,.category-card,.kids-choice,.product-card{transition:border-color .2s ease,box-shadow .2s ease,filter .2s ease}}
