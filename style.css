@@ -479,3 +479,44 @@ body{background:var(--paper);color:var(--ink)}
 .offer-popup-close{background:#e32636;color:white}
 :focus-visible{outline:2px solid var(--neon-blue);outline-offset:3px}
 @media(prefers-reduced-motion:no-preference){.button-green,.select-button,.add-button,.quick-category,.category-card,.kids-choice,.product-card{transition:border-color .2s ease,box-shadow .2s ease,filter .2s ease}}
+
+
+/* Premium refinement: reduce neon blocks, improve contrast and hierarchy */
+:root{--ink:#edf2f7;--muted:#a5afbd;--cream:#111722;--paper:#080c13;--green:#101c2b;--green-deep:#05080e;--line:#253244;--gold:#56c8ff;--gold-pale:#b6eaff}
+body{background:#080c13;color:#edf2f7}
+.announcement{background:#05080e;color:#c8d3e0;border-bottom:1px solid #1b2a3b}
+.brand-mark{border:1px solid #56c8ff;border-radius:12px;color:#06101b;background:linear-gradient(145deg,#75dcff,#168bff);box-shadow:none}
+.brand b{color:#f4f7fb}.brand small{color:#94a5b9}
+.search,.search.search-main{background:#101722;border:1px solid #2a394c;box-shadow:none;color:#f4f7fb}
+.search>span{color:#56c8ff}.search input{color:#f4f7fb}.search input::placeholder{color:#8796aa}
+.search-submit{background:#168bff;color:#06101b;border:0;box-shadow:none}
+.quick-categories{gap:10px;margin-bottom:30px}
+.quick-category,.quick-category.tile-men,.quick-category.tile-women,.quick-category.tile-shoes,.quick-category.tile-bags,.quick-category.tile-watches,.quick-category.tile-accessories{min-height:104px;height:auto;padding:18px 16px;border-radius:12px;display:flex;align-items:flex-end;justify-content:space-between;gap:8px;background:linear-gradient(145deg,#111c2b,#0b111b)!important;border:1px solid #26384d!important;color:#f0f5fb;box-shadow:none!important;position:relative;overflow:hidden}
+.quick-category:before{content:"";position:absolute;left:0;top:0;width:3px;height:100%;background:#168bff;opacity:.85}
+.quick-category span{font-size:clamp(14px,3.6vw,19px);line-height:1.25;font-weight:600;position:relative;z-index:1}
+.quick-category i{font-size:19px;color:#56c8ff;background:#10263b;border:1px solid #285274;border-radius:50%;width:30px;height:30px;display:grid;place-items:center;flex-shrink:0}
+.quick-category:hover,.quick-category:focus-visible{border-color:#56c8ff!important;box-shadow:0 8px 22px #0003!important;transform:translateY(-2px)}
+.shop-section{background:#0b1018!important;border-color:#1b2737!important}
+.shop-section .section-heading h2,.shop-section .kids-arrivals-heading h2,.section-heading h2{color:#f3f6fb!important}
+.shop-section .section-heading>p,.shop-section .carousel-hint,.results-note{color:#a5afbd!important}
+.shop-section .product-carousel .product-card{background:#111925!important;border-color:#253346!important;box-shadow:none!important}
+.shop-section .product-carousel .product-image{background:#0b111a!important}
+.shop-section .product-carousel .product-info h3{color:#f0f4fa!important}
+.shop-section .product-carousel .product-category{color:#56c8ff!important}
+.shop-section .product-carousel .price{color:#f2f6fb!important}
+.shop-section .product-carousel .add-button{background:#168bff!important;color:#06101b!important}
+.shop-section .product-carousel .select-button{border-color:#35516d!important;color:#c9eaff!important;background:transparent!important}
+.shop-section .view-all-button{border-color:#34465a!important;color:#e1eaf5!important;background:#111925!important}
+.shop-section .shop-tools{border-color:#253244!important}
+.shop-section .filter{border-color:#2c3c50!important;color:#c1ccda!important}
+.shop-section .filter.active,.shop-section .filter:hover{background:#168bff!important;border-color:#168bff!important;color:#06101b!important}
+.shop-section .demo-notice{background:#17160f!important;border-color:#5e4d2b!important;color:#e0d2b4!important}
+.kids-arrivals-heading h2,.kids-section h2,.kids-fashion h2{color:#f2f6fb!important}
+.kids-arrivals-heading>p,.kids-section p,.kids-fashion p{color:#a5afbd}
+.kids-choice{background:#101925!important;border-color:#25364b!important}
+.kids-choice-copy strong{color:#56c8ff!important;-webkit-text-fill-color:#56c8ff!important}
+.product-modal,.cart-drawer{background:#0b111a!important;color:#edf2f7!important;border-color:#26374b!important}
+.product-modal-copy h2,.drawer-head h2{color:#f2f6fb!important}
+.field-label input,.field-label select,.field-label textarea{background:#111925!important;color:#f2f6fb!important;border-color:#2a3b50!important}
+.footer{background:#05080e!important;border-top:1px solid #1c2b3b!important}
+@media(max-width:760px){.quick-categories{gap:9px;margin-bottom:22px}.quick-category,.quick-category.tile-men,.quick-category.tile-women,.quick-category.tile-shoes,.quick-category.tile-bags,.quick-category.tile-watches,.quick-category.tile-accessories{min-height:94px;padding:14px 12px;border-radius:10px}.quick-category span{font-size:15px}.shop-section{padding-top:30px!important}.shop-section .section-heading h2{font-size:31px!important}}
