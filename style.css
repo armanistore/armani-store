@@ -520,3 +520,30 @@ body{background:#080c13;color:#edf2f7}
 .field-label input,.field-label select,.field-label textarea{background:#111925!important;color:#f2f6fb!important;border-color:#2a3b50!important}
 .footer{background:#05080e!important;border-top:1px solid #1c2b3b!important}
 @media(max-width:760px){.quick-categories{gap:9px;margin-bottom:22px}.quick-category,.quick-category.tile-men,.quick-category.tile-women,.quick-category.tile-shoes,.quick-category.tile-bags,.quick-category.tile-watches,.quick-category.tile-accessories{min-height:94px;padding:14px 12px;border-radius:10px}.quick-category span{font-size:15px}.shop-section{padding-top:30px!important}.shop-section .section-heading h2{font-size:31px!important}}
+
+
+/* Category photography: real category imagery with a restrained dark overlay */
+.quick-category.tile-men,
+.quick-category.tile-women,
+.quick-category.tile-shoes,
+.quick-category.tile-bags,
+.quick-category.tile-watches,
+.quick-category.tile-accessories{
+  background-color:#101925!important;
+  background-position:center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  isolation:isolate;
+}
+.quick-category.tile-men{background-image:linear-gradient(90deg,rgba(4,10,18,.18),rgba(4,10,18,.78)),url("https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=900&q=85")!important}
+.quick-category.tile-women{background-image:linear-gradient(90deg,rgba(4,10,18,.18),rgba(4,10,18,.78)),url("https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=85")!important}
+.quick-category.tile-shoes{background-image:linear-gradient(90deg,rgba(4,10,18,.18),rgba(4,10,18,.78)),url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85")!important}
+.quick-category.tile-bags{background-image:linear-gradient(90deg,rgba(4,10,18,.18),rgba(4,10,18,.78)),url("https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85")!important}
+.quick-category.tile-watches{background-image:linear-gradient(90deg,rgba(4,10,18,.18),rgba(4,10,18,.78)),url("https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85")!important}
+.quick-category.tile-accessories{background-image:linear-gradient(90deg,rgba(4,10,18,.18),rgba(4,10,18,.78)),url("https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85")!important}
+.quick-category span{color:#fff!important;text-shadow:0 2px 10px rgba(0,0,0,.55)}
+.quick-category i{background:rgba(4,15,28,.78)!important;border-color:#56c8ff!important;color:#75d8ff!important}
+.quick-category:before{z-index:0;pointer-events:none}
+@media(max-width:760px){
+ .quick-category.tile-men,.quick-category.tile-women,.quick-category.tile-shoes,.quick-category.tile-bags,.quick-category.tile-watches,.quick-category.tile-accessories{min-height:108px}
+}
