@@ -323,3 +323,31 @@ body.offer-popup-open{overflow:hidden}
 .kids-choice-copy strong{color:#171b20;font-family:"DM Sans",sans-serif;font-size:clamp(25px,4vw,38px);font-weight:700;letter-spacing:-.035em;line-height:1.15}
 .kids-choice-copy>span,.kids-choice-copy i{display:none}
 @media(max-width:600px){.kids-arrivals{padding:25px 0 30px}.kids-arrivals-heading h2{font-size:36px}.kids-arrivals-heading>p:last-child{font-size:14px}.kids-choice-grid{gap:15px}.kids-choice{gap:12px}.kids-choice-image{width:100%;aspect-ratio:1/1;min-height:0;max-width:none}.kids-choice-copy{padding:0 0 6px}.kids-choice-copy strong{font-size:clamp(23px,6vw,31px)}}
+
+
+/* Kids Fashion live-site correction: round blue child portraits */
+.kids-arrivals{border:0;padding:32px 0 40px;margin:0 0 26px}
+.kids-arrivals-heading{padding-bottom:22px;margin-bottom:clamp(28px,5vw,48px);border-bottom:2px solid #a8e6ff}
+.kids-arrivals-heading .eyebrow{font-size:clamp(13px,2.2vw,19px);font-weight:700;letter-spacing:.22em;color:#1685f4;margin-bottom:12px}
+.kids-arrivals-heading h2{font-size:clamp(38px,7.3vw,70px);line-height:1.08;color:#111820;font-weight:700;letter-spacing:-.045em}
+.kids-arrivals-heading>p:last-child{font-size:clamp(17px,3vw,27px);line-height:1.35;margin-top:12px;color:#858984}
+.kids-choice-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3vw,32px);align-items:start}
+.kids-choice{display:flex;flex-direction:column;align-items:center;gap:14px;padding:0;overflow:visible;border:0;background:transparent;text-align:center;box-shadow:none}
+.kids-choice:hover,.kids-choice:focus-visible{transform:translateY(-3px);border-color:transparent;background:transparent;box-shadow:none}
+.kids-choice-image{display:block;width:100%;max-width:310px;min-height:0;aspect-ratio:1/1;flex:0 0 auto;border-radius:50%;overflow:hidden;background-color:#a9e5ff;background-size:cover;background-position:center;border:1px solid #b4e9ff;box-shadow:none}
+.kids-boy-image{background-image:url("https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=900&q=85")}
+.kids-girl-image{background-image:url("https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=85")}
+.kids-choice-copy{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:0 4px 8px}
+.kids-choice-copy strong{color:#171b20;font-family:"DM Sans",sans-serif;font-size:clamp(25px,5vw,44px);font-weight:700;letter-spacing:-.035em;line-height:1.15}
+.kids-choice-copy>span,.kids-choice-copy i{display:none}
+@media(max-width:600px){
+ .kids-arrivals{padding:28px 0 32px;margin-bottom:20px}
+ .kids-arrivals-heading{padding-bottom:19px;margin-bottom:25px}
+ .kids-arrivals-heading .eyebrow{font-size:14px;margin-bottom:10px}
+ .kids-arrivals-heading h2{font-size:clamp(36px,9vw,54px)}
+ .kids-arrivals-heading>p:last-child{font-size:18px;margin-top:10px}
+ .kids-choice-grid{gap:14px}
+ .kids-choice{gap:12px}
+ .kids-choice-image{width:100%;aspect-ratio:1/1;max-width:none}
+ .kids-choice-copy strong{font-size:clamp(25px,7vw,36px)}
+}
