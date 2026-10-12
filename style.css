@@ -317,8 +317,8 @@ body.offer-popup-open{overflow:hidden}
 .kids-choice{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:14px;padding:0;overflow:visible;border:0;background:transparent;text-align:center;box-shadow:none}
 .kids-choice:hover,.kids-choice:focus-visible{transform:translateY(-3px);border-color:transparent;background:transparent;box-shadow:none}
 .kids-choice-image{width:100%;max-width:310px;min-height:0;aspect-ratio:1/1;flex:0 0 auto;border-radius:50%;overflow:hidden;background-color:#aeeaff;background-size:cover;background-position:center;border:1px solid #b4e9ff;box-shadow:0 8px 25px rgba(37,151,211,.08)}
-.kids-boy-image{background-image:url("https://images.unsplash.com/photo-1503919005314-30d93d07d823?auto=format&fit=crop&w=900&q=85")}
-.kids-girl-image{background-image:url("https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=85")}
+.kids-boy-image{background-image:url("https://images.unsplash.com/photo-1706307121034-81829ec35a0d?auto=format&fit=crop&w=900&q=85")}
+.kids-girl-image{background-image:url("https://images.unsplash.com/photo-1768625121007-817004c27c7b?auto=format&fit=crop&w=900&q=85")}
 .kids-choice-copy{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:0 4px 8px}
 .kids-choice-copy strong{color:#171b20;font-family:"DM Sans",sans-serif;font-size:clamp(25px,4vw,38px);font-weight:700;letter-spacing:-.035em;line-height:1.15}
 .kids-choice-copy>span,.kids-choice-copy i{display:none}
