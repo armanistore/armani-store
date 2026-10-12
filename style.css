@@ -520,3 +520,43 @@ body{background:#080c13;color:#edf2f7}
 .field-label input,.field-label select,.field-label textarea{background:#111925!important;color:#f2f6fb!important;border-color:#2a3b50!important}
 .footer{background:#05080e!important;border-top:1px solid #1c2b3b!important}
 @media(max-width:760px){.quick-categories{gap:9px;margin-bottom:22px}.quick-category,.quick-category.tile-men,.quick-category.tile-women,.quick-category.tile-shoes,.quick-category.tile-bags,.quick-category.tile-watches,.quick-category.tile-accessories{min-height:94px;padding:14px 12px;border-radius:10px}.quick-category span{font-size:15px}.shop-section{padding-top:30px!important}.shop-section .section-heading h2{font-size:31px!important}}
+
+
+/* Use the six reference images uploaded to the repository root */
+.quick-category.tile-men,
+.quick-category.tile-women,
+.quick-category.tile-shoes,
+.quick-category.tile-bags,
+.quick-category.tile-watches,
+.quick-category.tile-accessories{
+  background-color:#0b1830!important;
+  background-position:center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+.quick-category.tile-men{
+  background-image:linear-gradient(90deg,rgba(3,12,27,.22),rgba(3,12,27,.78)),url("./mens-clothing.jpg")!important;
+}
+.quick-category.tile-women{
+  background-image:linear-gradient(90deg,rgba(3,12,27,.22),rgba(3,12,27,.78)),url("./womens-fashion.jpg")!important;
+}
+.quick-category.tile-shoes{
+  background-image:linear-gradient(90deg,rgba(3,12,27,.22),rgba(3,12,27,.78)),url("./shoes.jpg")!important;
+}
+.quick-category.tile-bags{
+  background-image:linear-gradient(90deg,rgba(3,12,27,.22),rgba(3,12,27,.78)),url("./bags.jpg")!important;
+}
+.quick-category.tile-watches{
+  background-image:linear-gradient(90deg,rgba(3,12,27,.22),rgba(3,12,27,.78)),url("./watches.jpg")!important;
+}
+.quick-category.tile-accessories{
+  background-image:linear-gradient(90deg,rgba(3,12,27,.22),rgba(3,12,27,.78)),url("./accessories.jpg")!important;
+}
+.quick-category span{color:#fff!important;text-shadow:0 2px 10px rgba(0,0,0,.7)}
+.quick-category i{background:rgba(5,20,42,.86)!important;border-color:#56c8ff!important;color:#75d8ff!important}
+@media(max-width:760px){
+ .quick-category.tile-men,.quick-category.tile-women,.quick-category.tile-shoes,.quick-category.tile-bags,.quick-category.tile-watches,.quick-category.tile-accessories{min-height:108px}
+}
