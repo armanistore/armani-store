@@ -716,3 +716,22 @@ body{background:#07090b;color:#f5f0e5}
  .search.search-main{height:52px}
  .shop-section{background:#0b0c0e}
 }
+
+
+/* FIX 2026-10-14: force hero visibility and reveal the original category photos */
+section.hero.wrap#home{display:flex!important;visibility:visible!important;opacity:1!important;position:relative!important;isolation:isolate;z-index:1;width:min(1180px,calc(100% - 48px))!important;min-height:clamp(285px,35vw,410px)!important;height:auto!important;overflow:hidden!important;margin:12px auto 20px!important;background:linear-gradient(110deg,#fffdf7 0%,#f5ead0 52%,#d4b46d 100%)!important;border:1px solid #d4ad58!important;border-radius:18px!important}
+section.hero.wrap#home .hero-copy{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:3!important;width:58%!important;padding:clamp(22px,4vw,48px)!important}
+section.hero.wrap#home .hero-image{display:block!important;visibility:visible!important;opacity:1!important;position:absolute!important;inset:0 0 0 40%!important;z-index:1!important;min-height:100%!important;background-image:linear-gradient(90deg,#fff9ed 0%,rgba(255,249,237,.68) 13%,rgba(255,249,237,.08) 46%,rgba(0,0,0,.02) 100%),url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1400&q=85")!important;background-position:center 42%!important;background-size:cover!important;background-repeat:no-repeat!important}
+section.hero.wrap#home .sale-card{z-index:4!important;display:flex!important;visibility:visible!important;opacity:1!important}
+section.hero.wrap#home h1{color:#151515!important}section.hero.wrap#home h1 em{color:#a57824!important}section.hero.wrap#home .hero-sub{color:#4f493f!important}section.hero.wrap#home .eyebrow{color:#99702a!important}section.hero.wrap#home .button-green{background:linear-gradient(120deg,#b17b23,#e0b650)!important;color:#080808!important}
+.quick-categories .quick-category.tile-men{background-image:linear-gradient(90deg,rgba(0,0,0,.015),rgba(0,0,0,.07)),url("./mens-clothing.jpg")!important}
+.quick-categories .quick-category.tile-women{background-image:linear-gradient(90deg,rgba(0,0,0,.015),rgba(0,0,0,.07)),url("./womens-fashion.jpg")!important}
+.quick-categories .quick-category.tile-shoes{background-image:linear-gradient(90deg,rgba(0,0,0,.01),rgba(0,0,0,.06)),url("./shoes.jpg")!important}
+.quick-categories .quick-category.tile-bags{background-image:linear-gradient(90deg,rgba(0,0,0,.01),rgba(0,0,0,.06)),url("./bags.jpg")!important}
+.quick-categories .quick-category.tile-watches{background-image:linear-gradient(90deg,rgba(0,0,0,.01),rgba(0,0,0,.06)),url("./watches.jpg")!important}
+.quick-categories .quick-category.tile-accessories{background-image:linear-gradient(90deg,rgba(0,0,0,.01),rgba(0,0,0,.06)),url("./accessories.jpg")!important}
+.quick-categories .quick-category.tile-men,.quick-categories .quick-category.tile-women,.quick-categories .quick-category.tile-shoes,.quick-categories .quick-category.tile-bags,.quick-categories .quick-category.tile-watches,.quick-categories .quick-category.tile-accessories{background-size:cover!important;background-repeat:no-repeat!important;filter:none!important}
+.quick-categories .quick-category::before{background:linear-gradient(100deg,rgba(0,0,0,.05),rgba(0,0,0,.02))!important;opacity:1!important}
+.quick-categories .quick-category span{color:#fffaf0!important;text-shadow:0 2px 8px rgba(0,0,0,.75)!important}
+.quick-categories .quick-category i{background:rgba(8,9,10,.82)!important;border-color:#e0b650!important;color:#f4cf70!important}
+@media(max-width:760px){section.hero.wrap#home{width:calc(100% - 28px)!important;min-height:490px!important;margin:8px auto 15px!important}section.hero.wrap#home .hero-copy{width:100%!important;padding:24px 18px!important}section.hero.wrap#home .hero-image{inset:190px 0 0!important;min-height:0!important;background-image:linear-gradient(180deg,#f7edd9 0%,rgba(247,237,217,.12) 32%,rgba(0,0,0,.01) 100%),url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85")!important;background-position:center!important;background-size:cover!important}section.hero.wrap#home .hero-points{display:flex!important}}
