@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261012-kids-portraits-fix2">
+  <link rel="stylesheet" href="style.css?v=20261014-gold-white-hero">
 </head>
 <body>
   <div class="announcement">A MORE CONSIDERED WARDROBE <span>✦</span> DISCOVER YOUR NEXT FAVOURITE</div>
@@ -45,6 +45,10 @@
       <button class="header-icon cart-icon" type="button" onclick="toggleCart()" aria-label="Open shopping bag">🛒<b id="cartCount">0</b></button>
     </div>
   </header>
+  <section class="hero wrap" id="home">
+      <div class="hero-copy"><p class="eyebrow">THE ART OF EVERYDAY STYLE</p><h1>Wear your<br><em>own story.</em></h1><p class="hero-sub">Thoughtful finds for a confident, effortless you. Discover pieces that feel as good as they look.</p><a class="button button-green" href="#shop">Explore the collection <span>↗</span></a><div class="hero-points"><span>✦ Curated essentials</span><span>✦ Easy ordering</span></div></div>
+      <div class="hero-image" role="img" aria-label="Editorial fashion collection"></div><div class="sale-card"><small>YOUR STYLE, YOUR WAY</small><strong>New<br>season</strong><span>Find your everyday favourite.</span></div>
+    </section>
   <div class="search-wrap wrap">
     <label class="search search-main" aria-label="Search products"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="What are you shopping for today…" oninput="renderProducts()"><button class="search-submit" type="button" onclick="document.getElementById('search').focus()" aria-label="Start searching">+</button></label>
   </div>
@@ -81,10 +85,7 @@
 
 <nav class="nav wrap" aria-label="Main navigation"><a href="#home">Home</a><a href="#categories">Collections</a><a href="#shop">Shop all</a><a href="#about">Our story</a><a href="#contact">Contact</a></nav>
 
-<section class="hero wrap" id="home">
-      <div class="hero-copy"><p class="eyebrow">THE ART OF EVERYDAY STYLE</p><h1>Wear your<br><em>own story.</em></h1><p class="hero-sub">Thoughtful finds for a confident, effortless you. Discover pieces that feel as good as they look.</p><a class="button button-green" href="#shop">Explore the collection <span>↗</span></a><div class="hero-points"><span>✦ Curated essentials</span><span>✦ Easy ordering</span></div></div>
-      <div class="hero-image" role="img" aria-label="Editorial fashion collection"></div><div class="sale-card"><small>YOUR STYLE, YOUR WAY</small><strong>New<br>season</strong><span>Find your everyday favourite.</span></div>
-    </section>
+
 
     <section class="category-section wrap" id="categories"><div class="section-heading"><div><p class="eyebrow">FIND YOUR FIT</p><h2>Shop by collection</h2></div><p>Explore the demo fashion edit.</p></div><div class="category-grid">
 <button class="category-card" onclick="setCategory('mens-clothing')"><span class="category-icon">◈</span><b>Men's Clothing</b><small>Modern everyday essentials ↗</small></button>
