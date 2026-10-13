@@ -589,3 +589,26 @@ body{background:#080c13;color:#edf2f7}
 .quick-category.tile-accessories{
   background-blend-mode:normal;
 }
+
+
+/* Category card clarity pass: reduce the heavy navy overlay while retaining blue accents */
+.quick-category.tile-men,
+.quick-category.tile-women,
+.quick-category.tile-shoes,
+.quick-category.tile-bags,
+.quick-category.tile-watches,
+.quick-category.tile-accessories{
+  background-image:
+    linear-gradient(90deg,rgba(3,12,27,.04),rgba(3,12,27,.28)),
+    var(--category-image) !important;
+  background-color:#101a29;
+  background-blend-mode:normal;
+}
+.quick-category.tile-men{background-image:linear-gradient(90deg,rgba(3,12,27,.03),rgba(3,12,27,.23)),url("./mens-clothing.jpg")!important}
+.quick-category.tile-women{background-image:linear-gradient(90deg,rgba(3,12,27,.03),rgba(3,12,27,.23)),url("./womens-fashion.jpg")!important}
+.quick-category.tile-shoes{background-image:linear-gradient(90deg,rgba(3,12,27,.02),rgba(3,12,27,.20)),url("./shoes.jpg")!important}
+.quick-category.tile-bags{background-image:linear-gradient(90deg,rgba(3,12,27,.02),rgba(3,12,27,.20)),url("./bags.jpg")!important}
+.quick-category.tile-watches{background-image:linear-gradient(90deg,rgba(3,12,27,.02),rgba(3,12,27,.20)),url("./watches.jpg")!important}
+.quick-category.tile-accessories{background-image:linear-gradient(90deg,rgba(3,12,27,.02),rgba(3,12,27,.20)),url("./accessories.jpg")!important}
+.quick-category span{color:#fff!important;text-shadow:0 2px 5px rgba(0,0,0,.48)!important}
+.quick-category i{background:rgba(5,20,42,.64)!important;border-color:#56c8ff!important;color:#8be0ff!important}
