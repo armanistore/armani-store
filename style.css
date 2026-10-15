@@ -862,3 +862,66 @@ main{order:5;width:auto!important;margin:0 28px 0 250px!important;min-width:0}
 
 /* Keep the footer after the storefront content in the flex page layout. */
 .footer{order:6}
+
+
+/* Category tiles: consistent dimensions and better subject framing on narrow desktop/tablet widths */
+.quick-categories{align-items:stretch!important}
+.quick-categories .quick-category{
+  position:relative!important;
+  min-width:0!important;
+  width:100%!important;
+  height:clamp(82px,8vw,108px)!important;
+  min-height:clamp(82px,8vw,108px)!important;
+  max-height:108px!important;
+  padding:10px 11px!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-position:center 44%!important;
+  display:flex!important;
+  align-items:flex-end!important;
+  justify-content:flex-start!important;
+  box-sizing:border-box!important;
+}
+.quick-categories .quick-category span{
+  display:block!important;
+  max-width:calc(100% - 4px)!important;
+  width:auto!important;
+  position:relative!important;
+  z-index:2!important;
+  font-size:clamp(10px,.9vw,13px)!important;
+  line-height:1.2!important;
+  font-weight:700!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+}
+.quick-categories .quick-category i{
+  position:absolute!important;
+  top:8px!important;
+  right:8px!important;
+  width:25px!important;
+  height:25px!important;
+  font-size:16px!important;
+}
+.quick-categories .quick-category::before{
+  background:linear-gradient(0deg,rgba(2,8,14,.86) 0%,rgba(2,8,14,.25) 58%,rgba(2,8,14,.02) 100%)!important;
+}
+.quick-categories .tile-men{background-position:center 35%!important}
+.quick-categories .tile-women{background-position:center 30%!important}
+.quick-categories .tile-shoes{background-position:center 55%!important}
+.quick-categories .tile-bags{background-position:center 48%!important}
+.quick-categories .tile-watches{background-position:center 48%!important}
+.quick-categories .tile-accessories{background-position:center 55%!important}
+@media(min-width:1101px){
+ .quick-categories{grid-template-columns:repeat(6,minmax(0,1fr))!important}
+}
+@media(max-width:1100px) and (min-width:761px){
+ .quick-categories{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:9px!important}
+ .quick-categories .quick-category{height:88px!important;min-height:88px!important}
+ .quick-categories .quick-category span{font-size:11px!important}
+}
+@media(max-width:760px){
+ .quick-categories{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important}
+ .quick-categories .quick-category{height:78px!important;min-height:78px!important;padding:7px!important}
+ .quick-categories .quick-category span{font-size:9px!important}
+ .quick-categories .quick-category i{width:22px!important;height:22px!important;top:5px!important;right:5px!important;font-size:14px!important}
+}
