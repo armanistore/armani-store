@@ -925,3 +925,45 @@ main{order:5;width:auto!important;margin:0 28px 0 250px!important;min-width:0}
  .quick-categories .quick-category span{font-size:9px!important}
  .quick-categories .quick-category i{width:22px!important;height:22px!important;top:5px!important;right:5px!important;font-size:14px!important}
 }
+
+
+/* Kids fashion premium refresh: clean portraits, elegant labels, no decorative side marks */
+.kids-arrivals-heading h2{color:#f4f8ff!important}
+.kids-arrivals-heading>p:last-child{color:#a9bdce!important}
+.kids-arrivals-heading{border-bottom-color:#1b779f!important}
+.kids-choice-grid{gap:clamp(18px,4vw,44px)!important;align-items:start!important}
+.kids-choice{gap:10px!important;min-width:0!important}
+.kids-choice-image{
+  width:min(100%,300px)!important;
+  aspect-ratio:4/4.4!important;
+  border-radius:150px 150px 18px 18px!important;
+  border:1px solid #1d8dbb!important;
+  background-color:#0b1b2a!important;
+  background-size:cover!important;
+  background-position:center 28%!important;
+  box-shadow:0 12px 30px rgba(0,157,220,.12)!important;
+}
+.kids-boy-image{background-image:url("https://images.unsplash.com/photo-1503919005314-30d93d07d823?auto=format&fit=crop&w=900&q=90")!important}
+.kids-girl-image{background-image:url("https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=90")!important}
+.kids-choice-copy{padding:2px 0 8px!important}
+.kids-choice-copy strong{
+  position:relative!important;
+  display:inline-block!important;
+  padding:0 0 7px!important;
+  color:#eaf8ff!important;
+  font-family:"Playfair Display","Georgia",serif!important;
+  font-size:clamp(28px,3.2vw,42px)!important;
+  font-weight:600!important;
+  font-style:italic!important;
+  letter-spacing:.01em!important;
+  line-height:1.2!important;
+  text-shadow:0 2px 18px rgba(0,173,255,.16)!important;
+}
+.kids-choice-copy strong:before,.kids-choice-copy strong:after{display:none!important;content:none!important;box-shadow:none!important}
+.kids-choice{transition:transform .2s ease!important}
+.kids-choice:hover .kids-choice-image{border-color:#27c6ff!important;box-shadow:0 14px 34px rgba(0,157,220,.2)!important}
+@media(max-width:600px){
+ .kids-choice-grid{gap:14px!important}
+ .kids-choice-image{width:100%!important;aspect-ratio:3/4!important;border-radius:90px 90px 12px 12px!important}
+ .kids-choice-copy strong{font-size:clamp(24px,6vw,32px)!important}
+}
