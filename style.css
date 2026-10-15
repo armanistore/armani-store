@@ -862,3 +862,71 @@ main{order:5;width:auto!important;margin:0 28px 0 250px!important;min-width:0}
 
 /* Keep the footer after the storefront content in the flex page layout. */
 .footer{order:6}
+
+
+/* ARMANHOVEX GOLD + BLACK + BLUE premium theme */
+:root{
+ --ink:#f7f5ef;--muted:#b8b5ad;--paper:#050608;--cream:#101116;
+ --green:#0b0d12;--green-deep:#030405;--gold:#d8ad4b;--gold-pale:#f3d98c;
+ --line:#39301b;
+}
+html{background:#050608;color-scheme:dark}
+body{background:radial-gradient(ellipse at 72% 0%,#101a29 0%,#07090d 46%,#030405 100%);color:#f7f5ef}
+.announcement{background:#050608!important;color:#e0d5b9!important;border-bottom:1px solid #b78a2f!important}
+.site-header.wrap{border-bottom:1px solid #8e6a25!important}
+.brand{color:#f6f2e9!important}.brand-mark{border-color:#d8ad4b!important;color:#f5d77e!important;background:linear-gradient(145deg,#272014,#07080b)!important;box-shadow:0 0 17px #d8ad4b25!important}
+.brand small{color:#d8ad4b!important}
+.premium-top-nav a:hover,.premium-top-nav a.is-current{color:#f3cb62!important;border-bottom-color:#d8ad4b!important}
+.header-icon{color:#f7f5ef!important}.cart-icon b{background:#087fe9!important;color:#fff!important}
+.premium-sidebar{background:linear-gradient(160deg,#101116f7,#050608f8)!important;border-color:#6e5425!important;box-shadow:0 16px 40px #0008!important}
+.premium-sidebar h2 span{color:#e4bd5b!important}
+.sidebar-link{color:#e9e5dc!important}
+.sidebar-link b,.sidebar-icon{color:#e3c36e!important}
+.sidebar-link:hover,.sidebar-link.is-active{background:linear-gradient(100deg,#392c12,#15110a)!important;border-color:#d8ad4b!important;box-shadow:inset 3px 0 #f0c65b!important}
+.sidebar-link.is-active .sidebar-icon{color:#ffdf82!important}
+.sidebar-divider{background:#4b3b1d!important}
+.sidebar-promo{border-color:#a7802c!important;background:linear-gradient(130deg,#211a0c,#08090c)!important}
+.sidebar-promo>span{background:#35270c!important;color:#f3ce6a!important}
+.search.search-main{background:linear-gradient(100deg,#101116,#090b10)!important;border-color:#b38a31!important;box-shadow:inset 0 1px #ffffff08!important}
+.search>span{color:#e9c765!important}.search input{color:#f8f5ed!important}
+.search-submit{background:linear-gradient(130deg,#f1cc68,#c6942d)!important;color:#111!important;box-shadow:0 0 15px #d8ad4b25!important}
+section.hero.wrap#home{border-color:#b38a31!important;box-shadow:0 15px 38px #0007!important}
+section.hero.wrap#home .hero-copy{color:#f7f5ef!important}
+section.hero.wrap#home .eyebrow{color:#f0cc70!important}
+section.hero.wrap#home h1{color:#fffaf0!important}
+section.hero.wrap#home h1 em{color:#e4bb55!important}
+section.hero.wrap#home .hero-sub{color:#e1ddd3!important}
+section.hero.wrap#home .sale-card{border-color:#98762f!important;background:#080a0e!important}
+section.hero.wrap#home .sale-card strong{color:#f0c65a!important}
+section.hero.wrap#home .sale-card small{color:#f6e7bd!important}
+section.hero.wrap#home .button-green{background:linear-gradient(110deg,#f2cc68,#c8942b)!important;color:#15110a!important;box-shadow:0 5px 20px #d8ad4b25!important}
+.quick-categories .quick-category,.quick-category,.quick-category.tile-men,.quick-category.tile-women,.quick-category.tile-shoes,.quick-category.tile-bags,.quick-category.tile-watches,.quick-category.tile-accessories{border-color:#98752d!important;background-color:#0c0d11!important}
+.quick-categories .quick-category:hover{border-color:#f0c65a!important;box-shadow:0 0 16px #d8ad4b25!important}
+.quick-categories .quick-category i{border-color:#c69a3d!important;color:#f2d27b!important}
+.section-heading h2{color:#f7f3e9!important}
+.section-heading h2 em,.section-heading .eyebrow{color:#e1b84f!important}
+.section-heading .eyebrow{letter-spacing:.14em!important}
+.filter{background:#101116!important;border-color:#39301b!important;color:#e9e3d5!important}
+.filter.active,.filter:hover{background:linear-gradient(110deg,#f0c95e,#c7952e)!important;border-color:#e4bb55!important;color:#111!important}
+.product-carousel .product-card{background:linear-gradient(160deg,#111217,#07080b)!important;border-color:#6d5427!important;box-shadow:0 8px 22px #0005!important}
+.product-card:hover{border-color:#e2b64e!important;box-shadow:0 14px 26px #d8ad4b14!important}
+.product-tag{background:#087fe9!important;color:#fff!important}
+.product-category{color:#d8ad4b!important}
+.price{color:#f0c85c!important}
+.add-button{background:#080b11!important;color:#f6f2e9!important;border-color:#b58b32!important}
+.add-button:hover{background:#087fe9!important;border-color:#168bff!important;color:#fff!important}
+.demo-note{background:#0e1015!important;border-color:#4b3b1d!important;border-left-color:#087fe9!important;color:#c6c0b2!important}
+.demo-note strong{color:#f0ca64!important}
+.feature-dark,.newsletter{background:linear-gradient(130deg,#111116,#101c2b)!important;border-color:#80652d!important;color:#f8f4e9!important}
+.feature-light{background:#101116!important;color:#f8f4e9!important;border-color:#4b3b1d!important}
+.category-card{background:#0e1015!important;color:#f8f4e9!important;border-color:#4b3b1d!important}
+.category-card:hover{border-color:#d8ad4b!important}
+.category-icon{background:#28200f!important;color:#f0cc70!important}
+.testimonial{background:#0e1015!important;color:#f8f4e9!important;border-color:#4b3b1d!important}
+.footer{background:#030405!important;border-top:1px solid #6d5427!important}
+.cart-drawer{background:#0b0c10!important;color:#f8f4e9!important}
+.drawer-head,.cart-line{border-color:#39301b!important}
+.field-label input,.field-label select,.field-label textarea{background:#101116!important;color:#f8f4e9!important;border-color:#5d4a26!important}
+.button,.button-green{transition:filter .2s ease,transform .2s ease}
+.button:hover,.button-green:hover{filter:brightness(1.08)}
+@media(prefers-reduced-motion:reduce){.button,.button-green{transition:none}}
