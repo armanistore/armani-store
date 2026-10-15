@@ -161,6 +161,10 @@ function setCategory(category, button) {
   const shop = document.getElementById("shop");
   if (shop && !button) shop.scrollIntoView({ behavior: "smooth", block: "start" });
 }
+function setSidebarCategory(category, button) {
+  document.querySelectorAll(".premium-sidebar .sidebar-link").forEach(item => item.classList.toggle("is-active", item === button));
+  setCategory(category);
+}
 function renderProducts() {
   const container = document.getElementById("products");
   if (!container) return;
