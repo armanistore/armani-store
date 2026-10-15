@@ -859,3 +859,6 @@ main{order:5;width:auto!important;margin:0 28px 0 250px!important;min-width:0}
  .newsletter{padding:24px!important;display:block!important}.newsletter .button{margin-top:12px}
  .footer-inner{gap:15px!important}.footer-inner>div:not(.copyright){flex-wrap:wrap!important}
 }
+
+/* Keep the footer after the storefront content in the flex page layout. */
+.footer{order:6}
