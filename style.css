@@ -1041,3 +1041,18 @@ section.hero.wrap#home .hero-copy,section.hero.wrap#home .sale-card{position:rel
  #kidsFashion .kids-choice-image{aspect-ratio:1.45/1}
  #kidsFashion .kids-choice-copy{padding:8px 2px}
 }
+
+
+/* Full-page White + Soft Gold background; preserve existing layout and components */
+html{background-color:#fffdf9}
+body{
+  background-color:#fffdf9;
+  background-image:url("armanhovex-soft-gold-bg.jpg");
+  background-position:center top;
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+@media (max-width: 768px){
+  body{background-attachment:scroll;background-position:center top;background-size:auto 100vh;}
+}
