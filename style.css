@@ -1010,3 +1010,45 @@ section.hero.wrap#home .hero-copy,section.hero.wrap#home .sale-card{position:rel
   #kidsFashion .kids-choice-copy>span{font-size:16px}
   #kidsFashion .kids-choice-copy strong{font-size:11px}
 }
+
+
+/* Kids Fashion: glossy 3D selector inspired by the approved reference design */
+#kidsFashion.kids-arrivals{
+  position:relative; isolation:isolate; overflow:hidden;
+  background:radial-gradient(ellipse at 50% -20%,#183c68 0%,#0b1527 50%,#060a13 100%)!important;
+  border:1px solid rgba(66,176,255,.6)!important;
+  border-radius:26px!important; padding:clamp(22px,4vw,36px)!important;
+  box-shadow:0 18px 42px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.12),0 0 24px rgba(0,145,255,.12)!important;
+}
+#kidsFashion.kids-arrivals:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(135deg,rgba(22,145,255,.12),transparent 38%,rgba(107,69,255,.1));}
+#kidsFashion .kids-arrivals-heading .eyebrow{color:#83dcff!important;font-family:Orbitron,"Arial Black",sans-serif!important;font-weight:800;letter-spacing:.3em!important;text-shadow:0 0 12px #168fff}
+#kidsFashion .kids-arrivals-heading h2{color:#f7fbff!important;font-family:Orbitron,"Arial Black",sans-serif!important;font-weight:900!important;letter-spacing:.04em!important;text-transform:uppercase;text-shadow:0 2px 0 #3976b8,0 0 18px rgba(39,163,255,.42)}
+#kidsFashion .kids-arrivals-heading>p:last-child{color:#c4d8f0!important}
+#kidsFashion .kids-choice-grid{gap:clamp(14px,3vw,28px)!important}
+#kidsFashion .kids-choice{
+  position:relative;display:flex;align-items:center;justify-content:center;gap:8px!important;
+  min-width:0;padding:20px 12px 18px!important;border-radius:24px!important;
+  border:1px solid rgba(255,255,255,.65)!important;
+  background:linear-gradient(145deg,#f9fdff 0%,#d7eaff 42%,#91c9ff 100%)!important;
+  box-shadow:inset 0 2px 2px rgba(255,255,255,.95),inset 0 -7px 14px rgba(18,88,166,.18),0 12px 0 #174b85,0 18px 28px rgba(0,0,0,.38),0 0 22px rgba(45,163,255,.28)!important;
+  transform:translateY(0);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important;overflow:hidden;
+}
+#kidsFashion .kids-choice:before{content:"";position:absolute;inset:5px;border:1px solid rgba(255,255,255,.72);border-radius:19px;pointer-events:none}
+#kidsFashion .kids-choice:after{content:"✦";position:absolute;right:15px;top:10px;color:#fff;font-size:22px;text-shadow:0 1px 5px #368de2;pointer-events:none}
+#kidsFashion .kids-choice:hover,#kidsFashion .kids-choice:focus-visible{transform:translateY(-4px)!important;box-shadow:inset 0 2px 2px #fff,inset 0 -7px 14px rgba(18,88,166,.18),0 12px 0 #174b85,0 23px 34px rgba(0,0,0,.42),0 0 28px rgba(45,163,255,.42)!important}
+#kidsFashion .kids-choice-image{display:none!important}
+#kidsFashion .kids-choice-copy{display:flex;align-items:center;justify-content:center;gap:8px!important;padding:0!important;position:relative;z-index:1}
+#kidsFashion .kids-choice-copy strong{display:flex;align-items:center;justify-content:center;gap:9px;color:#12385f!important;font-family:Orbitron,"Arial Black",sans-serif!important;font-size:clamp(19px,3vw,28px)!important;font-weight:900!important;letter-spacing:.08em!important;text-transform:uppercase;text-shadow:0 1px 0 #fff,0 3px 0 rgba(34,92,153,.2)}
+#kidsFashion .kids-boy-image + .kids-choice-copy strong:before{content:"👦";font-family:"Apple Color Emoji","Segoe UI Emoji",sans-serif;font-size:1.55em;filter:drop-shadow(0 3px 2px rgba(0,0,0,.18))}
+#kidsFashion .kids-girl-image + .kids-choice-copy strong:before{content:"👧";font-family:"Apple Color Emoji","Segoe UI Emoji",sans-serif;font-size:1.55em;filter:drop-shadow(0 3px 2px rgba(0,0,0,.18))}
+#kidsFashion .kids-choice-copy>span{color:#173c65!important;font-family:Orbitron,"Arial Black",sans-serif!important;font-weight:800!important;font-size:clamp(12px,1.7vw,16px)!important;text-align:center;letter-spacing:.015em}
+#kidsFashion .kids-choice-copy i{display:inline-flex;align-items:center;justify-content:center;margin-top:3px;padding:7px 13px;border:1px solid rgba(21,82,145,.35);border-radius:999px;background:linear-gradient(180deg,#fff,#dceeff);color:#12477a!important;font-family:Orbitron,"Arial Black",sans-serif!important;font-size:9px!important;font-style:normal;font-weight:800!important;letter-spacing:.06em;text-transform:uppercase}
+@media(max-width:600px){
+ #kidsFashion.kids-arrivals{padding:20px 12px 26px!important;border-radius:20px!important}
+ #kidsFashion .kids-choice-grid{gap:12px!important}
+ #kidsFashion .kids-choice{padding:18px 6px 16px!important;border-radius:18px!important;box-shadow:inset 0 2px 2px #fff,inset 0 -6px 12px rgba(18,88,166,.18),0 8px 0 #174b85,0 13px 18px rgba(0,0,0,.35)!important}
+ #kidsFashion .kids-choice:before{inset:4px;border-radius:14px}
+ #kidsFashion .kids-choice-copy strong{font-size:clamp(15px,4.5vw,20px)!important;gap:5px;letter-spacing:.02em!important}
+ #kidsFashion .kids-choice-copy>span{font-size:11px!important}
+ #kidsFashion .kids-choice-copy i{font-size:8px!important;padding:6px 8px}
+}
