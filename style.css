@@ -1010,3 +1010,34 @@ section.hero.wrap#home .hero-copy,section.hero.wrap#home .sale-card{position:rel
   #kidsFashion .kids-choice-copy>span{font-size:16px}
   #kidsFashion .kids-choice-copy strong{font-size:11px}
 }
+
+
+/* ARMANHOVEX Kids Fashion — use the exact uploaded glossy Boy/Girl artwork */
+#kidsFashion .kids-choice-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(8px,2.5vw,22px)}
+#kidsFashion .kids-choice{
+  display:flex;flex-direction:column;justify-content:flex-start;gap:0;
+  min-width:0;padding:0;overflow:hidden;border:1px solid #183c5b;
+  border-radius:16px;background:#071525!important;color:#f5faff!important;
+  box-shadow:0 8px 24px rgba(0,140,255,.12);cursor:pointer
+}
+#kidsFashion .kids-choice:hover,#kidsFashion .kids-choice:focus-visible{
+  transform:translateY(-2px);border-color:#56c8ff;
+  box-shadow:0 12px 28px rgba(0,140,255,.22);outline:none
+}
+#kidsFashion .kids-choice-image{
+  display:block;width:100%;max-width:none;min-height:0;aspect-ratio:1.55/1;
+  border:0;border-radius:0;background-color:#f5f8ff;background-repeat:no-repeat;
+  background-position:center;background-size:contain;box-shadow:none
+}
+#kidsFashion .kids-boy-image{background-image:url("Glossy%20Kids%20Fashion%20Choice%20Buttons.png")!important}
+#kidsFashion .kids-girl-image{background-image:url("Glossy%20Kids%20Fashion%20Choice%20Buttons%20(1).png")!important}
+#kidsFashion .kids-choice-copy{padding:9px 4px 11px;gap:0}
+#kidsFashion .kids-choice-copy strong{font-family:"DM Sans",sans-serif;font-size:clamp(13px,2vw,17px);font-weight:800;letter-spacing:.08em;color:#eaf7ff!important;-webkit-text-fill-color:#eaf7ff!important;filter:none}
+#kidsFashion .kids-choice-copy strong:before,#kidsFashion .kids-choice-copy strong:after{display:none}
+#kidsFashion .kids-choice-copy>span,#kidsFashion .kids-choice-copy i{display:none}
+@media(max-width:480px){
+ #kidsFashion .kids-choice-grid{gap:8px}
+ #kidsFashion .kids-choice{border-radius:12px}
+ #kidsFashion .kids-choice-image{aspect-ratio:1.45/1}
+ #kidsFashion .kids-choice-copy{padding:8px 2px}
+}
