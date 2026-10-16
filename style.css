@@ -946,3 +946,67 @@ section.hero.wrap#home .hero-video-wrap::after{content:"";position:absolute;inse
 section.hero.wrap#home .hero-video{display:block!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 38%!important;z-index:1!important}
 section.hero.wrap#home .hero-copy,section.hero.wrap#home .sale-card{position:relative;z-index:3!important}
 @media(max-width:700px){section.hero.wrap#home .hero-video-wrap{inset:0 0 0 34%!important}section.hero.wrap#home .hero-video-wrap::after{background:linear-gradient(90deg,#080b11 0%,rgba(8,11,17,.58) 28%,rgba(8,11,17,.08) 100%)}section.hero.wrap#home .hero-video{object-position:58% center!important}}
+
+
+/* ARMANHOVEX Kids Fashion refresh: clean studio portraits, soft backgrounds, refined typography */
+#kidsFashion.kids-arrivals{
+  background:linear-gradient(180deg,#ffffff 0%,#f7fbff 100%);
+  border:1px solid #e5edf5;
+  border-radius:22px;
+  padding:clamp(22px,4vw,38px);
+  box-shadow:0 12px 32px rgba(14,42,70,.045);
+}
+#kidsFashion .kids-arrivals-heading{text-align:center;margin-bottom:24px}
+#kidsFashion .kids-arrivals-heading .eyebrow{
+  color:#1389d8!important;font-family:"DM Sans",sans-serif;font-weight:700;
+  letter-spacing:.22em;font-size:10px
+}
+#kidsFashion .kids-arrivals-heading h2{
+  color:#101923!important;font-family:"DM Sans",sans-serif;font-weight:700;
+  font-size:clamp(30px,4.5vw,42px);letter-spacing:-.045em
+}
+#kidsFashion .kids-arrivals-heading>p:last-child{color:#64748b;font-size:13px}
+#kidsFashion .kids-choice-grid{gap:clamp(14px,4vw,36px)}
+#kidsFashion .kids-choice{
+  gap:13px;padding:0 0 12px;border:1px solid #e7edf4;border-radius:22px;
+  background:#fff!important;overflow:hidden;box-shadow:0 8px 24px rgba(20,55,90,.055);
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease
+}
+#kidsFashion .kids-choice:hover,#kidsFashion .kids-choice:focus-visible{
+  transform:translateY(-3px);border-color:#8bd8ff;box-shadow:0 14px 28px rgba(18,137,216,.12)
+}
+#kidsFashion .kids-choice-image{
+  display:block;width:100%;max-width:none;aspect-ratio:1/1;min-height:0;
+  border:0;border-radius:0;background-color:#f1f8ff;
+  background-size:cover;background-repeat:no-repeat;
+  box-shadow:none;position:relative
+}
+#kidsFashion .kids-boy-image{
+  background-image:url("https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=90");
+  background-position:center 30%
+}
+#kidsFashion .kids-girl-image{
+  background-image:url("https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=90");
+  background-position:center 30%
+}
+#kidsFashion .kids-choice-copy{padding:0 12px 4px;gap:5px}
+#kidsFashion .kids-choice-copy strong{
+  color:#087fc1;font-family:"DM Sans",sans-serif;font-size:12px;font-weight:800;
+  letter-spacing:.16em;text-transform:uppercase
+}
+#kidsFashion .kids-choice-copy>span{
+  color:#111827;font-family:"DM Sans",sans-serif;font-weight:700;
+  font-size:clamp(17px,2.2vw,22px);line-height:1.25
+}
+#kidsFashion .kids-choice-copy i{
+  color:#087fc1;border-bottom-color:#8bd8ff;font-family:"DM Sans",sans-serif;
+  font-size:10px;font-weight:700
+}
+@media(max-width:600px){
+  #kidsFashion.kids-arrivals{padding:20px 12px;border-radius:18px}
+  #kidsFashion .kids-choice-grid{gap:10px}
+  #kidsFashion .kids-choice{border-radius:16px;gap:10px}
+  #kidsFashion .kids-choice-image{aspect-ratio:4/4.5}
+  #kidsFashion .kids-choice-copy>span{font-size:16px}
+  #kidsFashion .kids-choice-copy strong{font-size:11px}
+}
