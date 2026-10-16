@@ -967,3 +967,36 @@ main{order:5;width:auto!important;margin:0 28px 0 250px!important;min-width:0}
  .kids-choice-image{width:100%!important;aspect-ratio:3/4!important;border-radius:90px 90px 12px 12px!important}
  .kids-choice-copy strong{font-size:clamp(24px,6vw,32px)!important}
 }
+
+
+/* Luxury fashion hero video */
+section.hero.wrap#home{position:relative!important;isolation:isolate!important;overflow:hidden!important}
+section.hero.wrap#home .hero-video-wrap{
+  position:absolute!important;inset:0!important;z-index:0!important;
+  background:#030a12!important;overflow:hidden!important;
+  background-image:linear-gradient(90deg,#030a12 0%,rgba(3,10,18,.92) 24%,rgba(3,10,18,.48) 53%,rgba(3,10,18,.12) 100%)!important;
+}
+section.hero.wrap#home .hero-video-wrap::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(2,8,14,.88) 0%,rgba(2,8,14,.62) 31%,rgba(2,8,14,.13) 70%,rgba(2,8,14,.2) 100%);
+}
+section.hero.wrap#home .hero-video{
+  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+  display:block!important;object-fit:cover!important;object-position:center 38%!important;
+  opacity:.88!important;filter:saturate(.82) contrast(1.04)!important;
+}
+section.hero.wrap#home .hero-copy,section.hero.wrap#home .sale-card{
+  position:relative!important;z-index:2!important;
+}
+section.hero.wrap#home .hero-copy{max-width:56%!important}
+section.hero.wrap#home .hero-copy h1,section.hero.wrap#home .hero-copy p,
+section.hero.wrap#home .hero-copy a{ text-shadow:0 2px 14px rgba(0,0,0,.45)!important}
+@media(max-width:760px){
+ section.hero.wrap#home .hero-video-wrap{inset:0!important}
+ section.hero.wrap#home .hero-video{object-position:58% center!important;opacity:.74!important}
+ section.hero.wrap#home .hero-video-wrap::after{background:linear-gradient(90deg,rgba(2,8,14,.86) 0%,rgba(2,8,14,.56) 45%,rgba(2,8,14,.2) 100%)}
+ section.hero.wrap#home .hero-copy{max-width:78%!important;width:78%!important}
+}
+@media(prefers-reduced-motion:reduce){
+ section.hero.wrap#home .hero-video{display:none!important}
+}
