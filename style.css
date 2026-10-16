@@ -930,3 +930,12 @@ section.hero.wrap#home .button-green{background:linear-gradient(110deg,#f2cc68,#
 .button,.button-green{transition:filter .2s ease,transform .2s ease}
 .button:hover,.button-green:hover{filter:brightness(1.08)}
 @media(prefers-reduced-motion:reduce){.button,.button-green{transition:none}}
+
+
+/* Premium video hero: layered on the current main design without replacing existing layout */
+section.hero.wrap#home .hero-video-wrap{position:absolute;inset:0 0 0 42%;overflow:hidden;background:#08111d url("https://images.pexels.com/videos/9512045/free-video-9512045.jpg?auto=compress&cs=tinysrgb&w=1600") center 42%/cover no-repeat}
+section.hero.wrap#home .hero-video-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#080b11 0%,rgba(8,11,17,.5) 20%,rgba(8,11,17,.04) 72%),linear-gradient(0deg,rgba(3,5,9,.22),transparent 45%);pointer-events:none}
+section.hero.wrap#home .hero-video{display:block;width:100%;height:100%;object-fit:cover;object-position:center 38%}
+section.hero.wrap#home .hero-copy,section.hero.wrap#home .sale-card{z-index:2}
+@media(max-width:700px){section.hero.wrap#home .hero-video-wrap{inset:0 0 0 34%}section.hero.wrap#home .hero-video-wrap::after{background:linear-gradient(90deg,#080b11 0%,rgba(8,11,17,.56) 25%,rgba(8,11,17,.08) 100%)}section.hero.wrap#home .hero-video{object-position:58% center}}
+@media(prefers-reduced-motion:reduce){section.hero.wrap#home .hero-video{display:none}}
