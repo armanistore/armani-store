@@ -1056,3 +1056,21 @@ body{
 @media (max-width: 768px){
   body{background-attachment:scroll;background-position:center top;background-size:auto 100vh;}
 }
+
+
+/* ARMANHOVEX AI chat widget */
+.ah-chat-launcher{position:fixed;right:18px;bottom:18px;z-index:9998;border:1px solid #39bfff;border-radius:999px;background:#050b18;color:#eaf8ff;padding:13px 18px;box-shadow:0 6px 28px #009dff55;font:600 14px inherit;cursor:pointer}
+.ah-chat-launcher span{margin-left:5px}
+.ah-chat-panel{position:fixed;right:16px;bottom:78px;z-index:9999;width:min(360px,calc(100vw - 28px));height:min(500px,calc(100dvh - 110px));background:#080f1f;color:#eef8ff;border:1px solid #168ed0;border-radius:18px;box-shadow:0 12px 42px #0008;overflow:hidden;display:flex;flex-direction:column;font-family:inherit}
+.ah-chat-panel[hidden]{display:none}
+.ah-chat-head{display:flex;align-items:center;justify-content:space-between;padding:15px 16px;background:linear-gradient(120deg,#071329,#073d61);border-bottom:1px solid #1b8fc5}
+.ah-chat-head strong,.ah-chat-head small{display:block}.ah-chat-head small{font-size:11px;opacity:.75;margin-top:4px}
+#ahChatClose{border:0;background:#e53945;color:white;border-radius:8px;width:30px;height:30px;font-size:22px;cursor:pointer}
+.ah-chat-messages{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.ah-chat-bubble{max-width:88%;padding:10px 12px;border-radius:13px;margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.5}
+.ah-chat-bot{align-self:flex-start;background:#14263c;border:1px solid #24435f}.ah-chat-user{align-self:flex-end;background:#075b88;border:1px solid #1497d4}
+.ah-chat-form{display:flex;gap:7px;padding:10px;border-top:1px solid #1d3048}
+.ah-chat-form input{min-width:0;flex:1;background:#101d30;border:1px solid #34516e;color:#fff;border-radius:9px;padding:11px;font-size:13px}
+.ah-chat-form button{border:0;border-radius:9px;background:#12a8ef;color:#001321;padding:0 13px;font-weight:700;cursor:pointer}
+.ah-chat-note{margin:0;padding:0 12px 10px;color:#9db4c9;font-size:10px}
+@media(max-width:480px){.ah-chat-launcher{right:12px;bottom:12px}.ah-chat-panel{right:10px;bottom:68px}}
