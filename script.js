@@ -300,3 +300,54 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProducts(); renderCart(); updateCartCount(); updatePaymentInfo();
   loadCsvDemoProducts();
 });
+
+/* ARMANHOVEX AI chat: API key remains on the Cloudflare Worker, never in this file. */
+document.addEventListener("DOMContentLoaded", function () {
+  const endpoint = "https://armanhovex-ai-help.mdshowrob3211.workers.dev/";
+  const launcher = document.getElementById("ahChatLauncher");
+  const panel = document.getElementById("ahChatPanel");
+  const close = document.getElementById("ahChatClose");
+  const form = document.getElementById("ahChatForm");
+  const input = document.getElementById("ahChatInput");
+  const messages = document.getElementById("ahChatMessages");
+  const send = document.getElementById("ahChatSend");
+  if (!launcher || !panel || !form || !input || !messages || !send) return;
+  launcher.addEventListener("click", function () { panel.hidden = false; launcher.hidden = true; input.focus(); });
+  close.addEventListener("click", function () { panel.hidden = true; launcher.hidden = false; });
+  function bubble(text, kind) {
+    const p = document.createElement("p");
+    p.className = "ah-chat-bubble " + (kind === "user" ? "ah-chat-user" : "ah-chat-bot");
+    p.textContent = text;
+    messages.appendChild(p);
+    messages.scrollTop = messages.scrollHeight;
+    return p;
+  }
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const message = input.value.trim();
+    if (!message || send.disabled) return;
+    bubble(message, "user");
+    input.value = "";
+    send.disabled = true;
+    send.textContent = "...";
+    const waiting = bubble("Thinking…", "bot");
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: message })
+      });
+      const data = await response.json();
+      waiting.remove();
+      if (!response.ok) throw new Error(data.error || "Request failed");
+      bubble(data.reply || data.text || "Sorry, I couldn't create a reply. Please try again.", "bot");
+    } catch (error) {
+      waiting.remove();
+      bubble("Sorry, the AI assistant is temporarily unavailable. Please try again in a moment.", "bot");
+    } finally {
+      send.disabled = false;
+      send.textContent = "Send";
+      input.focus();
+    }
+  });
+});
