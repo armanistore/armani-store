@@ -334,7 +334,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const response = await fetch(endpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "text/plain;charset=UTF-8" },
         body: JSON.stringify({ message: message })
       });
       const data = await response.json();
@@ -343,7 +343,7 @@ document.addEventListener("DOMContentLoaded", function () {
       bubble(data.reply || data.text || "Sorry, I couldn't create a reply. Please try again.", "bot");
     } catch (error) {
       waiting.remove();
-      bubble("Sorry, the AI assistant is temporarily unavailable. Please try again in a moment.", "bot");
+      bubble("Connection error: " + (error && error.message ? error.message : "AI service unavailable") + ". Please check the Worker settings and try again.", "bot");
     } finally {
       send.disabled = false;
       send.textContent = "Send";
