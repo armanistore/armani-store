@@ -1098,3 +1098,26 @@ body{
   -webkit-text-fill-color:#b58a2e!important;
   opacity:1!important;
 }
+
+
+/* Small profile photo in the existing gold-framed brand mark */
+.site-header .brand-mark.brand-profile{
+  display:block;
+  width:43px;
+  height:43px;
+  min-width:43px;
+  object-fit:cover;
+  object-position:center 28%;
+  border:1px solid var(--gold);
+  border-radius:50%;
+  background:#080d16;
+  padding:0;
+  box-shadow:0 0 0 2px rgba(197,166,107,.12);
+}
+@media(max-width:600px){
+  .site-header .brand-mark.brand-profile{
+    width:43px;
+    height:43px;
+    min-width:43px;
+  }
+}
