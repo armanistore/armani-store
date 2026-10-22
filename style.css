@@ -1228,3 +1228,94 @@ body{
   #shop .product-actions{gap:5px!important}
   #shop .product-actions button{font-size:10px!important;padding:8px 4px!important;min-height:36px!important}
 }
+
+
+/* Final button contrast fix: enforce readable Black + Gold controls across the site */
+html body button:not(.ah-chat-launcher):not(.ah-chat-form button),
+html body a.button,
+html body input[type="button"],
+html body input[type="submit"]{
+  text-shadow:none!important;
+  -webkit-text-fill-color:currentColor;
+  opacity:1!important;
+}
+html body .search-submit,
+html body button.search-submit{
+  background:linear-gradient(120deg,#f2cc68,#c8942b)!important;
+  color:#111111!important;
+  -webkit-text-fill-color:#111111!important;
+  border:1px solid #b58a2e!important;
+  box-shadow:none!important;
+}
+html body .button-green,
+html body a.button-green,
+html body button.button-green,
+html body .button:not(.ah-chat-launcher){
+  background:linear-gradient(120deg,#f2cc68,#c8942b)!important;
+  color:#111111!important;
+  -webkit-text-fill-color:#111111!important;
+  border:1px solid #b58a2e!important;
+  box-shadow:none!important;
+}
+html body .select-button,
+html body button.select-button{
+  background:#111111!important;
+  color:#f3d98c!important;
+  -webkit-text-fill-color:#f3d98c!important;
+  border:1px solid #b58a2e!important;
+  box-shadow:none!important;
+}
+html body .add-button,
+html body button.add-button,
+html body #detailAddButton{
+  background:linear-gradient(120deg,#f2cc68,#c8942b)!important;
+  color:#111111!important;
+  -webkit-text-fill-color:#111111!important;
+  border:1px solid #b58a2e!important;
+  box-shadow:none!important;
+}
+html body .view-all-button,
+html body button.view-all-button,
+html body .carousel-arrow,
+html body button.carousel-arrow{
+  background:#111111!important;
+  color:#f3d98c!important;
+  -webkit-text-fill-color:#f3d98c!important;
+  border:1px solid #b58a2e!important;
+  box-shadow:none!important;
+}
+html body .filter,
+html body button.filter{
+  background:#111111!important;
+  color:#f3e7c5!important;
+  -webkit-text-fill-color:#f3e7c5!important;
+  border:1px solid #80652d!important;
+  box-shadow:none!important;
+}
+html body .filter.active,
+html body button.filter.active{
+  background:linear-gradient(120deg,#f2cc68,#c8942b)!important;
+  color:#111111!important;
+  -webkit-text-fill-color:#111111!important;
+}
+html body .cart-button{
+  background:#111111!important;
+  color:#f3d98c!important;
+  -webkit-text-fill-color:#f3d98c!important;
+  border:1px solid #b58a2e!important;
+}
+html body .product-actions button{
+  width:100%!important;
+  min-width:0!important;
+  min-height:38px!important;
+  padding:8px 5px!important;
+  font-size:11px!important;
+  line-height:1.25!important;
+  white-space:normal!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+html body .product-actions{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:6px!important}
+@media(max-width:480px){
+  html body .product-actions button{font-size:10px!important;padding:7px 3px!important}
+}
