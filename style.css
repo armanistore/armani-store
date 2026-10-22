@@ -1121,3 +1121,110 @@ body{
     min-width:43px;
   }
 }
+
+
+/* ARMANHOVEX button visibility repair — consistent black + gold, no neon blue */
+#shop .product-actions{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  gap:7px!important;
+  width:100%!important;
+  align-items:stretch!important;
+}
+#shop .product-actions button,
+#shop .product-actions .select-button,
+#shop .product-actions .add-button{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  visibility:visible!important;
+  opacity:1!important;
+  min-width:0!important;
+  min-height:38px!important;
+  height:auto!important;
+  padding:8px 6px!important;
+  margin:0!important;
+  border:1px solid #b58a2e!important;
+  border-radius:8px!important;
+  font-size:clamp(10px,2.5vw,12px)!important;
+  line-height:1.25!important;
+  font-weight:700!important;
+  text-align:center!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+  text-shadow:none!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+#shop .product-actions .select-button{
+  background:#111111!important;
+  color:#f3d98c!important;
+  -webkit-text-fill-color:#f3d98c!important;
+}
+#shop .product-actions .add-button{
+  background:linear-gradient(120deg,#f2cc68,#c8942b)!important;
+  color:#111111!important;
+  -webkit-text-fill-color:#111111!important;
+  border-color:#d7ad4b!important;
+}
+#shop .product-actions .select-button:hover,
+#shop .product-actions .select-button:focus-visible{
+  background:#2a2111!important;
+  color:#ffffff!important;
+  -webkit-text-fill-color:#ffffff!important;
+}
+#shop .product-actions .add-button:hover,
+#shop .product-actions .add-button:focus-visible{
+  background:#f6d77c!important;
+  color:#111111!important;
+  -webkit-text-fill-color:#111111!important;
+}
+#shop .view-all-button,
+#shop .carousel-arrow,
+#shop .filter,
+#shop .shop-tools button{
+  visibility:visible!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+#shop .view-all-button{
+  background:#111111!important;
+  color:#f3d98c!important;
+  -webkit-text-fill-color:#f3d98c!important;
+  border:1px solid #b58a2e!important;
+}
+#shop .carousel-arrow{
+  background:#111111!important;
+  color:#f3d98c!important;
+  -webkit-text-fill-color:#f3d98c!important;
+  border:1px solid #b58a2e!important;
+}
+#shop .filter{
+  background:#111111!important;
+  color:#f3e7c5!important;
+  -webkit-text-fill-color:#f3e7c5!important;
+  border:1px solid #6f5928!important;
+}
+#shop .filter.active,
+#shop .filter[aria-pressed="true"]{
+  background:linear-gradient(120deg,#f2cc68,#c8942b)!important;
+  color:#111111!important;
+  -webkit-text-fill-color:#111111!important;
+  border-color:#d7ad4b!important;
+}
+.product-modal .button,
+.cart-drawer .button,
+#detailAddButton,
+.checkout,
+.button-green:not(.ah-chat-launcher){
+  background:linear-gradient(120deg,#f2cc68,#c8942b)!important;
+  color:#111111!important;
+  -webkit-text-fill-color:#111111!important;
+  border:1px solid #d7ad4b!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+@media(max-width:480px){
+  #shop .product-actions{gap:5px!important}
+  #shop .product-actions button{font-size:10px!important;padding:8px 4px!important;min-height:36px!important}
+}
