@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261023-contact-icons-aligned">
+  <link rel="stylesheet" href="style.css?v=20261023-white-shop-grid">
 </head>
 <body>
   <div class="announcement">A MORE CONSIDERED WARDROBE <span>✦</span> DISCOVER YOUR NEXT FAVOURITE</div>
@@ -74,13 +74,16 @@
   <div class="search-wrap wrap">
     <label class="search search-main" aria-label="Search products"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="What are you shopping for today…" oninput="renderProducts()"><button class="search-submit" type="button" onclick="document.getElementById('search').focus()" aria-label="Start searching">+</button></label>
   </div>
-  <section class="quick-categories wrap" aria-label="Shop by category">
-    <button class="quick-category tile-men" type="button" onclick="setCategory('mens-clothing')"><span>Men’s<br>Clothing</span><i aria-hidden="true">→</i></button>
-    <button class="quick-category tile-women" type="button" onclick="setCategory('womens-fashion')"><span>Women’s<br>Fashion</span><i aria-hidden="true">→</i></button>
-    <button class="quick-category tile-shoes" type="button" onclick="setCategory('shoes')"><span>Shoes</span><i aria-hidden="true">→</i></button>
-    <button class="quick-category tile-bags" type="button" onclick="setCategory('bags')"><span>Bags</span><i aria-hidden="true">→</i></button>
-    <button class="quick-category tile-watches" type="button" onclick="setCategory('watches')"><span>Watches</span><i aria-hidden="true">→</i></button>
-    <button class="quick-category tile-accessories" type="button" onclick="setCategory('accessories')"><span>Accessories</span><i aria-hidden="true">→</i></button>
+  <section class="quick-categories wrap" aria-label="Shop categories">
+    <div class="category-pills" role="group" aria-label="Filter products">
+      <button class="category-pill is-active" type="button" onclick="setCategory('All',this)">All</button>
+      <button class="category-pill" type="button" onclick="setCategory('mens-clothing',this)">Men</button>
+      <button class="category-pill" type="button" onclick="setCategory('womens-fashion',this)">Women</button>
+      <button class="category-pill" type="button" onclick="setCategory('shoes',this)">Shoes</button>
+      <button class="category-pill" type="button" onclick="setCategory('bags',this)">Bags</button>
+      <button class="category-pill" type="button" onclick="setCategory('watches',this)">Watches</button>
+      <button class="category-pill" type="button" onclick="setCategory('accessories',this)">Accessories</button>
+    </div>
   </section>
   
 
@@ -105,7 +108,7 @@
       <div class="feature-banners"><article class="feature feature-dark"><p class="eyebrow">THE ARMANHOVEX DIFFERENCE</p><h3>Good choices.<br>Better everyday.</h3><a href="#about">Get to know us ↗</a></article><article class="feature feature-light"><p class="eyebrow">SHOP WITH EASE</p><h3>Your next favourite<br>is just a message away.</h3><a href="#contact">Let’s talk ↗</a></article></div>
     </div></section>
 
-<nav class="nav wrap" aria-label="Main navigation"><a href="#home">Home</a><a href="#categories">Collections</a><a href="#shop">Shop all</a><a href="#about">Our story</a><a href="#contact">Contact</a></nav>
+<nav class="nav wrap mobile-bottom-nav" aria-label="Main navigation"><a href="#home"><span aria-hidden="true">⌂</span><small>Home</small></a><a href="#shop" onclick="resetProductFilters()"><span aria-hidden="true">▦</span><small>Categories</small></a><a href="#contact"><span aria-hidden="true">☏</span><small>Message</small></a><a href="#shop" onclick="toggleCart()"><span aria-hidden="true">🛒</span><small>Cart</small></a><a href="#contact"><span aria-hidden="true">♙</span><small>Account</small></a></nav>
 
 
 
