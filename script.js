@@ -33,7 +33,14 @@ let products = [...realProducts, ...demoProducts];
 
 function normalizeCategory(value) {
   const key = String(value || "").trim().toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-  return ({ "men-s-clothing": "mens-clothing", "women-s-fashion": "womens-fashion" })[key] || key;
+  const aliases = {
+    "men": "mens-clothing", "mens": "mens-clothing", "men-clothing": "mens-clothing",
+    "mens-clothing": "mens-clothing", "men-s-clothing": "mens-clothing", "male": "mens-clothing",
+    "women": "womens-fashion", "womens": "womens-fashion", "women-fashion": "womens-fashion",
+    "womens-fashion": "womens-fashion", "women-s-fashion": "womens-fashion", "female": "womens-fashion",
+    "footwear": "shoes", "shoe": "shoes"
+  };
+  return aliases[key] || key;
 }
 function safeProductImageUrl(value) {
   try { const url = new URL(String(value || "")); return url.protocol === "https:" ? url.href : "https://placehold.co/600x750/f0eee5/173d30?text=ARMANHOVEX+DEMO"; }
@@ -155,8 +162,18 @@ function selectKidsCollection(category) {
   if (shop) shop.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 function setCategory(category, button) {
-  currentCategory = category;
-  document.querySelectorAll(".filters button").forEach(btn => btn.classList.toggle("active", btn === button || (!button && (category === "All" ? btn.dataset.category === "All" : btn.dataset.category === category))));
+  currentCategory = normalizeCategory(category);
+  const selected = currentCategory === "all" ? "All" : currentCategory;
+  document.querySelectorAll(".filters button").forEach(btn => {
+    const btnCategory = normalizeCategory(btn.dataset.category || (btn.textContent || "").trim());
+    btn.classList.toggle("active", btnCategory === selected || (selected === "All" && btnCategory === "all"));
+  });
+  document.querySelectorAll(".category-pills .category-pill").forEach(btn => {
+    const match = (btn.getAttribute("onclick") || "").match(/setCategory\(['"]([^'"]+)['"]/);
+    const btnCategory = normalizeCategory(match ? match[1] : btn.textContent.trim());
+    btn.classList.toggle("is-active", btnCategory === selected || (selected === "All" && btnCategory === "all"));
+    btn.setAttribute("aria-pressed", String(btnCategory === selected || (selected === "All" && btnCategory === "all")));
+  });
   renderProducts();
   const shop = document.getElementById("shop");
   if (shop && !button) shop.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -170,7 +187,8 @@ function renderProducts() {
   if (!container) return;
   const input = document.getElementById("search");
   const query = input ? input.value.toLowerCase().trim() : "";
-  const filtered = products.filter(product => (currentCategory === "All" || product.category.toLowerCase() === String(currentCategory).toLowerCase()) && (product.name.toLowerCase().includes(query) || product.category.toLowerCase().replace(/-/g, " ").includes(query) || (product.description || "").toLowerCase().includes(query)));
+  const activeCategory = normalizeCategory(currentCategory);
+  const filtered = products.filter(product => (activeCategory === "all" || normalizeCategory(product.category) === activeCategory) && (product.name.toLowerCase().includes(query) || product.category.toLowerCase().replace(/-/g, " ").includes(query) || (product.description || "").toLowerCase().includes(query)));
   if (!filtered.length) {
     container.innerHTML = '<div class="no-results"><h3>No matches just yet</h3><p>Try a different search or explore all items.</p><button class="button button-green" type="button" onclick="resetProductFilters()">View all items</button></div>';
     return;
@@ -248,6 +266,10 @@ function resetProductFilters() {
   const input = document.getElementById("search");
   if (input) input.value = "";
   document.querySelectorAll(".filters button").forEach(button => button.classList.toggle("active", button.dataset.category === "All"));
+  document.querySelectorAll(".category-pills .category-pill").forEach((button, index) => {
+    button.classList.toggle("is-active", index === 0);
+    button.setAttribute("aria-pressed", String(index === 0));
+  });
   renderProducts();
 }
 function openCheckout() {
