@@ -353,7 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.getElementById("overlay");
   if (overlay) overlay.addEventListener("click", () => setCartOpen(false));
   document.addEventListener("keydown", event => { if (event.key === "Escape") { closeProductDetails(); setCartOpen(false); } });
-  renderProducts(); renderCart(); updateCartCount(); updatePaymentInfo();
+  renderProducts(); renderCart(); updateCartCount(); updateWishlistCount(); updatePaymentInfo();
   loadCsvDemoProducts();
 });
 
