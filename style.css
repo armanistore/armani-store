@@ -1848,3 +1848,31 @@ html body .ah-chat-launcher{border-color:#c9a34b!important;background:#080d16!im
   html body .quick-categories .quick-category span{font-size:clamp(10px,2.9vw,13px)!important;max-width:calc(100% - 22px)!important}
   html body .quick-categories .quick-category i{width:23px!important;min-width:23px!important;height:23px!important;flex-basis:23px!important;font-size:15px!important}
 }
+
+
+/* ARMANHOVEX white storefront refresh: keep the existing hero banner untouched. */
+html body{background:#fff!important;color:#171717!important}
+html body .quick-categories{display:block!important;width:auto!important;max-width:none!important;margin:12px 14px 22px!important;padding:0!important;order:initial!important}
+html body .category-pills{display:flex!important;align-items:center!important;gap:8px!important;overflow-x:auto!important;white-space:nowrap!important;padding:2px 1px 8px!important;scrollbar-width:none!important;-webkit-overflow-scrolling:touch}
+html body .category-pills::-webkit-scrollbar{display:none!important}
+html body .category-pill{flex:0 0 auto!important;border:1px solid #d7c18e!important;border-radius:22px!important;background:#fff!important;color:#242424!important;padding:9px 14px!important;font:600 12px/1.1 'DM Sans',sans-serif!important;box-shadow:none!important}
+html body .category-pill.is-active,html body .category-pill:focus-visible{background:#171717!important;color:#fff!important;border-color:#c5a66b!important}
+html body .shop-section,html body .shop-section .wrap,html body .section-heading,html body .shop-tools{background:#fff!important;color:#171717!important}
+html body .section-heading h2,html body .section-heading p,html body .results-note{color:#171717!important;-webkit-text-fill-color:#171717!important}
+html body .filters{display:none!important}
+html body .product-carousel{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;overflow:visible!important;margin:0!important;padding:4px 0 18px!important}
+html body .product-card{display:block!important;min-width:0!important;width:auto!important;max-width:none!important;flex:initial!important;overflow:hidden!important;background:#fff!important;color:#171717!important;border:1px solid #eee8dc!important;border-radius:12px!important;box-shadow:0 3px 14px rgba(20,20,20,.07)!important}
+html body .product-card img,html body .product-card .product-image,html body .product-card .product-media{max-height:190px!important}
+html body .product-card .button,html body .product-card button,html body .product-card .add-to-cart{background:#c5a66b!important;color:#171717!important;border:1px solid #b08d4a!important;border-radius:6px!important}
+html body .demo-note{background:#fff!important;color:#555!important;border-color:#e7ddc8!important}
+html body .category-section{background:#fff!important;color:#171717!important}
+html body .mobile-bottom-nav{display:flex!important;position:fixed!important;z-index:999!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;max-width:none!important;box-sizing:border-box!important;justify-content:space-around!important;align-items:center!important;gap:0!important;margin:0!important;padding:8px 4px calc(8px + env(safe-area-inset-bottom))!important;background:rgba(255,255,255,.98)!important;border-top:1px solid #e8dfcc!important;box-shadow:0 -3px 16px rgba(0,0,0,.07)!important}
+html body .mobile-bottom-nav a{display:flex!important;flex:1 1 20%!important;min-width:0!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:3px!important;padding:2px 0!important;color:#333!important;text-decoration:none!important;font-size:18px!important;line-height:1.1!important;white-space:nowrap!important}
+html body .mobile-bottom-nav a small{font:500 10px/1.2 'DM Sans',sans-serif!important;color:#333!important}
+html body{padding-bottom:70px!important}
+@media(min-width:760px){
+ html body .quick-categories{margin-left:auto!important;margin-right:auto!important;max-width:1180px!important}
+ html body .category-pills{justify-content:center!important}
+ html body .product-carousel{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px!important}
+ html body .product-card img,html body .product-card .product-image,html body .product-card .product-media{max-height:250px!important}
+}
