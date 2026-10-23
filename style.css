@@ -2027,3 +2027,12 @@ html body .category-pill.is-active{
   html body>section.quick-categories{order:5!important}
   html body>.search-wrap .search-main{width:100%!important;box-sizing:border-box!important}
 }
+
+
+/* Correct mobile order: hero -> search -> category pills. */
+@media(max-width:760px){
+  html body>.search-wrap{order:5!important;width:auto!important;margin:12px 30px 16px!important}
+  html body>section.hero#home{order:4!important}
+  html body>section.quick-categories{order:6!important}
+  html body>.search-wrap .search-main{width:100%!important;box-sizing:border-box!important}
+}
