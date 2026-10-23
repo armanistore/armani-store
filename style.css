@@ -1588,3 +1588,31 @@ html body .site-header .header-actions a.header-imo{background:#3979e8!important
   html body .site-header .header-actions a.header-whatsapp{right:78px!important}
   html body .site-header .header-actions a.header-imo{right:108px!important}
 }
+
+
+/* Final mobile header alignment: matching premium contact icons, no overlap. */
+html body .site-header .header-actions{position:relative!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important;flex-wrap:nowrap!important;overflow:visible!important}
+html body .site-header .header-actions a.header-contact-link{
+  position:static!important;top:auto!important;right:auto!important;transform:none!important;
+  display:grid!important;place-items:center!important;box-sizing:border-box!important;
+  width:34px!important;min-width:34px!important;max-width:34px!important;
+  height:34px!important;min-height:34px!important;flex:0 0 34px!important;
+  padding:0!important;margin:0!important;border-radius:50%!important;
+  background:#123b2d!important;border:1.5px solid #c5a66b!important;color:#fffdf8!important;
+  visibility:visible!important;opacity:1!important;z-index:2!important;
+}
+html body .site-header .header-actions a.header-contact-link svg{display:block!important;width:19px!important;height:19px!important;min-width:19px!important;fill:currentColor!important}
+html body .site-header .header-actions a.header-contact-link:hover{background:#c5a66b!important;color:#123b2d!important}
+@media(max-width:600px){
+ html body .site-header{gap:7px!important;flex-wrap:nowrap!important}
+ html body .site-header .brand{min-width:0!important;flex:1 1 auto!important}
+ html body .site-header .brand small{font-size:9px!important;letter-spacing:.08em!important}
+ html body .site-header .header-actions{gap:5px!important;flex:0 0 auto!important}
+ html body .site-header .header-actions a.header-contact-link{width:29px!important;min-width:29px!important;max-width:29px!important;height:29px!important;min-height:29px!important;flex-basis:29px!important}
+ html body .site-header .header-actions a.header-contact-link svg{width:17px!important;height:17px!important;min-width:17px!important}
+}
+@media(max-width:390px){
+ html body .site-header .header-actions{gap:4px!important}
+ html body .site-header .header-actions a.header-contact-link{width:26px!important;min-width:26px!important;max-width:26px!important;height:26px!important;min-height:26px!important;flex-basis:26px!important}
+ html body .site-header .header-actions a.header-contact-link svg{width:16px!important;height:16px!important;min-width:16px!important}
+}
