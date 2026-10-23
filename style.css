@@ -1523,3 +1523,44 @@ html body .cart-icon b{background:#d2aa4b!important;color:#111!important;-webkit
 .header-contact-link:hover{transform:translateY(-1px);background:#c5a66b;border-color:#a18249}
 .header-actions{display:flex;align-items:center;gap:10px}
 @media(max-width:600px){.header-actions{gap:7px}.header-contact-link{width:29px;height:29px;flex-basis:29px}.header-contact-link svg{width:18px;height:18px}}
+
+
+/* Force the WhatsApp and IMO logo links to remain visible in the mobile header. */
+html body .site-header .header-actions a.header-contact-link{
+  display:grid!important;
+  place-items:center!important;
+  visibility:visible!important;
+  opacity:1!important;
+  position:relative!important;
+  z-index:5!important;
+  width:32px!important;
+  min-width:32px!important;
+  max-width:32px!important;
+  height:32px!important;
+  min-height:32px!important;
+  flex:0 0 32px!important;
+  padding:0!important;
+  margin:0!important;
+  border-radius:50%!important;
+  text-decoration:none!important;
+  line-height:1!important;
+  overflow:visible!important;
+}
+html body .site-header .header-actions a.header-contact-link svg{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  width:20px!important;
+  height:20px!important;
+  min-width:20px!important;
+  color:#fff!important;
+  fill:currentColor;
+}
+html body .site-header .header-actions a.header-whatsapp{background:#187a4b!important;border:1px solid #187a4b!important;color:#fff!important}
+html body .site-header .header-actions a.header-imo{background:#3979e8!important;border:1px solid #3979e8!important;color:#fff!important}
+@media(max-width:480px){
+  html body .site-header{gap:6px!important}
+  html body .site-header .header-actions{gap:5px!important}
+  html body .site-header .header-actions a.header-contact-link{width:27px!important;min-width:27px!important;max-width:27px!important;height:27px!important;min-height:27px!important;flex-basis:27px!important}
+  html body .site-header .header-actions a.header-contact-link svg{width:17px!important;height:17px!important;min-width:17px!important}
+}
