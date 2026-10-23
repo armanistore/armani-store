@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261024-category-products-top">
+  <link rel="stylesheet" href="style.css?v=20261024-category-results-force">
 </head>
 <body>
   <div class="announcement">A MORE CONSIDERED WARDROBE <span>✦</span> DISCOVER YOUR NEXT FAVOURITE</div>
@@ -87,9 +87,12 @@
   </div>
   
 
+  <section class="shop-section product-results-top" id="shop"><div class="wrap">
+<div class="carousel-toolbar"><p class="carousel-hint">Swipe to explore · Select any product for details</p><button class="view-all-button" type="button" onclick="resetProductFilters()">View All ↗</button><div class="carousel-arrows"><button class="carousel-arrow" type="button" onclick="slideProducts(-1)" aria-label="Previous products">←</button><button class="carousel-arrow" type="button" onclick="slideProducts(1)" aria-label="Next products">→</button></div></div><div class="product-carousel" id="products" aria-live="polite" aria-label="Products carousel" tabindex="0"></div>
+  </div></section>
+
   <main>
-    <section class="shop-section" id="shop"><div class="wrap">      <div class="carousel-toolbar"><p class="carousel-hint">Swipe to explore · Select any product for details</p><button class="view-all-button" type="button" onclick="resetProductFilters()">View All ↗</button><div class="carousel-arrows"><button class="carousel-arrow" type="button" onclick="slideProducts(-1)" aria-label="Previous products">←</button><button class="carousel-arrow" type="button" onclick="slideProducts(1)" aria-label="Next products">→</button></div></div><div class="product-carousel" id="products" aria-live="polite" aria-label="Products carousel" tabindex="0"></div>
-      <p class="demo-note demo-notice"><strong>DEMO CATALOG ONLY — NOT FOR SALE.</strong> Demo products are illustrative samples, not real inventory. All demo prices are fictional placeholders in BDT (৳), not actual selling prices. Please do not submit a purchase for demo items.</p>
+    <section class="shop-section" id="shop"><div class="wrap">      <p class="demo-note demo-notice"><strong>DEMO CATALOG ONLY — NOT FOR SALE.</strong> Demo products are illustrative samples, not real inventory. All demo prices are fictional placeholders in BDT (৳), not actual selling prices. Please do not submit a purchase for demo items.</p>
 <div class="section-heading"><div><p class="eyebrow">THE EDIT</p><h2 style="color:#111111!important;-webkit-text-fill-color:#111111!important;opacity:1!important;text-shadow:none!important">New Arrivals</h2></div><p>Useful things. Timeless appeal.</p></div>
       <div class="shop-tools"><div class="filters" aria-label="Filter products"><button class="filter active" data-category="All" onclick="setCategory('All',this)">All items</button><button class="filter" data-category="mens-clothing" onclick="setCategory('mens-clothing',this)">Men's Clothing</button><button class="filter" data-category="womens-fashion" onclick="setCategory('womens-fashion',this)">Women's Fashion</button><button class="filter" data-category="shoes" onclick="setCategory('shoes',this)">Shoes</button><button class="filter" data-category="bags" onclick="setCategory('bags',this)">Bags</button><button class="filter" data-category="watches" onclick="setCategory('watches',this)">Watches</button><button class="filter" data-category="accessories" onclick="setCategory('accessories',this)">Accessories</button><button class="filter" data-category="phone" onclick="setCategory('phone',this)">Phones & tech</button></div><span class="results-note">A little something for your everyday.</span></div>
       <section class="kids-arrivals" id="kidsFashion" aria-labelledby="kidsFashionTitle">
@@ -175,5 +178,5 @@
     <p class="ah-chat-note">AI can make mistakes. Please confirm order details before buying.</p>
   </section>
 
-  <script src="script.js?v=20261024-products-under-pills-2"></script>
+  <script src="script.js?v=20261024-products-under-pills-3"></script>
 </body></html>
