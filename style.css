@@ -1394,3 +1394,111 @@ html body #shop .product-carousel .product-card button.add-button{
   html body #shop .product-carousel .product-card .product-info{padding:12px!important}
   html body #shop .product-carousel .product-card .product-actions button{min-height:40px!important;font-size:11px!important}
 }
+
+
+/* Targeted header icon visibility fix for the light ivory header */
+html body .site-header .header-actions{
+  display:flex!important;
+  align-items:center!important;
+  gap:clamp(10px,2.5vw,20px)!important;
+  flex-shrink:0!important;
+}
+html body .site-header .header-actions .header-icon,
+html body .site-header .header-actions button.header-icon,
+html body .site-header .header-actions .wishlist-mark{
+  display:grid!important;
+  place-items:center!important;
+  width:40px!important;
+  min-width:40px!important;
+  height:42px!important;
+  padding:0!important;
+  margin:0!important;
+  background:#fffaf0!important;
+  color:#17130b!important;
+  -webkit-text-fill-color:#17130b!important;
+  border:1px solid #c9a34a!important;
+  border-radius:50%!important;
+  font-size:27px!important;
+  line-height:1!important;
+  font-weight:600!important;
+  text-shadow:none!important;
+  opacity:1!important;
+  visibility:visible!important;
+  box-shadow:0 2px 7px rgba(25,18,5,.10)!important;
+}
+html body .site-header .header-actions .wishlist-mark{
+  color:#b58a2e!important;
+  -webkit-text-fill-color:#b58a2e!important;
+  font-size:30px!important;
+}
+html body .site-header .header-actions .cart-icon{
+  position:relative!important;
+  background:#111111!important;
+  color:#f3d98c!important;
+  -webkit-text-fill-color:#f3d98c!important;
+  border-color:#b58a2e!important;
+  font-size:23px!important;
+}
+html body .site-header .header-actions .cart-icon b{
+  display:grid!important;
+  place-items:center!important;
+  position:absolute!important;
+  top:-5px!important;
+  right:-5px!important;
+  width:19px!important;
+  min-width:19px!important;
+  height:19px!important;
+  padding:0!important;
+  border:1px solid #fffaf0!important;
+  border-radius:50%!important;
+  background:#d2aa4b!important;
+  color:#111111!important;
+  -webkit-text-fill-color:#111111!important;
+  font-size:10px!important;
+  line-height:1!important;
+  opacity:1!important;
+}
+html body .site-header .header-actions .header-icon:focus-visible{
+  outline:2px solid #b58a2e!important;
+  outline-offset:3px!important;
+}
+@media(max-width:480px){
+  html body .site-header .header-actions{gap:7px!important}
+  html body .site-header .header-actions .header-icon,
+  html body .site-header .header-actions button.header-icon,
+  html body .site-header .header-actions .wishlist-mark{
+    width:34px!important;min-width:34px!important;height:36px!important;font-size:23px!important;
+  }
+  html body .site-header .header-actions .wishlist-mark{font-size:26px!important}
+  html body .site-header .header-actions .cart-icon{font-size:20px!important}
+}
+/* Consistent accessible black-and-gold button colors */
+html body .select-button,
+html body button.select-button,
+html body .view-all-button,
+html body button.view-all-button,
+html body .carousel-arrow,
+html body button.carousel-arrow{
+  background:#111111!important;
+  color:#f3d98c!important;
+  -webkit-text-fill-color:#f3d98c!important;
+  border:1px solid #b58a2e!important;
+  opacity:1!important;
+  visibility:visible!important;
+  text-shadow:none!important;
+}
+html body .add-button,
+html body button.add-button,
+html body #detailAddButton,
+html body .search-submit,
+html body button.search-submit,
+html body .checkout{
+  background:linear-gradient(120deg,#f2cc68,#c8942b)!important;
+  color:#111111!important;
+  -webkit-text-fill-color:#111111!important;
+  border:1px solid #d7ad4b!important;
+  opacity:1!important;
+  visibility:visible!important;
+  text-shadow:none!important;
+}
+html body .cart-icon b{background:#d2aa4b!important;color:#111!important;-webkit-text-fill-color:#111!important}
