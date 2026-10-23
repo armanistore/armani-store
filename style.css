@@ -2046,3 +2046,14 @@ html body>section.product-results-top#shop #products{display:flex!important;visi
 html body>section.product-results-top#shop #products .product-card{display:block!important;visibility:visible!important;flex:0 0 calc((100% - 12px)/2)!important;max-width:none!important;opacity:1!important}
 html body>main>section#shop{display:block!important}
 @media(min-width:761px){html body>section.product-results-top#shop>.wrap{width:min(1180px,calc(100% - 48px))!important}html body>section.product-results-top#shop #products .product-card{flex-basis:calc((100% - 36px)/3)!important}}
+
+
+/* ARMANHOVEX Wishlist — persistent local saves, premium neutral/gold styling */
+html body .site-header .header-actions button#wishlistButton{position:relative;display:inline-flex!important;align-items:center;justify-content:center;gap:3px;min-width:34px;min-height:34px;padding:3px 6px;border:1px solid transparent;border-radius:7px;background:transparent!important;color:#c5a66b!important;font-size:25px;line-height:1;cursor:pointer}
+html body .site-header .header-actions button#wishlistButton:hover,html body .site-header .header-actions button#wishlistButton.is-active{background:#f4eee2!important;border-color:#c5a66b!important;color:#8b682f!important}
+html body .site-header .header-actions button#wishlistButton .wishlist-count{display:inline-grid;place-items:center;min-width:16px;height:16px;padding:0 4px;border-radius:99px;background:#c5a66b;color:#171717;font-size:9px;font-weight:700;line-height:1}
+html body #shop .product-actions{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important}
+html body #shop .product-actions .wishlist-product-button{display:inline-flex;align-items:center;justify-content:center;min-width:0;min-height:36px;padding:7px 5px;border:1px solid #d8c69f!important;border-radius:6px;background:#fffaf0!important;color:#5e4b2b!important;font-size:10px;font-weight:600;line-height:1.2;cursor:pointer}
+html body #shop .product-actions .wishlist-product-button.is-saved{background:#f0e4ca!important;border-color:#b38b45!important;color:#704a16!important}
+html body #shop .product-actions .wishlist-product-button:focus-visible,html body .site-header .header-actions button#wishlistButton:focus-visible{outline:2px solid #c5a66b;outline-offset:2px}
+@media(max-width:480px){html body #shop .product-actions{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:4px!important}html body #shop .product-actions .wishlist-product-button{font-size:9px;padding:6px 2px;min-height:34px}}
