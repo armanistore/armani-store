@@ -290,8 +290,6 @@ function submitOrder(event) {
   sendWhatsAppOrder(orderText);
 }
 document.addEventListener("DOMContentLoaded", () => {
-  const phone = document.getElementById("displayPhone");
-  if (phone) phone.textContent = WHATSAPP_NUMBER;
   const payment = document.getElementById("payment");
   if (payment) payment.addEventListener("change", updatePaymentInfo);
   const overlay = document.getElementById("overlay");
