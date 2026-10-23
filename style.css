@@ -2057,3 +2057,8 @@ html body #shop .product-actions .wishlist-product-button{display:inline-flex;al
 html body #shop .product-actions .wishlist-product-button.is-saved{background:#f0e4ca!important;border-color:#b38b45!important;color:#704a16!important}
 html body #shop .product-actions .wishlist-product-button:focus-visible,html body .site-header .header-actions button#wishlistButton:focus-visible{outline:2px solid #c5a66b;outline-offset:2px}
 @media(max-width:480px){html body #shop .product-actions{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:4px!important}html body #shop .product-actions .wishlist-product-button{font-size:9px;padding:6px 2px;min-height:34px}}
+
+/* Lift the floating Ask AI button so it covers less page content. */
+html body .ah-chat-launcher{bottom:64px!important}
+html body .ah-chat-panel{bottom:124px!important}
+@media(max-width:480px){html body .ah-chat-launcher{bottom:62px!important}html body .ah-chat-panel{bottom:118px!important}}
