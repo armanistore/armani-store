@@ -1876,3 +1876,77 @@ html body{padding-bottom:70px!important}
  html body .product-carousel{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px!important}
  html body .product-card img,html body .product-card .product-image,html body .product-card .product-media{max-height:250px!important}
 }
+
+
+/* ARMANHOVEX Liquid Glass category controls + bottom dock.
+   Intentionally does not style or alter the existing hero banner. */
+html body .quick-categories{
+  position:relative!important;
+  z-index:2!important;
+  margin-top:12px!important;
+  margin-bottom:18px!important;
+}
+html body .category-pills{
+  position:relative!important;
+  gap:9px!important;
+  padding:8px 7px 12px!important;
+  border:1px solid rgba(255,255,255,.88)!important;
+  border-radius:28px!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.78),rgba(246,246,246,.46) 52%,rgba(255,255,255,.72))!important;
+  -webkit-backdrop-filter:blur(24px) saturate(180%)!important;
+  backdrop-filter:blur(24px) saturate(180%)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(205,190,158,.22),0 8px 24px rgba(28,34,42,.09)!important;
+  scrollbar-width:none!important;
+}
+html body .category-pill{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  border:1px solid rgba(255,255,255,.92)!important;
+  border-radius:22px!important;
+  padding:10px 16px!important;
+  color:#242424!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(239,241,244,.46))!important;
+  -webkit-backdrop-filter:blur(18px) saturate(180%)!important;
+  backdrop-filter:blur(18px) saturate(180%)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(190,190,190,.18),0 3px 9px rgba(35,40,48,.07)!important;
+  transition:transform .28s cubic-bezier(.2,.8,.2,1),background .28s ease,box-shadow .28s ease,border-color .28s ease!important;
+  animation:ahGlassFloat 5s ease-in-out infinite!important;
+}
+html body .category-pill:nth-child(2n){animation-delay:-1.1s!important}
+html body .category-pill:nth-child(3n){animation-delay:-2.2s!important}
+html body .category-pill::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:-1!important;
+  inset:0!important;
+  border-radius:inherit!important;
+  background:linear-gradient(115deg,rgba(255,255,255,.7),transparent 38%,rgba(255,255,255,.16) 66%,transparent)!important;
+  opacity:.85!important;
+  pointer-events:none!important;
+}
+html body .category-pill:active{transform:scale(.94)!important}
+html body .category-pill.is-active{
+  color:#171717!important;
+  border-color:rgba(198,164,97,.8)!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(225,205,163,.72))!important;
+  box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 rgba(161,119,43,.2),0 4px 14px rgba(174,139,72,.23)!important;
+}
+html body .category-pill:focus-visible{outline:2px solid #b08d4a!important;outline-offset:2px!important}
+html body .mobile-bottom-nav{
+  background:rgba(250,250,250,.70)!important;
+  -webkit-backdrop-filter:blur(28px) saturate(185%)!important;
+  backdrop-filter:blur(28px) saturate(185%)!important;
+  border-top:1px solid rgba(255,255,255,.92)!important;
+  box-shadow:0 -5px 24px rgba(22,28,36,.10),inset 0 1px 0 rgba(255,255,255,.95)!important;
+}
+html body .mobile-bottom-nav a{transition:transform .22s ease,color .22s ease!important}
+html body .mobile-bottom-nav a:active{transform:scale(.91)!important}
+@keyframes ahGlassFloat{
+  0%,100%{transform:translateY(0);filter:brightness(1)}
+  50%{transform:translateY(-1px);filter:brightness(1.025)}
+}
+@media(prefers-reduced-motion:reduce){
+  html body .category-pill{animation:none!important;transition:none!important}
+  html body .mobile-bottom-nav a{transition:none!important}
+}
