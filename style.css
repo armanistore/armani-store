@@ -2018,3 +2018,12 @@ html body .category-pill.is-active{
  html body .category-pills{gap:8px!important;padding:8px 7px 10px!important}
  html body .category-pill{padding:10px 16px!important;font-size:13px!important}
 }
+
+
+/* Search sits below the brand header and above the hero; slightly narrower side margins. */
+@media(max-width:760px){
+  html body>.search-wrap{order:3!important;width:auto!important;margin:12px 24px 14px!important}
+  html body>section.hero#home{order:4!important}
+  html body>section.quick-categories{order:5!important}
+  html body>.search-wrap .search-main{width:100%!important;box-sizing:border-box!important}
+}
