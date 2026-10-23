@@ -1502,3 +1502,14 @@ html body .checkout{
   text-shadow:none!important;
 }
 html body .cart-icon b{background:#d2aa4b!important;color:#111!important;-webkit-text-fill-color:#111!important}
+
+/* Contact shortcuts: show app buttons only, never expose the phone number. */
+.contact-actions{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;margin-top:22px}
+.contact-actions .button{min-width:145px;min-height:46px;border-radius:3px;font-weight:700;letter-spacing:.02em}
+.contact-whatsapp{background:#173d30;color:#fff;border:1px solid #c5a66b}
+.contact-whatsapp span,.contact-imo span{margin-left:8px;color:#e4d4ae}
+.contact-imo{background:#c5a66b;color:#171711;border:1px solid #a18249}
+.contact-imo span{color:#171711}
+.contact-whatsapp:hover{background:#082b21}
+.contact-imo:hover{background:#e4d4ae}
+@media(max-width:420px){.contact-actions{gap:9px}.contact-actions .button{min-width:130px;flex:1;padding:14px 12px}}
