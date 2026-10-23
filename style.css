@@ -1513,3 +1513,13 @@ html body .cart-icon b{background:#d2aa4b!important;color:#111!important;-webkit
 .contact-whatsapp:hover{background:#082b21}
 .contact-imo:hover{background:#e4d4ae}
 @media(max-width:420px){.contact-actions{gap:9px}.contact-actions .button{min-width:130px;flex:1;padding:14px 12px}}
+
+
+/* Compact WhatsApp and IMO shortcuts in the top-right header. */
+.header-contact-link{display:grid;place-items:center;width:34px;height:34px;flex:0 0 34px;border-radius:50%;border:1px solid var(--gold);background:#fffdf8;transition:transform .18s,background .18s;color:#fff}
+.header-contact-link svg{display:block;width:21px;height:21px}
+.header-whatsapp{background:#187a4b;border-color:#187a4b}
+.header-imo{background:#3979e8;border-color:#3979e8}
+.header-contact-link:hover{transform:translateY(-1px);background:#c5a66b;border-color:#a18249}
+.header-actions{display:flex;align-items:center;gap:10px}
+@media(max-width:600px){.header-actions{gap:7px}.header-contact-link{width:29px;height:29px;flex-basis:29px}.header-contact-link svg{width:18px;height:18px}}
