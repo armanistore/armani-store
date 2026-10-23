@@ -2036,3 +2036,13 @@ html body .category-pill.is-active{
   html body>section.quick-categories{order:6!important}
   html body>.search-wrap .search-main{width:100%!important;box-sizing:border-box!important}
 }
+
+
+/* Product results must appear directly below the quick category pills. */
+html body>section.product-results-top#shop{display:block!important;visibility:visible!important;position:relative!important;order:6!important;width:100%!important;min-height:180px!important;height:auto!important;overflow:visible!important;background:#fff!important;padding:18px 0 28px!important;margin:0!important;opacity:1!important}
+html body>section.product-results-top#shop>.wrap{display:flex!important;flex-direction:column!important;visibility:visible!important;min-height:140px!important;width:calc(100% - 28px)!important;margin:0 auto!important;gap:10px!important}
+html body>section.product-results-top#shop .carousel-toolbar{display:flex!important;visibility:visible!important;order:0!important}
+html body>section.product-results-top#shop #products{display:flex!important;visibility:visible!important;min-height:100px!important;width:100%!important;overflow-x:auto!important;gap:12px!important;opacity:1!important}
+html body>section.product-results-top#shop #products .product-card{display:block!important;visibility:visible!important;flex:0 0 calc((100% - 12px)/2)!important;max-width:none!important;opacity:1!important}
+html body>main>section#shop{display:block!important}
+@media(min-width:761px){html body>section.product-results-top#shop>.wrap{width:min(1180px,calc(100% - 48px))!important}html body>section.product-results-top#shop #products .product-card{flex-basis:calc((100% - 36px)/3)!important}}
