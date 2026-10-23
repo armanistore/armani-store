@@ -88,6 +88,41 @@ async function loadCsvDemoProducts() {
 let cart = [];
 try { cart = (JSON.parse(localStorage.getItem("armaniCart")) || []).filter(item => ![1, 2, 3].includes(Number(item.id))); } catch (error) { cart = []; }
 let currentCategory = "All";
+let showWishlistOnly = false;
+let wishlist = [];
+try { wishlist = (JSON.parse(localStorage.getItem("armaniWishlist")) || []).map(Number).filter(id => Number.isFinite(id)); } catch (error) { wishlist = []; }
+function saveWishlist() { try { localStorage.setItem("armaniWishlist", JSON.stringify(wishlist)); } catch (error) { /* Storage may be unavailable in private browsing. */ } }
+function updateWishlistCount() {
+  const button = document.getElementById("wishlistButton");
+  if (!button) return;
+  button.innerHTML = "♡" + (wishlist.length ? '<b class="wishlist-count">' + wishlist.length + '</b>' : "");
+  button.classList.toggle("is-active", showWishlistOnly);
+  button.setAttribute("aria-pressed", String(showWishlistOnly));
+  button.setAttribute("aria-label", showWishlistOnly ? "Show all products" : "Show wishlist");
+  button.title = showWishlistOnly ? "Show all products" : "Wishlist";
+}
+function toggleWishlistView() {
+  showWishlistOnly = !showWishlistOnly;
+  if (showWishlistOnly) {
+    currentCategory = "All";
+    const input = document.getElementById("search");
+    if (input) input.value = "";
+    document.querySelectorAll(".filters button").forEach(button => button.classList.toggle("active", button.dataset.category === "All"));
+    document.querySelectorAll(".category-pills .category-pill").forEach((button, index) => { button.classList.toggle("is-active", index === 0); button.setAttribute("aria-pressed", String(index === 0)); });
+  }
+  updateWishlistCount();
+  renderProducts();
+  const section = document.getElementById("shop");
+  if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+function toggleWishlist(productId) {
+  const id = Number(productId);
+  if (!products.some(product => Number(product.id) === id)) return;
+  wishlist = wishlist.includes(id) ? wishlist.filter(savedId => savedId !== id) : [...wishlist, id];
+  saveWishlist();
+  updateWishlistCount();
+  renderProducts();
+}
 
 function money(amount) { return "৳" + Number(amount).toLocaleString("en-BD"); }
 function isDemoProduct(itemOrId) { const item = typeof itemOrId === "object" ? itemOrId : products.find(product => product.id === Number(itemOrId)); return Boolean(item && item.demo === true); }
@@ -188,15 +223,16 @@ function renderProducts() {
   const input = document.getElementById("search");
   const query = input ? input.value.toLowerCase().trim() : "";
   const activeCategory = normalizeCategory(currentCategory);
-  const filtered = products.filter(product => (activeCategory === "all" || normalizeCategory(product.category) === activeCategory) && (product.name.toLowerCase().includes(query) || product.category.toLowerCase().replace(/-/g, " ").includes(query) || (product.description || "").toLowerCase().includes(query)));
+  const filtered = products.filter(product => (!showWishlistOnly || wishlist.includes(Number(product.id))) && (activeCategory === "all" || normalizeCategory(product.category) === activeCategory) && (product.name.toLowerCase().includes(query) || product.category.toLowerCase().replace(/-/g, " ").includes(query) || (product.description || "").toLowerCase().includes(query)));
   if (!filtered.length) {
-    container.innerHTML = '<div class="no-results"><h3>No matches just yet</h3><p>Try a different search or explore all items.</p><button class="button button-green" type="button" onclick="resetProductFilters()">View all items</button></div>';
+    container.innerHTML = '<div class="no-results"><h3>' + (showWishlistOnly ? "Your wishlist is empty" : "No matches just yet") + '</h3><p>' + (showWishlistOnly ? "Tap the heart on any product to save it here." : "Try a different search or explore all items.") + '</p><button class="button button-green" type="button" onclick="' + (showWishlistOnly ? "toggleWishlistView()" : "resetProductFilters()") + '">' + (showWishlistOnly ? "Continue shopping" : "View all items") + '</button></div>';
     return;
   }
   container.innerHTML = filtered.map(product => {
     const discount = Number(product.originalPrice) > Number(product.price);
     const demoTag = product.demo === true ? '<span class="product-tag demo-product-tag">DEMO PRODUCT — NOT FOR SALE</span>' : '<span class="product-tag">' + escapeHTML(product.category) + '</span>';
-    const options = '<div class="product-actions"><button class="select-button" type="button" onclick="openProductDetails(' + Number(product.id) + ')" aria-label="Select ' + escapeHTML(product.name) + '">Select product</button><button class="add-button" type="button" onclick="addToCart(' + Number(product.id) + ')">＋ Add to bag</button></div>';
+    const saved = wishlist.includes(Number(product.id));
+    const options = '<div class="product-actions"><button class="wishlist-product-button' + (saved ? " is-saved" : "") + '" type="button" onclick="toggleWishlist(' + Number(product.id) + ')" aria-label="' + (saved ? "Remove from wishlist: " : "Save to wishlist: ") + escapeHTML(product.name) + '" aria-pressed="' + saved + '" title="' + (saved ? "Remove from wishlist" : "Save to wishlist") + '">' + (saved ? "♥ Saved" : "♡ Wishlist") + '</button><button class="select-button" type="button" onclick="openProductDetails(' + Number(product.id) + ')" aria-label="Select ' + escapeHTML(product.name) + '">Select product</button><button class="add-button" type="button" onclick="addToCart(' + Number(product.id) + ')">＋ Add to bag</button></div>';
     return '<article class="product-card" tabindex="0" role="group" aria-label="' + escapeHTML(product.name) + '" onclick="if(!event.target.closest(\'button\'))openProductDetails(' + Number(product.id) + ')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();openProductDetails(' + Number(product.id) + ')}"><div class="product-image"><img loading="lazy" src="' + escapeHTML(product.image) + '" alt="' + escapeHTML(product.name) + '" onerror="this.onerror=null;this.src=\'https://placehold.co/600x700/f0eee5/173d30?text=ARMANHOVEX\'">' + demoTag + (discount ? '<span class="discount-tag">Special price</span>' : '') + '</div><div class="product-info"><span class="product-category">' + escapeHTML(product.category.replace(/-/g, " ")) + '</span><h3>' + escapeHTML(product.name) + '</h3><div class="product-bottom"><strong class="price">' + money(product.price) + (discount ? '<span class="product-old-price">' + money(product.originalPrice) + '</span>' : '') + (product.demo ? '<small class="demo-price-label">DEMO PRICE · SAMPLE ONLY</small>' : '') + '</strong>' + options + '</div></div></article>';
   }).join("");
 }
