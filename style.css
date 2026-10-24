@@ -2062,3 +2062,45 @@ html body #shop .product-actions .wishlist-product-button:focus-visible,html bod
 html body .ah-chat-launcher{bottom:64px!important}
 html body .ah-chat-panel{bottom:124px!important}
 @media(max-width:480px){html body .ah-chat-launcher{bottom:62px!important}html body .ah-chat-panel{bottom:118px!important}}
+
+
+/* Keep mobile-browser "Desktop site" mode on phones in the same storefront layout.
+   Uses physical device width so the desktop-mode viewport cannot activate the oversized sidebar layout. */
+@media (max-device-width: 760px) and (orientation: portrait) {
+  html body {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+  }
+  html body > .announcement { order: 1 !important; }
+  html body > header.site-header { order: 2 !important; }
+  html body > aside.premium-sidebar {
+    display: none !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+  html body > section.hero#home { order: 4 !important; }
+  html body > .search-wrap {
+    order: 5 !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 12px 14px 16px !important;
+  }
+  html body > section.quick-categories {
+    order: 6 !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 12px 14px 20px !important;
+  }
+  html body > main { order: 7 !important; width: 100% !important; min-width: 0 !important; }
+  html body > section.product-results-top#shop { order: 7 !important; }
+  html body > nav.mobile-bottom-nav { order: 8 !important; }
+  html body > footer.footer { order: 9 !important; }
+  html body .category-pills { justify-content: flex-start !important; }
+  html body .mobile-bottom-nav { display: flex !important; }
+}
