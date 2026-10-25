@@ -2304,3 +2304,9 @@ html body .ah-chat-panel{bottom:124px!important}
   body { padding-bottom: 76px !important; }
 }
 
+
+
+/* Keep the first category visible when the touch viewport is wider than 760px. */
+@media (hover: none) and (pointer: coarse) and (max-width: 1100px) {
+  html body .category-pills { justify-content: flex-start !important; }
+}
