@@ -2104,3 +2104,209 @@ html body .ah-chat-panel{bottom:124px!important}
   html body .category-pills { justify-content: flex-start !important; }
   html body .mobile-bottom-nav { display: flex !important; }
 }
+
+
+/* Responsive correction: keep touch devices in a fluid storefront layout even when
+   Android Chrome requests a desktop viewport. Desktop computers retain the sidebar. */
+@media (hover: none) and (pointer: coarse) and (max-width: 1100px) {
+  html,
+  body {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-x: clip !important;
+  }
+
+  body {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  body > .announcement { order: 1 !important; }
+  body > header.site-header {
+    order: 2 !important;
+    width: calc(100% - 28px) !important;
+    max-width: none !important;
+    margin: 0 14px !important;
+    padding: 11px 0 !important;
+    min-height: 62px !important;
+    gap: 10px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  body > aside.premium-sidebar {
+    display: none !important;
+    position: static !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body .premium-top-nav { display: none !important; }
+  body .brand { gap: 7px !important; }
+  body .brand-mark { width: 36px !important; height: 36px !important; font-size: 21px !important; }
+  body .brand b { font-size: 12px !important; letter-spacing: .08em !important; }
+  body .brand small { font-size: 6px !important; letter-spacing: .16em !important; }
+  body .header-actions { gap: 7px !important; }
+  body .header-icon { width: 34px !important; min-width: 30px !important; height: 38px !important; font-size: 25px !important; }
+  body .wishlist-mark { font-size: 29px !important; }
+  body .cart-icon { font-size: 22px !important; }
+
+  body > section.hero.wrap#home {
+    order: 4 !important;
+    width: auto !important;
+    max-width: none !important;
+    height: 265px !important;
+    min-height: 265px !important;
+    margin: 7px 14px 12px !important;
+  }
+  body > section.hero.wrap#home .hero-copy {
+    width: 66% !important;
+    padding: 18px 15px !important;
+  }
+  body > section.hero.wrap#home h1 {
+    font-size: clamp(28px, 7.5vw, 40px) !important;
+    line-height: 1.02 !important;
+  }
+  body > section.hero.wrap#home .hero-sub {
+    max-width: 205px !important;
+    font-size: 10px !important;
+    line-height: 1.45 !important;
+  }
+
+  body > .search-wrap {
+    order: 5 !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 12px 30px 16px !important;
+  }
+  body > .search-wrap .search-main {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+  }
+
+  body > section.quick-categories {
+    order: 6 !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 12px 14px 20px !important;
+  }
+  body .category-pills {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+  }
+
+  body > section.product-results-top#shop {
+    order: 7 !important;
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 18px 0 28px !important;
+    overflow: visible !important;
+  }
+  body > section.product-results-top#shop > .wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    width: calc(100% - 28px) !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+  }
+  body > section.product-results-top#shop #products {
+    display: flex !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    gap: 12px !important;
+  }
+  body > section.product-results-top#shop #products .product-card {
+    display: block !important;
+    flex: 0 0 calc((100% - 12px) / 2) !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+
+  body > main {
+    order: 8 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: calc(100% - 28px) !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 14px !important;
+    padding: 0 !important;
+  }
+  body > main > .shop-section,
+  body > main > .category-section,
+  body > main > .why-section,
+  body > main > .testimonial,
+  body > main > .newsletter,
+  body > main > .contact {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  body > main > .shop-section { padding: 26px 0 42px !important; }
+  body > main > .shop-section > .wrap,
+  body > main > .category-section.wrap,
+  body > main > .why-section.wrap,
+  body > main > .testimonial.wrap,
+  body > main > .newsletter.wrap,
+  body > main > .contact.wrap {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  body > main .product-carousel {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  body > main .product-carousel .product-card {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  body > main .kids-choice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    min-width: 0 !important;
+  }
+  body > main .kids-choice { min-width: 0 !important; }
+  body > main .feature-banners { grid-template-columns: 1fr !important; }
+
+  body > nav.mobile-bottom-nav {
+    display: flex !important;
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    z-index: 999 !important;
+  }
+  body > footer.footer { order: 9 !important; }
+  body .ah-chat-launcher { right: 12px !important; bottom: 64px !important; }
+  body .ah-chat-panel { right: 12px !important; bottom: 124px !important; max-width: calc(100vw - 24px) !important; }
+  body { padding-bottom: 76px !important; }
+}
+
+
+
+/* Keep the first category visible when the touch viewport is wider than 760px. */
+@media (hover: none) and (pointer: coarse) and (max-width: 1100px) {
+  html body .category-pills { justify-content: flex-start !important; }
+}
