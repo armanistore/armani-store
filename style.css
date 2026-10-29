@@ -2461,3 +2461,25 @@ html body .ah-chat-panel{bottom:124px!important}
     overflow: hidden !important;
   }
 }
+
+
+/* Center the hero banner in Android Chrome Desktop-site landscape */
+/* Keep the existing hero design and video, but center the complete banner
+   within the available page width when a phone is rotated to landscape. */
+@media (max-device-width: 1200px) and (orientation: landscape) {
+  html body > section.hero#home,
+  html body section.hero.wrap#home {
+    display: flex !important;
+    float: none !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    width: min(1320px, calc(100% - 40px)) !important;
+    max-width: 1320px !important;
+    min-width: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+  }
+}
