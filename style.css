@@ -2435,3 +2435,29 @@ html body .ah-chat-panel{bottom:124px!important}
   body .mobile-bottom-nav { order: 8 !important; display: flex !important; }
   body .footer { order: 9 !important; }
 }
+
+
+/* Hide the legacy Categories drawer in Android Chrome Desktop site mode */
+/* On phones rotated to landscape, Chrome Desktop site may expose the fixed
+   category drawer even after viewport-based responsive rules run. Hide only
+   the legacy sidebar; keep the horizontal category pills and all store features. */
+@media (max-device-width: 1200px) and (orientation: landscape) {
+  html body > aside.premium-sidebar,
+  html body aside.premium-sidebar,
+  html body .premium-sidebar {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: static !important;
+    inset: auto !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    overflow: hidden !important;
+  }
+}
