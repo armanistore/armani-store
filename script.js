@@ -5,7 +5,19 @@ const NAGAD_NUMBER = "01606938674";
 const BKASH_NUMBER = "";
 
 // Original three legacy products removed at the owner's request.
-const realProducts = [];
+const realProducts = [
+  {
+    id: 1,
+    name: "Samsung Galaxy S24+",
+    brand: "Samsung",
+    category: "smartphones",
+    price: 55000,
+    storage: "12GB RAM / 512GB Storage",
+    demo: false,
+    image: "https://placehold.co/600x750/f0eee5/173d30?text=Samsung+Galaxy+S24%2B",
+    description: "Samsung Galaxy S24+ smartphone with 12GB RAM and 512GB storage."
+  }
+];
 // EDITABLE SAMPLE DATA ONLY. Prices are fictional placeholders, not selling prices or offers.
 const demoProducts = [
 {id:1001,name:"Tailored Everyday Blazer",category:"mens-clothing",price:3490,demo:true,image:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=80",description:"A polished blazer concept for smart-casual looks.",sizes:["S","M","L","XL"],colors:["Forest","Sand"]},
