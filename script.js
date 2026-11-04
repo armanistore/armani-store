@@ -88,6 +88,7 @@ async function loadCsvDemoProducts() {
 let cart = [];
 try { cart = (JSON.parse(localStorage.getItem("armaniCart")) || []).filter(item => ![1, 2, 3].includes(Number(item.id))); } catch (error) { cart = []; }
 let currentCategory = "All";
+let currentDepartment = "all";
 let showWishlistOnly = false;
 let wishlist = [];
 try { wishlist = (JSON.parse(localStorage.getItem("armaniWishlist")) || []).map(Number).filter(id => Number.isFinite(id)); } catch (error) { wishlist = []; }
@@ -197,6 +198,8 @@ function selectKidsCollection(category) {
   if (shop) shop.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 function setCategory(category, button) {
+  currentDepartment = "all";
+  document.querySelectorAll(".department-card").forEach(card => card.classList.remove("is-active"));
   currentCategory = normalizeCategory(category);
   const selected = currentCategory === "all" ? "All" : currentCategory;
   document.querySelectorAll(".filters button").forEach(btn => {
@@ -213,6 +216,20 @@ function setCategory(category, button) {
   const shop = document.getElementById("shop");
   if (shop && !button) shop.scrollIntoView({ behavior: "smooth", block: "start" });
 }
+function setDepartment(department, button) {
+  currentDepartment = ["smartphones", "electrical", "fashion"].includes(department) ? department : "all";
+  currentCategory = "All";
+  showWishlistOnly = false;
+  document.querySelectorAll(".department-card").forEach(card => card.classList.toggle("is-active", card === button));
+  document.querySelectorAll(".filters button").forEach(btn => btn.classList.toggle("active", normalizeCategory(btn.dataset.category || btn.textContent.trim()) === "all"));
+  document.querySelectorAll(".category-pills .category-pill").forEach((btn, index) => {
+    btn.classList.toggle("is-active", index === 0);
+    btn.setAttribute("aria-pressed", String(index === 0));
+  });
+  renderProducts();
+  const shop = document.getElementById("shop");
+  if (shop) shop.scrollIntoView({behavior:"smooth", block:"start"});
+}
 function setSidebarCategory(category, button) {
   document.querySelectorAll(".premium-sidebar .sidebar-link").forEach(item => item.classList.toggle("is-active", item === button));
   setCategory(category);
@@ -223,7 +240,13 @@ function renderProducts() {
   const input = document.getElementById("search");
   const query = input ? input.value.toLowerCase().trim() : "";
   const activeCategory = normalizeCategory(currentCategory);
-  const filtered = products.filter(product => (!showWishlistOnly || wishlist.includes(Number(product.id))) && (activeCategory === "all" || normalizeCategory(product.category) === activeCategory) && (product.name.toLowerCase().includes(query) || product.category.toLowerCase().replace(/-/g, " ").includes(query) || (product.description || "").toLowerCase().includes(query)));
+  const departmentCategories = {
+    smartphones: ["phone", "smartphones", "smartphone", "mobile-phones", "mobile-accessories", "phone-accessories", "mobile-parts"],
+    electrical: ["electrical", "electronics", "lighting", "electrical-accessories", "electrical-tools", "soldering-tools", "components", "gadgets"],
+    fashion: ["mens-clothing", "womens-fashion", "kids-fashion", "kids-boys", "kids-girls", "shoes", "bags", "watches", "accessories"]
+  };
+  const inDepartment = product => currentDepartment === "all" || (departmentCategories[currentDepartment] || []).includes(normalizeCategory(product.category));
+  const filtered = products.filter(product => inDepartment(product) && (!showWishlistOnly || wishlist.includes(Number(product.id))) && (activeCategory === "all" || normalizeCategory(product.category) === activeCategory) && (product.name.toLowerCase().includes(query) || product.category.toLowerCase().replace(/-/g, " ").includes(query) || (product.description || "").toLowerCase().includes(query)));
   if (!filtered.length) {
     container.innerHTML = '<div class="no-results"><h3>' + (showWishlistOnly ? "Your wishlist is empty" : "No matches just yet") + '</h3><p>' + (showWishlistOnly ? "Tap the heart on any product to save it here." : "Try a different search or explore all items.") + '</p><button class="button button-green" type="button" onclick="' + (showWishlistOnly ? "toggleWishlistView()" : "resetProductFilters()") + '">' + (showWishlistOnly ? "Continue shopping" : "View all items") + '</button></div>';
     return;
@@ -298,6 +321,8 @@ function addToCartWithoutOpening(productId) {
   saveCart(); updateCartCount();
 }
 function resetProductFilters() {
+  currentDepartment = "all";
+  document.querySelectorAll(".department-card").forEach(card => card.classList.remove("is-active"));
   currentCategory = "All";
   const input = document.getElementById("search");
   if (input) input.value = "";
