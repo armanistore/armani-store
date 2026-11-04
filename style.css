@@ -2483,3 +2483,17 @@ html body .ah-chat-panel{bottom:124px!important}
     box-sizing: border-box !important;
   }
 }
+
+/* Department catalog: separate Smartphones, Electrical & Electronics, and Fashion stores. */
+.department-catalog{padding:26px 0 18px}
+.department-heading{margin:0 0 16px}
+.department-heading h2{margin:4px 0 6px;font-family:"Playfair Display",serif;font-size:clamp(24px,3vw,34px);color:#171717}
+.department-heading>p:last-child{margin:0;color:#68645c;font-size:14px}
+.department-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.department-card{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-height:158px;padding:20px;border:1px solid #d7c08d;border-radius:16px;background:linear-gradient(145deg,#171717,#29251d);color:#fff;text-align:left;cursor:pointer;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.department-card:hover,.department-card.is-active{transform:translateY(-2px);border-color:#d5b66e;box-shadow:0 8px 22px rgba(35,27,12,.16)}
+.department-symbol{display:grid;place-items:center;width:34px;height:34px;border:1px solid #c5a66b;border-radius:50%;color:#d8b96f;font-size:20px}
+.department-card strong{font-size:16px;color:#f5e7c5}
+.department-card small{color:#d1c9b8;font-size:12px;line-height:1.5}
+.department-card i{margin-top:auto;color:#d8b96f;font-size:12px;font-style:normal;font-weight:700}
+@media(max-width:680px){.department-grid{grid-template-columns:1fr;gap:10px}.department-card{min-height:0;padding:16px}.department-card small{max-width:34ch}}
