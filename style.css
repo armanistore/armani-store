@@ -2483,3 +2483,63 @@ html body .ah-chat-panel{bottom:124px!important}
     box-sizing: border-box !important;
   }
 }
+
+
+/* Final responsive layout guard: portrait, landscape and desktop.
+   Keeps the existing hero artwork, catalog, cart, wishlist and AI controls intact. */
+html, body { max-width:100%; }
+body { overflow-x:hidden; }
+img, video { max-width:100%; }
+
+/* Phones and small tablets in portrait, including Android Chrome Desktop site. */
+@media (max-device-width: 760px) and (orientation: portrait) {
+  html body { display:flex!important; flex-direction:column!important; width:100%!important; min-width:0!important; }
+  html body > .announcement { order:1!important; width:100%!important; }
+  html body > header.site-header { order:2!important; }
+  html body > aside.premium-sidebar { display:none!important; }
+  html body > section.hero#home { order:3!important; width:calc(100% - 28px)!important; margin:12px auto!important; }
+  html body > .search-wrap { order:4!important; width:calc(100% - 28px)!important; margin:10px auto 14px!important; }
+  html body > section.quick-categories { order:5!important; width:calc(100% - 28px)!important; margin:0 auto 16px!important; }
+  html body > section.product-results-top#shop { order:6!important; width:100%!important; }
+  html body > main { order:7!important; width:100%!important; min-width:0!important; }
+  html body > nav.mobile-bottom-nav { order:8!important; display:flex!important; }
+}
+
+/* Landscape phones/tablets: remove the legacy fixed sidebar and center the hero. */
+@media (max-device-width: 1200px) and (orientation: landscape) {
+  html, body { width:100%!important; min-width:0!important; max-width:100%!important; overflow-x:hidden!important; }
+  html body { display:flex!important; flex-direction:column!important; }
+  html body > .announcement { order:1!important; width:100%!important; }
+  html body > header.site-header {
+    order:2!important; position:relative!important; inset:auto!important; transform:none!important;
+    width:calc(100% - 28px)!important; max-width:1180px!important; min-width:0!important;
+    margin:0 auto!important; z-index:5!important;
+  }
+  html body > aside.premium-sidebar { display:none!important; visibility:hidden!important; pointer-events:none!important; width:0!important; min-width:0!important; height:0!important; margin:0!important; padding:0!important; border:0!important; }
+  html body > section.hero#home {
+    order:3!important; display:flex!important; float:none!important; position:relative!important;
+    left:auto!important; right:auto!important; transform:none!important;
+    width:calc(100% - 40px)!important; max-width:1180px!important; min-width:0!important;
+    min-height:clamp(280px, 68vh, 430px)!important; margin:10px auto 14px!important;
+    box-sizing:border-box!important;
+  }
+  html body > section.hero#home .hero-video-wrap { min-width:0!important; }
+  html body > .search-wrap { order:4!important; width:calc(100% - 40px)!important; max-width:1180px!important; margin:10px auto 14px!important; }
+  html body > section.quick-categories { order:5!important; width:calc(100% - 40px)!important; max-width:1180px!important; margin:0 auto 16px!important; }
+  html body > section.product-results-top#shop { order:6!important; width:100%!important; max-width:100%!important; }
+  html body > main { order:7!important; width:100%!important; min-width:0!important; }
+  html body > nav.mobile-bottom-nav { order:8!important; display:flex!important; }
+  html body > footer.footer { order:9!important; width:100%!important; }
+}
+
+/* Full desktop: retain the desktop navigation and give the main content a stable centered width. */
+@media (min-device-width: 1201px) and (orientation: landscape) {
+  html body { overflow-x:hidden; }
+  html body > header.site-header,
+  html body > section.hero#home,
+  html body > section.quick-categories,
+  html body > section.product-results-top#shop > .wrap,
+  html body > main > section { box-sizing:border-box; }
+  html body > section.hero#home { width:min(1180px,calc(100% - 48px)); margin-left:auto!important; margin-right:auto!important; }
+  html body .mobile-bottom-nav { display:none!important; }
+}
