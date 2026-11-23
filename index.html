@@ -49,6 +49,10 @@
 .viewAll{border:0;border-radius:25px;background:var(--pink);color:#fff;font-weight:700;padding:10px 20px;white-space:nowrap}
 .productCarousel{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:3px 2px 16px;scrollbar-width:thin;scrollbar-color:var(--pink) #fff0f6}
 .productCarousel .card{flex:0 0 255px;scroll-snap-align:start}
+.productCarousel.show-all{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));overflow:visible;scroll-snap-type:none}
+.productCarousel.show-all .card{min-width:0}
+@media(max-width:850px){.productCarousel.show-all{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.productCarousel.show-all .card{max-width:none}}
 .productCarousel .photo{height:180px}
 .bottomNav{display:none}
 .bottomNav button{border:0;background:transparent;color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;font-size:11px;font-weight:600;padding:7px 2px}
@@ -77,23 +81,19 @@
 <article class="heroSlide"><div class="heroCopy"><div class="eyebrow">SHOP WITH CONFIDENCE</div><h1>স্মার্ট শপিং,<br><em>সহজ অর্ডার</em></h1><p>পণ্য সম্পর্কে জানতে বা অর্ডার করতে সরাসরি যোগাযোগ করুন।</p><a class="btn" href="#contact">যোগাযোগ করুন ↗</a></div><div class="heroVisual"><img src="ad2.jpg" alt="ARMAN HOVEXXX shopping offer"></div></article>
 </div><button class="heroArrow heroPrev" id="heroPrev" aria-label="Previous banner">‹</button><button class="heroArrow heroNext" id="heroNext" aria-label="Next banner">›</button><div class="heroControls" id="heroDots"><button class="heroDot active" aria-label="Banner 1"></button><button class="heroDot" aria-label="Banner 2"></button><button class="heroDot" aria-label="Banner 3"></button></div>
 </section>
-<section class="categoryShowcase"><div class="wrap"><div class="categoryTiles" id="categoryTiles">
-<button class="categoryTile" data-filter="Smartphones"><span class="tileImage"><span class="tileEmoji">📱</span></span><span>Smartphones</span></button>
-<button class="categoryTile" data-filter="Laptops"><span class="tileImage"><span class="tileEmoji">💻</span></span><span>Laptops</span></button>
-<button class="categoryTile" data-filter="watches"><span class="tileImage"><img src="watches.jpg" alt="Watches"></span><span>Watches</span></button>
-<button class="categoryTile" data-filter="Gadgets"><span class="tileImage"><span class="tileEmoji">🎧</span></span><span>Gadgets</span></button>
-<button class="categoryTile" data-filter="Electrical"><span class="tileImage"><span class="tileEmoji">🔌</span></span><span>Electrical</span></button>
-<button class="categoryTile" data-filter="Home"><span class="tileImage"><span class="tileEmoji">🏠</span></span><span>Home Items</span></button>
+<section class="categoryShowcase" aria-label="Shop by category"><div class="wrap"><div class="categoryTiles" id="categoryTiles">
+<button class="categoryTile" data-filter="Smartphones"><span class="tileImage"><img src="20261001_165939.jpg" alt="Smartphones"></span><span>Smartphones</span></button>
 <button class="categoryTile" data-filter="mens-clothing"><span class="tileImage"><img src="mens-clothing.jpg" alt="Men's Fashion"></span><span>Men's Fashion</span></button>
 <button class="categoryTile" data-filter="womens-fashion"><span class="tileImage"><img src="womens-fashion.jpg" alt="Women's Fashion"></span><span>Women's Fashion</span></button>
 <button class="categoryTile" data-filter="shoes"><span class="tileImage"><img src="shoes.jpg" alt="Shoes"></span><span>Shoes</span></button>
 <button class="categoryTile" data-filter="bags"><span class="tileImage"><img src="bags.jpg" alt="Bags"></span><span>Bags</span></button>
-<button class="categoryTile" data-filter="Accessories"><span class="tileImage"><img src="accessories.jpg" alt="Accessories"></span><span>Accessories</span></button>
-<button class="categoryTile" data-filter="kids-clothing"><span class="tileImage"><span class="tileEmoji">🧸</span></span><span>Kids Fashion</span></button>
+<button class="categoryTile" data-filter="watches"><span class="tileImage"><img src="watches.jpg" alt="Watches"></span><span>Watches</span></button>
+<button class="categoryTile" data-filter="kids-clothing"><span class="tileImage"><img src="Glossy%20Kids%20Fashion%20Choice%20Buttons%20(1).png" alt="Kids Fashion"></span><span>Kids Fashion</span></button>
+<button class="categoryTile" data-filter="mobile-tools"><span class="tileImage"><img src="accessories.jpg" alt="Mobile accessories"></span><span>Accessories</span></button>
 </div></div></section>
 <section class="shop" id="shop"><div class="wrap"><div class="sectionHead"><div class="eyebrow">OUR COLLECTION</div><h2>আমাদের পণ্য</h2><p>ক্যাটাগরি নির্বাচন করুন অথবা পণ্যের নাম লিখে খুঁজুন।</p></div>
 <div class="search"><input id="search" type="search" placeholder="পণ্যের নাম দিয়ে খুঁজুন..." aria-label="পণ্য খুঁজুন"><button class="btn" onclick="render()">খুঁজুন</button></div>
-<div class="cats" id="cats"></div><div class="arrivalHead"><h2>⭐ New Arrival</h2><button class="viewAll" id="viewAllBtn">View All →</button></div><div class="productCarousel" id="products"></div></div></section>
+<div class="cats" id="cats"></div><div class="arrivalHead"><h2>⭐ New Arrival</h2><button class="viewAll" id="viewAllBtn" aria-expanded="false">View All →</button></div><div class="productCarousel" id="products"></div></div></section>
 <section class="featureSection"><div class="wrap"><div class="sectionHead"><div class="eyebrow">WHY ARMAN HOVEXXX</div><h2>কেন আমাদের বেছে নেবেন?</h2></div><div class="features"><div class="feature"><span>♡</span><b>ক্রেতাকে গুরুত্ব</b><small>প্রয়োজন অনুযায়ী সহযোগিতা।</small></div><div class="feature"><span>▦</span><b>বিভিন্ন ক্যাটাগরি</b><small>ফ্যাশন ও টেক পণ্যের বিভাগ।</small></div><div class="feature"><span>☏</span><b>সহজ যোগাযোগ</b><small>ফোন ও WhatsApp অর্ডার।</small></div></div></div></section>
 <section id="about"><div class="wrap aboutGrid"><div class="aboutArt">🌷</div><div><div class="eyebrow">ABOUT US</div><h2>ARMAN HOVEXXX সম্পর্কে</h2><p>ARMAN HOVEXXX একটি বহুমুখী ব্যবসায়িক উদ্যোগ। এখানে পোশাক, শিশুদের ফ্যাশন, ঘড়ি, ব্যাগ, জুতা, স্মার্টফোন এবং মোবাইল সার্ভিসিংয়ের সরঞ্জামের বিভাগ রাখা হয়েছে।</p><p>আমাদের লক্ষ্য সহজ যোগাযোগ এবং সুবিধাজনক অনলাইন শপিং অভিজ্ঞতা তৈরি করা।</p><a class="btn" href="#contact">যোগাযোগ করুন</a></div></div></section>
 <section class="reviews"><div class="wrap"><div class="sectionHead"><div class="eyebrow">CUSTOMER VOICES</div><h2>ক্রেতাদের মতামত</h2><p>প্রকৃত মতামত পাওয়া গেলে এখানে প্রকাশ করা হবে।</p></div><div class="reviewGrid"><div class="review">ক্রেতার মতামত এখানে যোগ করুন।<p><span class="placeholder">REVIEW PLACEHOLDER</span></p></div><div class="review">ক্রেতার মতামত এখানে যোগ করুন।<p><span class="placeholder">REVIEW PLACEHOLDER</span></p></div><div class="review">ক্রেতার মতামত এখানে যোগ করুন।<p><span class="placeholder">REVIEW PLACEHOLDER</span></p></div></div></div></section>
@@ -101,7 +101,7 @@
 </main>
 <footer class="footer"><div class="wrap"><h2>ARMAN HOVEXXX</h2><p>আপনার পছন্দ, আমাদের অগ্রাধিকার।</p><p>© <span id="year"></span> ARMAN HOVEXXX. All rights reserved.</p></div></footer>
 <a class="floatWA" href="https://wa.me/8801302014526" target="_blank" rel="noopener" aria-label="WhatsApp">◉</a>
-<nav class="bottomNav" aria-label="Main navigation"><button class="active" data-target="home"><span class="navIcon">⌂</span>Home</button><button data-target="categoryTiles"><span class="navIcon">▦</span>Categories</button><button id="bottomCart"><span class="navIcon">🛒</span>Cart</button><button id="bottomWishlist"><span class="navIcon">♡</span>Wishlist</button><button data-target="contact"><span class="navIcon">♙</span>Account</button></nav>
+<nav class="bottomNav" aria-label="Main navigation"><button class="active" data-target="home"><span class="navIcon">⌂</span>Home</button><button data-target="categoryTiles"><span class="navIcon">▦</span>Categories</button><button id="bottomCart"><span class="navIcon">🛒</span>Cart</button><button id="bottomWishlist"><span class="navIcon">♡</span>Wishlist</button><button data-target="contact"><span class="navIcon">☎</span>Contact</button></nav>
 <div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modalHead"><h2 id="modalTitle">কার্ট</h2><button class="close" onclick="closeModal()">✕</button></div><div id="modalBody"></div></div></div>
 <script>
 "use strict";
@@ -134,8 +134,8 @@ document.getElementById("heroPrev").onclick=()=>{showHero(heroIndex-1);startHero
 document.getElementById("heroNext").onclick=()=>{showHero(heroIndex+1);startHero()};
 document.querySelectorAll(".heroDot").forEach((dot,i)=>dot.onclick=()=>{showHero(i);startHero()});
 startHero();
-document.querySelectorAll(".categoryTile").forEach(tile=>tile.addEventListener("click",()=>{const key=tile.dataset.filter;const mapped=({Smartphones:"Smartphones",watches:"watches","mens-clothing":"mens-clothing","womens-fashion":"womens-fashion",shoes:"shoes",bags:"bags","kids-clothing":"kids-clothing"}[key]);category=mapped||"All";renderCats();render();document.getElementById("shop").scrollIntoView({behavior:"smooth"})}));
-document.getElementById("viewAllBtn").onclick=()=>{category="All";document.getElementById("search").value="";renderCats();render();document.getElementById("shop").scrollIntoView({behavior:"smooth"})};
+document.querySelectorAll(".categoryTile").forEach(tile=>tile.addEventListener("click",()=>{category=tile.dataset.filter;renderCats();render();document.getElementById("shop").scrollIntoView({behavior:"smooth"})}));
+document.getElementById("viewAllBtn").onclick=()=>{const root=document.getElementById("products"),btn=document.getElementById("viewAllBtn");const expanded=root.classList.toggle("show-all");btn.textContent=expanded?"Show Less ↑":"View All →";btn.setAttribute("aria-expanded",String(expanded));if(expanded){category="All";document.getElementById("search").value="";renderCats();render()}else{root.scrollTo({left:0,behavior:"smooth"})}};
 document.getElementById("bottomCart").onclick=openCart;
 document.getElementById("bottomWishlist").onclick=openWishlist;
 document.querySelectorAll(".bottomNav [data-target]").forEach(btn=>btn.onclick=()=>document.getElementById(btn.dataset.target).scrollIntoView({behavior:"smooth"}));
