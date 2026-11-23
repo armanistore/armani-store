@@ -17,20 +17,83 @@
 @media(max-width:850px){.navlinks{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;padding:18px 5%;flex-direction:column;border-bottom:1px solid var(--line)}.navlinks.open{display:flex}.menu{display:block}.heroGrid{grid-template-columns:1fr}.heroArt{min-height:220px}.grid{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:1fr 1fr}.reviewGrid{grid-template-columns:1fr}.aboutGrid,.contactGrid{grid-template-columns:1fr}}
 @media(max-width:480px){.nav{height:66px}.brand{font-size:19px}.actions{gap:5px}.iconbtn,.menu{padding:8px 10px}.hero{padding:48px 0}.heroArt{min-height:170px;font-size:80px}section{padding:48px 0}.sectionHead h2{font-size:27px}.grid{gap:10px}.photo{height:135px;font-size:55px}.info{padding:10px}.info h3{font-size:15px}.cardBtns button{font-size:12px;padding:7px 3px}.price{font-size:17px}.features{grid-template-columns:1fr 1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+
+/* ARMAN HOVEXXX homepage refresh: retain the existing pink palette */
+.profileMark{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--pink);vertical-align:middle;margin-right:8px}
+.brand{display:flex;align-items:center;white-space:nowrap}
+.hero{padding:0;background:#fff7fb;position:relative;overflow:hidden}
+.heroSlides{position:relative;min-height:340px}
+.heroSlide{display:none;min-height:340px;padding:58px 6%;align-items:center;gap:24px;background:linear-gradient(110deg,#fff0f6,#f8c5dc)}
+.heroSlide.active{display:flex}
+.heroSlide:nth-child(2){background:linear-gradient(110deg,#fff7fb,#f4c1d7)}
+.heroSlide:nth-child(3){background:linear-gradient(110deg,#fff0f6,#f6d5e5)}
+.heroCopy{flex:1;max-width:560px}
+.heroCopy h1{font-size:clamp(34px,5vw,58px);line-height:1.15;margin:10px 0}
+.heroCopy h1 em{color:var(--deep);font-style:normal}
+.heroVisual{flex:1;min-width:0;height:240px;border-radius:28px;overflow:hidden;background:#f7d5e5;box-shadow:var(--shadow)}
+.heroVisual img{width:100%;height:100%;object-fit:cover}
+.heroControls{position:absolute;left:0;right:0;bottom:13px;display:flex;justify-content:center;align-items:center;gap:9px}
+.heroDot{width:10px;height:10px;border:0;border-radius:50%;padding:0;background:#dca0bd}
+.heroDot.active{width:27px;border-radius:20px;background:var(--deep)}
+.heroArrow{position:absolute;top:50%;transform:translateY(-50%);border:1px solid #fff;background:#ffffffd9;color:var(--deep);border-radius:50%;width:38px;height:38px;font-size:22px;z-index:2}
+.heroPrev{left:12px}.heroNext{right:12px}
+.categoryShowcase{padding:30px 0 12px;background:#fff}
+.categoryTiles{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px 12px}
+.categoryTile{min-width:0;text-align:center;border:0;background:transparent;color:var(--ink);padding:0;font-weight:600}
+.categoryTile .tileImage{display:grid;place-items:center;aspect-ratio:1/1;border-radius:20px;background:linear-gradient(145deg,#fff0f6,#f8d6e6);overflow:hidden;border:1px solid var(--line);margin-bottom:6px;box-shadow:0 5px 16px #bd477d10}
+.categoryTile img{width:100%;height:100%;object-fit:cover}
+.categoryTile .tileEmoji{font-size:clamp(28px,4vw,48px)}
+.categoryTile span:last-child{display:block;font-size:clamp(11px,1.2vw,14px);line-height:1.25}
+.arrivalHead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:28px 0 16px}
+.arrivalHead h2{margin:0;color:var(--deep);font-size:30px}
+.viewAll{border:0;border-radius:25px;background:var(--pink);color:#fff;font-weight:700;padding:10px 20px;white-space:nowrap}
+.productCarousel{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:3px 2px 16px;scrollbar-width:thin;scrollbar-color:var(--pink) #fff0f6}
+.productCarousel .card{flex:0 0 255px;scroll-snap-align:start}
+.productCarousel .photo{height:180px}
+.bottomNav{display:none}
+.bottomNav button{border:0;background:transparent;color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;font-size:11px;font-weight:600;padding:7px 2px}
+.bottomNav button .navIcon{font-size:22px;line-height:1.2}
+.bottomNav button.active{color:var(--deep)}
+.bottomNav button.active .navIcon{transform:translateY(-2px)}
+.floatWA{bottom:88px}
+@media(max-width:850px){.categoryTiles{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 10px}.heroSlide{padding:44px 7%;min-height:300px}.heroVisual{height:210px}.bottomNav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff8fcf5;backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:6px 8px calc(6px + env(safe-area-inset-bottom));box-shadow:0 -6px 24px #bd477d12}.footer{padding-bottom:105px}.floatWA{bottom:90px}}
+@media(max-width:560px){.heroSlide{min-height:390px;display:none;flex-direction:column;align-items:stretch;justify-content:center;padding:28px 7% 42px;gap:14px}.heroSlide.active{display:flex}.heroCopy{max-width:none}.heroCopy h1{font-size:36px}.heroVisual{height:150px;flex:none}.heroControls{bottom:10px}.heroArrow{top:43%}.categoryTiles{grid-template-columns:repeat(4,minmax(0,1fr));gap:13px 8px}.categoryTile .tileImage{border-radius:16px}.arrivalHead h2{font-size:24px}.viewAll{padding:8px 14px;font-size:13px}.productCarousel .card{flex-basis:72vw;max-width:275px}.productCarousel .photo{height:155px}body{padding-bottom:68px}}
+@media(min-width:851px){.heroSlide{min-height:380px}.heroVisual{height:270px}}
+
 </style>
 </head>
 <body>
 <div class="announcement">ARMAN HOVEXXX · STYLE · LIFESTYLE · TECHNOLOGY</div>
 <header class="header"><div class="wrap nav">
-<a class="brand" href="#home">ARMAN <span>HOVEXXX</span></a>
+<a class="brand" href="#home"><img class="profileMark" src="assets/arman-hovex-profile.jpg" alt="ARMAN HOVEXXX profile">ARMAN <span>HOVEXXX</span></a>
 <nav class="navlinks" id="navlinks"><a href="#home">হোম</a><a href="#shop">শপ</a><a href="#about">আমাদের সম্পর্কে</a><a href="#contact">যোগাযোগ</a></nav>
 <div class="actions"><button class="iconbtn" onclick="openWishlist()">♡ <span id="wishCount">0</span></button><button class="iconbtn" onclick="openCart()">🛒 <span id="cartCount">0</span></button><button class="menu" id="menuBtn" aria-label="মেনু">☰</button></div>
 </div></header>
 <main>
-<section class="hero" id="home"><div class="wrap heroGrid"><div><div class="eyebrow">WELCOME TO ARMAN HOVEXXX</div><h1>আপনার পছন্দ,<br><em>আমাদের অগ্রাধিকার</em></h1><p>ফ্যাশন, লাইফস্টাইল, স্মার্টফোন এবং মোবাইল সার্ভিসিং পণ্য—আপনার প্রয়োজনীয় পণ্য খুঁজুন এক ঠিকানায়।</p><a class="btn" href="#shop">শপিং শুরু করুন ↗</a></div><div class="heroArt" aria-label="Shopping illustration">🌸 🛍️</div></div></section>
+<section class="hero" id="home" aria-label="Featured offers">
+<div class="heroSlides" id="heroSlides">
+<article class="heroSlide active"><div class="heroCopy"><div class="eyebrow">WELCOME TO ARMAN HOVEXXX</div><h1>আপনার পছন্দ,<br><em>আমাদের অগ্রাধিকার</em></h1><p>ফ্যাশন, লাইফস্টাইল, স্মার্টফোন এবং প্রয়োজনীয় প্রযুক্তি পণ্য—সব এক ঠিকানায়।</p><a class="btn" href="#shop">শপিং শুরু করুন ↗</a></div><div class="heroVisual"><img src="winter-banner.png" alt="ARMAN HOVEXXX featured collection"></div></article>
+<article class="heroSlide"><div class="heroCopy"><div class="eyebrow">STYLE · LIFESTYLE · TECHNOLOGY</div><h1>নতুন পছন্দ,<br><em>নতুন অভিজ্ঞতা</em></h1><p>আপনার পছন্দের পণ্য খুঁজুন সহজে।</p><a class="btn" href="#shop">পণ্য দেখুন ↗</a></div><div class="heroVisual"><img src="ad1.jpg" alt="Featured ARMAN HOVEXXX collection"></div></article>
+<article class="heroSlide"><div class="heroCopy"><div class="eyebrow">SHOP WITH CONFIDENCE</div><h1>স্মার্ট শপিং,<br><em>সহজ অর্ডার</em></h1><p>পণ্য সম্পর্কে জানতে বা অর্ডার করতে সরাসরি যোগাযোগ করুন।</p><a class="btn" href="#contact">যোগাযোগ করুন ↗</a></div><div class="heroVisual"><img src="ad2.jpg" alt="ARMAN HOVEXXX shopping offer"></div></article>
+</div><button class="heroArrow heroPrev" id="heroPrev" aria-label="Previous banner">‹</button><button class="heroArrow heroNext" id="heroNext" aria-label="Next banner">›</button><div class="heroControls" id="heroDots"><button class="heroDot active" aria-label="Banner 1"></button><button class="heroDot" aria-label="Banner 2"></button><button class="heroDot" aria-label="Banner 3"></button></div>
+</section>
+<section class="categoryShowcase"><div class="wrap"><div class="categoryTiles" id="categoryTiles">
+<button class="categoryTile" data-filter="Smartphones"><span class="tileImage"><span class="tileEmoji">📱</span></span><span>Smartphones</span></button>
+<button class="categoryTile" data-filter="Laptops"><span class="tileImage"><span class="tileEmoji">💻</span></span><span>Laptops</span></button>
+<button class="categoryTile" data-filter="watches"><span class="tileImage"><img src="watches.jpg" alt="Watches"></span><span>Watches</span></button>
+<button class="categoryTile" data-filter="Gadgets"><span class="tileImage"><span class="tileEmoji">🎧</span></span><span>Gadgets</span></button>
+<button class="categoryTile" data-filter="Electrical"><span class="tileImage"><span class="tileEmoji">🔌</span></span><span>Electrical</span></button>
+<button class="categoryTile" data-filter="Home"><span class="tileImage"><span class="tileEmoji">🏠</span></span><span>Home Items</span></button>
+<button class="categoryTile" data-filter="mens-clothing"><span class="tileImage"><img src="mens-clothing.jpg" alt="Men's Fashion"></span><span>Men's Fashion</span></button>
+<button class="categoryTile" data-filter="womens-fashion"><span class="tileImage"><img src="womens-fashion.jpg" alt="Women's Fashion"></span><span>Women's Fashion</span></button>
+<button class="categoryTile" data-filter="shoes"><span class="tileImage"><img src="shoes.jpg" alt="Shoes"></span><span>Shoes</span></button>
+<button class="categoryTile" data-filter="bags"><span class="tileImage"><img src="bags.jpg" alt="Bags"></span><span>Bags</span></button>
+<button class="categoryTile" data-filter="Accessories"><span class="tileImage"><img src="accessories.jpg" alt="Accessories"></span><span>Accessories</span></button>
+<button class="categoryTile" data-filter="kids-clothing"><span class="tileImage"><span class="tileEmoji">🧸</span></span><span>Kids Fashion</span></button>
+</div></div></section>
 <section class="shop" id="shop"><div class="wrap"><div class="sectionHead"><div class="eyebrow">OUR COLLECTION</div><h2>আমাদের পণ্য</h2><p>ক্যাটাগরি নির্বাচন করুন অথবা পণ্যের নাম লিখে খুঁজুন।</p></div>
 <div class="search"><input id="search" type="search" placeholder="পণ্যের নাম দিয়ে খুঁজুন..." aria-label="পণ্য খুঁজুন"><button class="btn" onclick="render()">খুঁজুন</button></div>
-<div class="cats" id="cats"></div><div class="grid" id="products"></div></div></section>
+<div class="cats" id="cats"></div><div class="arrivalHead"><h2>⭐ New Arrival</h2><button class="viewAll" id="viewAllBtn">View All →</button></div><div class="productCarousel" id="products"></div></div></section>
 <section class="featureSection"><div class="wrap"><div class="sectionHead"><div class="eyebrow">WHY ARMAN HOVEXXX</div><h2>কেন আমাদের বেছে নেবেন?</h2></div><div class="features"><div class="feature"><span>♡</span><b>ক্রেতাকে গুরুত্ব</b><small>প্রয়োজন অনুযায়ী সহযোগিতা।</small></div><div class="feature"><span>▦</span><b>বিভিন্ন ক্যাটাগরি</b><small>ফ্যাশন ও টেক পণ্যের বিভাগ।</small></div><div class="feature"><span>☏</span><b>সহজ যোগাযোগ</b><small>ফোন ও WhatsApp অর্ডার।</small></div></div></div></section>
 <section id="about"><div class="wrap aboutGrid"><div class="aboutArt">🌷</div><div><div class="eyebrow">ABOUT US</div><h2>ARMAN HOVEXXX সম্পর্কে</h2><p>ARMAN HOVEXXX একটি বহুমুখী ব্যবসায়িক উদ্যোগ। এখানে পোশাক, শিশুদের ফ্যাশন, ঘড়ি, ব্যাগ, জুতা, স্মার্টফোন এবং মোবাইল সার্ভিসিংয়ের সরঞ্জামের বিভাগ রাখা হয়েছে।</p><p>আমাদের লক্ষ্য সহজ যোগাযোগ এবং সুবিধাজনক অনলাইন শপিং অভিজ্ঞতা তৈরি করা।</p><a class="btn" href="#contact">যোগাযোগ করুন</a></div></div></section>
 <section class="reviews"><div class="wrap"><div class="sectionHead"><div class="eyebrow">CUSTOMER VOICES</div><h2>ক্রেতাদের মতামত</h2><p>প্রকৃত মতামত পাওয়া গেলে এখানে প্রকাশ করা হবে।</p></div><div class="reviewGrid"><div class="review">ক্রেতার মতামত এখানে যোগ করুন।<p><span class="placeholder">REVIEW PLACEHOLDER</span></p></div><div class="review">ক্রেতার মতামত এখানে যোগ করুন।<p><span class="placeholder">REVIEW PLACEHOLDER</span></p></div><div class="review">ক্রেতার মতামত এখানে যোগ করুন।<p><span class="placeholder">REVIEW PLACEHOLDER</span></p></div></div></div></section>
@@ -38,6 +101,7 @@
 </main>
 <footer class="footer"><div class="wrap"><h2>ARMAN HOVEXXX</h2><p>আপনার পছন্দ, আমাদের অগ্রাধিকার।</p><p>© <span id="year"></span> ARMAN HOVEXXX. All rights reserved.</p></div></footer>
 <a class="floatWA" href="https://wa.me/8801302014526" target="_blank" rel="noopener" aria-label="WhatsApp">◉</a>
+<nav class="bottomNav" aria-label="Main navigation"><button class="active" data-target="home"><span class="navIcon">⌂</span>Home</button><button data-target="categoryTiles"><span class="navIcon">▦</span>Categories</button><button id="bottomCart"><span class="navIcon">🛒</span>Cart</button><button id="bottomWishlist"><span class="navIcon">♡</span>Wishlist</button><button data-target="contact"><span class="navIcon">♙</span>Account</button></nav>
 <div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modalHead"><h2 id="modalTitle">কার্ট</h2><button class="close" onclick="closeModal()">✕</button></div><div id="modalBody"></div></div></div>
 <script>
 "use strict";
@@ -62,6 +126,20 @@ function openCart(){let total=0;const html=cart.length?cart.map(x=>{const p=prod
 function change(id,n){const x=cart.find(y=>y.id===id);if(!x)return;x.qty+=n;if(x.qty<=0)cart=cart.filter(y=>y.id!==id);persist();openCart()}
 function openWishlist(){const list=products.filter(p=>wishlist.includes(p.id));openModal("আপনার Wishlist",list.length?list.map(p=>'<div class="line"><b>'+p.name+'</b><button class="close" onclick="wish('+p.id+');openWishlist()">সরান</button></div>').join(""):"Wishlist-এ এখনো পণ্য নেই।")}
 function checkout(){if(!cart.length)return;const lines=cart.map(x=>{const p=products.find(y=>y.id===x.id);return p.name+" × "+x.qty+" = "+money(p.price)});const total=cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0);const msg="আসসালামু আলাইকুম, ARMAN HOVEXXX। আমি অর্ডার করতে চাই:\n"+lines.join("\n")+"\nমোট: "+money(total)+"\nনাম:\nঠিকানা:\nদয়া করে পণ্যের অবস্থা ও বিস্তারিত নিশ্চিত করুন।";window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg),"_blank","noopener")}
+
+let heroIndex=0,heroTimer=null;
+function showHero(index){const slides=[...document.querySelectorAll(".heroSlide")],dots=[...document.querySelectorAll(".heroDot")];if(!slides.length)return;heroIndex=(index+slides.length)%slides.length;slides.forEach((el,i)=>el.classList.toggle("active",i===heroIndex));dots.forEach((el,i)=>el.classList.toggle("active",i===heroIndex))}
+function startHero(){if(heroTimer)clearInterval(heroTimer);heroTimer=setInterval(()=>showHero(heroIndex+1),5000)}
+document.getElementById("heroPrev").onclick=()=>{showHero(heroIndex-1);startHero()};
+document.getElementById("heroNext").onclick=()=>{showHero(heroIndex+1);startHero()};
+document.querySelectorAll(".heroDot").forEach((dot,i)=>dot.onclick=()=>{showHero(i);startHero()});
+startHero();
+document.querySelectorAll(".categoryTile").forEach(tile=>tile.addEventListener("click",()=>{const key=tile.dataset.filter;const mapped=({Smartphones:"Smartphones",watches:"watches","mens-clothing":"mens-clothing","womens-fashion":"womens-fashion",shoes:"shoes",bags:"bags","kids-clothing":"kids-clothing"}[key]);category=mapped||"All";renderCats();render();document.getElementById("shop").scrollIntoView({behavior:"smooth"})}));
+document.getElementById("viewAllBtn").onclick=()=>{category="All";document.getElementById("search").value="";renderCats();render();document.getElementById("shop").scrollIntoView({behavior:"smooth"})};
+document.getElementById("bottomCart").onclick=openCart;
+document.getElementById("bottomWishlist").onclick=openWishlist;
+document.querySelectorAll(".bottomNav [data-target]").forEach(btn=>btn.onclick=()=>document.getElementById(btn.dataset.target).scrollIntoView({behavior:"smooth"}));
+
 document.getElementById("menuBtn").onclick=()=>document.getElementById("navlinks").classList.toggle("open");
 document.querySelectorAll("#navlinks a").forEach(a=>a.onclick=()=>document.getElementById("navlinks").classList.remove("open"));
 document.getElementById("search").addEventListener("input",render);
